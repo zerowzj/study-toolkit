@@ -1,8 +1,10 @@
+package study.jdk;
+
 public class ThreadMain {
 
     public static void main(String[] args) {
-//        new ThreadMain().testNew();
-//        new ThreadMain().testRunnable();
+//        new study.jdk.ThreadMain().testNew();
+//        new study.jdk.ThreadMain().testRunnable();
         new ThreadMain().testBlocked();
     }
 
