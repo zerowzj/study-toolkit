@@ -1,11 +1,21 @@
 package study.jdk;
 
 public class ThreadMain {
+    String str1 = "a" + new String("bc");
+    String str2 = "abc";
 
     public static void main(String[] args) {
 //        new study.jdk.ThreadMain().testNew();
 //        new study.jdk.ThreadMain().testRunnable();
-        new ThreadMain().testBlocked();
+//        new ThreadMain().testBlocked();
+
+        String str1 = "hello";
+        String str2 = "hello";
+
+        ThreadMain t = new ThreadMain();
+        System.out.println(t.str1 == t.str2);
+
+
     }
 
     public void testNew() {
