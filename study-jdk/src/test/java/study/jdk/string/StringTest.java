@@ -22,7 +22,7 @@ public class StringTest {
         String str = "abcd";
         String reverse = "";
         for (int i = 0; i < str.length(); i++) {
-            reverse = reverse + str.charAt(i);
+           // reverse = reverse + str.charAt(i);
             reverse = str.charAt(i) + reverse;
         }
         System.out.print(reverse);
