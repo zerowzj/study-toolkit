@@ -1,6 +1,8 @@
 package test;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -25,9 +27,21 @@ public class Main {
         String ip2 = "192.168.1.2";
 
         Map<Integer, String> map = new HashMap<>();
-        map.put(ip1.hashCode(), ip1);
-        map.put(ip2.hashCode(), ip2);
+//        map.put(ip1.hashCode(), ip1);
+//        map.put(ip2.hashCode(), ip2);
 
         ip1.hashCode();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    TimeUnit.SECONDS.sleep(10);
+                } catch (Exception ex) {
+
+                }
+            }
+        }).start();
+//        System.exit(1);
     }
 }
