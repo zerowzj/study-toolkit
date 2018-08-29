@@ -1,4 +1,4 @@
-package study.jdk.thread;
+package study.jdk.concurrent.thread;
 
 public class SleepWaitTest {
 

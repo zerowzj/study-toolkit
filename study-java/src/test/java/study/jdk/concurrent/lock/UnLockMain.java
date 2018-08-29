@@ -1,4 +1,4 @@
-package study.jdk.lock;
+package study.jdk.concurrent.lock;
 
 public class UnLockMain implements Runnable {
 

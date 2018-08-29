@@ -9,9 +9,15 @@ import java.util.List;
 
 public class ListTest {
 
+    public static void main(String[] args) {
+        List<String> lt = new ArrayList<>();
+        lt.add("1");
+        lt.add("2");
+    }
+
     //
     @Test
-    public void ArrayList_test() {
+    public static void ArrayList_test() {
         List<String> lt = Arrays.asList("123", "abc");
         lt.forEach(str -> {
             if("123".equals(str)){
@@ -21,7 +27,6 @@ public class ListTest {
         });
 
         new ArrayList<>();
-
     }
 
     //
