@@ -1,12 +1,12 @@
-package study.jdk;
+package study.jdk.concurrent.thread;
 
 public class ThreadMain {
     String str1 = "a" + new String("bc");
     String str2 = "abc";
 
     public static void main(String[] args) {
-//        new study.jdk.ThreadMain().testNew();
-//        new study.jdk.ThreadMain().testRunnable();
+//        new study.jdk.concurrent.thread.ThreadMain().testNew();
+//        new study.jdk.concurrent.thread.ThreadMain().testRunnable();
 //        new ThreadMain().testBlocked();
 
         String str1 = "hello";
