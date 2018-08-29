@@ -17,4 +17,7 @@ public class MathTest {
         int j = 102;
         System.out.println(Math.max(i, j));
     }
+
+    public void test(){
+    }
 }

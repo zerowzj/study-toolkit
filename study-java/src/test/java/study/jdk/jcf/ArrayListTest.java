@@ -3,27 +3,29 @@ package study.jdk.jcf;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class ArrayListTest {
 
-    //
     @Test
-    public static void add_test() {
+    public void test() {
+        int i = 0;
+        System.out.println("    i=" + i);
+        System.out.println("(++i)=" + (++i));
+        System.out.println("    i=" + i);
 
-        ArrayList<String> lt = new ArrayList<>();
-        lt.add("abc");
-        lt.add("123");
-
+        int a = 0;
+        System.out.println("    a=" + a);
+        System.out.println("(a++)=" + (a++));
+        System.out.println("    a=" + a);
     }
 
     //
     @Test
-    public void LinkedList_test() {
+    public void add_test() {
+        ArrayList<String> lt = new ArrayList<>();
+        lt.add("abc");
+        lt.add("123");
 
-        new LinkedList<>();
-
+//        lt.add(1, "abc");
     }
 }

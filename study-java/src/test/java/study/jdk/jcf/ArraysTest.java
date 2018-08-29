@@ -15,11 +15,11 @@ public class ArraysTest {
 
     @Test
     public void copyOf_test() {
-        String[] arr = new String[2];
+        String[] arr = new String[4];
         arr[0] = "1";
         arr[1] = "2";
 
-        arr = Arrays.copyOf(arr, 4);
+        arr = Arrays.copyOf(arr, 2);
         System.out.println(arr.length);
     }
 }
