@@ -10,7 +10,7 @@ public class ThreadStateTest {
         new Thread(new TimedWaiting(), "TimedWaitingThread").start();
         new Thread(new Waiting(), "WaitingThread").start();
         new Thread(new Blocked(), "BlockedThread-1").start();
-        new Thread(new Blocked(), "BlockedThread-1").start();
+        new Thread(new Blocked(), "BlockedThread-2").start();
     }
 
     static class TimedWaiting implements Runnable {
@@ -29,7 +29,7 @@ public class ThreadStateTest {
                 try {
                     Waiting.class.wait();
 
-                    lock.wait();
+                    //lock.wait();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -47,5 +47,4 @@ public class ThreadStateTest {
             }
         }
     }
-
 }
