@@ -4,7 +4,7 @@ import study.jdk.concurrent.SleepUtils;
 
 public class ThreadStateTest {
 
-    static Object lock = new Object();
+    static Object LOCK = new Object();
 
     public static void main(String[] args) {
         new Thread(new TimedWaiting(), "TimedWaitingThread").start();
