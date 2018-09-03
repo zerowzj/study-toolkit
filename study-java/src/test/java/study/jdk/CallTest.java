@@ -31,11 +31,11 @@ public class CallTest {
     public void test2() {
         int[] arr = {1, 2, 3, 4, 5};
         System.out.println(arr[0]);
-        change(arr);
+        change2(arr);
         System.out.println(arr[0]);
     }
 
-    void change(int[] array) {
+    void change2(int[] array) {
         //将数组的第一个元素变为0
         array[0] = 0;
     }
@@ -44,11 +44,11 @@ public class CallTest {
     public void test3() {
         StringBuffer str = new StringBuffer("公众号：Java面试通关手册");
         System.out.println(str);
-        change1(str);
+        change3(str);
         System.out.println(str);
     }
 
-    void change1(StringBuffer str) {
+    void change3(StringBuffer str) {
         str = new StringBuffer("abc");
         //str.append("欢迎关注");
     }
@@ -57,11 +57,33 @@ public class CallTest {
     public void test4() {
         String str = new String("公众号：Java面试通关手册");
         System.out.println(str);
-        change2(str);
+        change4(str);
         System.out.println(str);
     }
 
-    void change2(String str) {
+    void change4(String str) {
         str = str + "abc";
     }
+
+    @Test
+    public void test5() {
+        Person p = new Person("张三");
+        chang5(p);
+        System.out.println(p.name);
+    }
+
+    void chang5(Person p) {
+        p.name = "李四";
+//        Person person = new Person("李四");
+//        p = person;
+    }
+
+    class Person {
+        String name;
+
+        public Person(String name) {
+            this.name = name;
+        }
+    }
+
 }
