@@ -3,7 +3,7 @@ import java.net.InetAddress;
 public class LocalHost {
     private static String hostName = getLocalName();
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         System.out.println("================");
         try {
             System.out.println("hostName=" + hostName);
@@ -13,7 +13,7 @@ public class LocalHost {
         System.out.println("================");
     }
 
-    public static String getLocalName() {
+    public synchronized static String getLocalName() {
         String hostName;
         try {
             InetAddress addr = InetAddress.getLocalHost();
