@@ -1,9 +1,10 @@
 import java.net.InetAddress;
+import java.util.concurrent.TimeUnit;
 
 public class LocalHost {
     private static String hostName = getLocalName();
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("================");
         try {
             System.out.println("hostName=" + hostName);
@@ -11,6 +12,14 @@ public class LocalHost {
             ex.printStackTrace();
         }
         System.out.println("================");
+        while (true){
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (Exception ex){
+
+            }
+            System.out.println("sdfsdf");
+        }
     }
 
     public synchronized static String getLocalName() {
