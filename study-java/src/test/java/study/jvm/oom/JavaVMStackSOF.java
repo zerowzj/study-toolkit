@@ -18,7 +18,7 @@ public class JavaVMStackSOF {
             oom.stackLeak();
         }catch (Exception ex){
             System.out.println("stack length" + oom.stackLength);
-            throw ex;
+//            throw ex;
         }
     }
 }
