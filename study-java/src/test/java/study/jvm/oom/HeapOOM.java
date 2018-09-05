@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 堆
  * -Xms10M -Xmx10M -XX:+HeapDumpOnOutOfMemoryError
  */
 public class HeapOOM {

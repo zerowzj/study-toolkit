@@ -1,6 +1,7 @@
 package study.jvm.oom;
 
 /**
+ * Java栈
  * -Xss128K
  */
 public class JavaVMStackSOF {

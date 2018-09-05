@@ -1,6 +1,7 @@
 package study.jvm.oom;
 
 /**
+ * Java栈
  * -Xss2M
  */
 public class JavaVMStackOOM {

@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class ArrayListTest {
 
-    ArrayList<String> lt = new ArrayList<>();
+    ArrayList<String> lt = new ArrayList();
 
     @Test
     public void test() {
@@ -49,7 +49,7 @@ public class ArrayListTest {
         add_test();
         System.out.println(lt.contains("a"));
 
-        ArrayList<User> ult = new ArrayList<>();
+        ArrayList<User> ult = new ArrayList();
         ult.add(new User("1"));
         ult.add(new User("2"));
 
