@@ -18,8 +18,8 @@ public class CollectionsTest {
             }
         });
 
-        Collections.sort(new ArrayList<>(), (Object o1, Object o2) -> {
-            return 1;
-        });
+//        Collections.sort(new ArrayList<>(), (Object o1, Object o2) -> {
+//            return 1;
+//        });
     }
 }
