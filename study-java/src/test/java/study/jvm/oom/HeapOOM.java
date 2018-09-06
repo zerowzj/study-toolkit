@@ -2,6 +2,7 @@ package study.jvm.oom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 堆
@@ -14,9 +15,10 @@ public class HeapOOM {
 
     static List<OOMObject> LIST = new ArrayList();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         while(true){
             LIST.add(new OOMObject());
+            //TimeUnit.MILLISECONDS.sleep(1);
         }
     }
 }
