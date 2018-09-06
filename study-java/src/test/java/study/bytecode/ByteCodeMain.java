@@ -1,3 +1,5 @@
+package study.bytecode;
+
 public class ByteCodeMain {
 
     public static void main(String[] args) {
