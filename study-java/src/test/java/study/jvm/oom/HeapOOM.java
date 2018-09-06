@@ -12,11 +12,11 @@ public class HeapOOM {
     static class OOMObject {
     }
 
-    static List<OOMObject> list = new ArrayList();
+    static List<OOMObject> LIST = new ArrayList();
 
     public static void main(String[] args) {
         while(true){
-            list.add(new OOMObject());
+            LIST.add(new OOMObject());
         }
     }
 }

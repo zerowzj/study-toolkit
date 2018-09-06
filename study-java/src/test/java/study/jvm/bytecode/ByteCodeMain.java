@@ -10,8 +10,8 @@ public class ByteCodeMain {
     }
 
     public void method2() {
-        synchronized (this) {
-
-        }
+//        synchronized (this) {
+//
+//        }
     }
 }
