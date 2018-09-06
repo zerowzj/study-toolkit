@@ -1,4 +1,4 @@
-package study.bytecode;
+package study.jvm.bytecode;
 
 public class ByteCodeMain {
 
