@@ -27,7 +27,8 @@ public class HashMapTest {
         System.out.println(0 & 0);
     }
     /**
-     * 只有两个操作数对应位同为0时，结果为0，其余全为1.（或者是只要有一个操作数为1，结果就为1）。
+     * 只有两个操作数对应位同为0时，结果为0，其余全为1.
+     * （或者是只要有一个操作数为1，结果就为1）。
      */
     @Test
     public void bit_or_test() {
