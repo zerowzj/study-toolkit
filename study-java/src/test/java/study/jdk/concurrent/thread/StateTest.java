@@ -2,7 +2,7 @@ package study.jdk.concurrent.thread;
 
 import study.jdk.concurrent.SleepUtils;
 
-public class ThreadStateTest {
+public class StateTest {
 
     static Object LOCK = new Object();
 
