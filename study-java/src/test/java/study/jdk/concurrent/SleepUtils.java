@@ -11,4 +11,12 @@ public class SleepUtils {
 
         }
     }
+
+    public static void milliseconds(long milliseconds) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        } catch (Exception ex) {
+
+        }
+    }
 }

@@ -21,11 +21,7 @@ public class LockTest implements Runnable {
         Thread t2 = new Thread(new LockTest());
         t1.start();
         t2.start();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+        SleepUtils.second(2);
         t2.interrupt();
     }
 
@@ -83,7 +79,6 @@ public class LockTest implements Runnable {
         //注意，如果需要正确中断等待锁的线程，必须将获取锁放在外面，然后将InterruptedException抛出
         try {
             lock.lockInterruptibly();
-
             Logger.info(String.format("[%s]得到了锁", Thread.currentThread().getName()));
             long startTime = System.currentTimeMillis();
             for (; ; ) {
