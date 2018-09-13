@@ -17,7 +17,7 @@ public class StateTest {
         @Override
         public void run() {
             while (true) {
-                SleepUtils.second(100);
+                SleepUtils.seconds(100);
             }
         }
     }
@@ -42,7 +42,7 @@ public class StateTest {
         public void run() {
             synchronized (Blocked.class) {
                 while (true) {
-                    SleepUtils.second(100);
+                    SleepUtils.seconds(100);
                 }
             }
         }

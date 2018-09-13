@@ -21,7 +21,7 @@ public class LockTest implements Runnable {
         Thread t2 = new Thread(new LockTest());
         t1.start();
         t2.start();
-        SleepUtils.second(2);
+        SleepUtils.seconds(2);
         t2.interrupt();
     }
 
@@ -55,7 +55,7 @@ public class LockTest implements Runnable {
         if (lock.tryLock()) {
             try {
                 Logger.info(String.format("[%s]得到了锁", Thread.currentThread().getName()));
-                SleepUtils.second(5);
+                SleepUtils.seconds(5);
             } finally {
                 Logger.info(String.format("[%s]释放了锁", Thread.currentThread().getName()));
                 lock.unlock();

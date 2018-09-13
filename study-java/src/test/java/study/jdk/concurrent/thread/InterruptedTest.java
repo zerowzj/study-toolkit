@@ -12,7 +12,7 @@ public class InterruptedTest {
         @Override
         public void run() {
             while (true) {
-                SleepUtils.second(10);
+                SleepUtils.seconds(10);
             }
         }
     }

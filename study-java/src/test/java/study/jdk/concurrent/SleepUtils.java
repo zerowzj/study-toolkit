@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SleepUtils {
 
-    public static void second(long seconds) {
+    public static void seconds(long seconds) {
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (Exception ex) {
