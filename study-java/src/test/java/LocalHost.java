@@ -1,5 +1,3 @@
-package study.jdk.net;
-
 import java.net.InetAddress;
 
 public class LocalHost {
@@ -9,7 +7,7 @@ public class LocalHost {
     public static void main(String[] args) {
         System.out.println("================");
         try {
-            System.out.println("hostName= " + hostName);
+            System.out.println("==> " + hostName);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
