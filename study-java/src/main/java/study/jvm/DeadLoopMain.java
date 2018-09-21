@@ -17,11 +17,11 @@ public class DeadLoopMain {
 
                 }
             }
-        }, "My-Thread");
+        }, "My-Thread-1");
         t.start();
 
         for (; ; ) {
-
+            System.out.println("aaaa");
         }
     }
 }
