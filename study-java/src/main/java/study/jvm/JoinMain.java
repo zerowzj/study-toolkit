@@ -5,7 +5,11 @@ import study.Sleeps;
 public class JoinMain {
 
     public static void main(String[] args) {
+        JoinMain joinMain = new JoinMain();
+        joinMain.test1();
+    }
 
+    public void test1() {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -13,11 +17,11 @@ public class JoinMain {
             }
         }, "my-thread");
         t.start();
-
         try {
             t.join();
-        } catch (Exception ex) {
+        } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+
     }
 }

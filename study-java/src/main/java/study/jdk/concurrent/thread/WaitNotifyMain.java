@@ -16,8 +16,6 @@ public class WaitNotifyMain {
                         }
                         System.out.println("A 2");
                         System.out.println("A 3");
-
-                        Thread.currentThread().interrupt();
                     }
             }
         });
