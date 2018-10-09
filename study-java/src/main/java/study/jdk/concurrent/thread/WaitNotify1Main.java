@@ -1,6 +1,12 @@
 package study.jdk.concurrent.thread;
 
-public class WaitNotifyMain {
+/**
+ * 输出结果：
+ *
+ * 
+ */
+public class WaitNotify1Main {
+
     static Object lock = new Object();
 
     public static void main(String[] args) {

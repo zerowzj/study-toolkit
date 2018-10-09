@@ -38,7 +38,6 @@ public class Join1Main {
 //        }
 
         System.out.println("main thread");
-
     }
 
     private static void printNumber(String threadName) {
