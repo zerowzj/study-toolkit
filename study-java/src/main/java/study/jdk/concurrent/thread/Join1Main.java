@@ -32,6 +32,13 @@ public class Join1Main {
         });
         B.start();
         A.start();
+        try {
+            B.join();
+        } catch (InterruptedException ex) {
+        }
+
+        System.out.println("main thread");
+
     }
 
     private static void printNumber(String threadName) {
