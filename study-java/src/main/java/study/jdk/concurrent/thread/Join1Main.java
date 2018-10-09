@@ -32,10 +32,10 @@ public class Join1Main {
         });
         B.start();
         A.start();
-        try {
-            B.join();
-        } catch (InterruptedException ex) {
-        }
+//        try {
+//            B.join();
+//        } catch (InterruptedException ex) {
+//        }
 
         System.out.println("main thread");
 
