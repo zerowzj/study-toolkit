@@ -1,6 +1,16 @@
 package study.jdk.concurrent.thread;
 
-public class JoinMain {
+/**
+ *
+ * 输出结果：
+ * Aprint: 1
+ * Aprint: 2
+ * Aprint: 3
+ * Bprint:1
+ * Bprint:2
+ * Bprint:3
+ */
+public class Join1Main {
 
     public static void main(String[] args) {
         final Thread A = new Thread(new Runnable() {
