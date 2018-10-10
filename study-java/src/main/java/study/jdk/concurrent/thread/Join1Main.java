@@ -7,7 +7,7 @@ public class Join1Main {
     public static void main(String[] args) {
         Join1Main main = new Join1Main();
         main.test1();
-        main.test2();
+//        main.test2();
         System.out.println("i am main thread");
     }
 
@@ -23,10 +23,9 @@ public class Join1Main {
         try {
             t.join();
 
-//            synchronized (t) {
-//                t.wait();
-//            }
-
+            /*synchronized (t) {
+                t.wait();
+            }*/
         } catch (InterruptedException ex) {
         }
     }
