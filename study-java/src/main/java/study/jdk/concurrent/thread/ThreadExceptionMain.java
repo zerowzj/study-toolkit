@@ -13,6 +13,9 @@ public class ThreadExceptionMain {
         test2();
     }
 
+    /**
+     * 异常后线程停止
+     */
     private static void test1() {
         Thread t = new Thread(() -> {
             int i = 0;
@@ -24,6 +27,9 @@ public class ThreadExceptionMain {
         t.start();
     }
 
+    /**
+     * 异常后线程继续执行
+     */
     private static void test2() {
         Thread t = new Thread(() -> {
             int i = 0;
