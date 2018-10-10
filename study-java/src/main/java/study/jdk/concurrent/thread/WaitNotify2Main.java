@@ -14,11 +14,11 @@ public class WaitNotify2Main {
                     sum = sum + 100;
                     //Sleeps.seconds(1);
                     System.out.println("==>" + sum);
-                    if (sum == 1000) {
+                    if (sum == 2000) {
                         System.out.println("t1 notify start");
                         lock.notify();
                         System.out.println("t1 notify end");
-                        //TODO 去掉break
+                        //TODO 去掉break，notify只通知t2但不释放锁
                         break;
                     }
                 }
@@ -36,6 +36,7 @@ public class WaitNotify2Main {
                 }
             }
         });
+        //TODO t2需要先执行并且紧跟着要sleep一下保证其充分启动
         t2.start();
         Sleeps.seconds(1);
         t1.start();
