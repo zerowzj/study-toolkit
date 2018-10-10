@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Sleeps {
 
-
     public static void seconds(long timeout){
         try {
             TimeUnit.SECONDS.sleep(timeout);
