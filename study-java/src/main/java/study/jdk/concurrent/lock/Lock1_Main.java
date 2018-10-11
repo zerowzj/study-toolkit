@@ -3,7 +3,7 @@ package study.jdk.concurrent.lock;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Lock1Main {
+public class Lock1_Main {
 
     private static int sum = 0;
 
@@ -12,7 +12,7 @@ public class Lock1Main {
     private Lock lock = new ReentrantLock();
 
     public static void main(String[] args) {
-        Lock1Main main = new Lock1Main();
+        Lock1_Main main = new Lock1_Main();
         Thread t1 = new Thread(() -> {
 //            main.count();
             main.safeCount();

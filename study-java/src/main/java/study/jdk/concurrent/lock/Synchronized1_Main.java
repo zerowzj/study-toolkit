@@ -1,4 +1,4 @@
 package study.jdk.concurrent.lock;
 
-public class Synchronized1Main {
+public class Synchronized1_Main {
 }
