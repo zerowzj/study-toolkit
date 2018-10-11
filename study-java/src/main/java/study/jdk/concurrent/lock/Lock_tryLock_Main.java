@@ -14,16 +14,20 @@ public class Lock_tryLock_Main {
             lock.lock();
             try {
                 System.out.println("i am t1 thread");
-                Sleeps.seconds(10);
+                Sleeps.seconds(3);
             } finally {
                 lock.unlock();
             }
         });
         Thread t2 = new Thread(() -> {
-            try {
-                System.out.println("i am t2 thread");
-            } finally {
-                lock.unlock();
+            if (lock.tryLock()) {
+                try {
+                    System.out.println("i am t2 thread");
+                } finally {
+                    lock.unlock();
+                }
+            } else {
+                System.out.println("未获取到锁");
             }
         });
         t1.start();
