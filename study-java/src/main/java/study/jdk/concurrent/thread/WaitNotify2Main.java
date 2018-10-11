@@ -16,7 +16,7 @@ public class WaitNotify2Main {
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
 //                for (; ; ) {
-                while (running){
+                while (running) {
                     sum = sum + 100;
                     //Sleeps.seconds(1);
                     System.out.println("==>" + sum);
@@ -26,6 +26,7 @@ public class WaitNotify2Main {
                         System.out.println("t1 notify end");
                         //TODO 去掉break，notify只通知t2但不释放锁
 //                        break;
+
                         running = false;
                     }
                 }
