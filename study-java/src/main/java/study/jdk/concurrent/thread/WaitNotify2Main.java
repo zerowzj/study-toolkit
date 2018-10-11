@@ -2,15 +2,21 @@ package study.jdk.concurrent.thread;
 
 import study.Sleeps;
 
+/**
+ *
+ */
 public class WaitNotify2Main {
 
     private static int sum = 0;
+
+    private static boolean running = true;
 
     public static void main(String[] args) {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-                for (; ; ) {
+//                for (; ; ) {
+                while (running){
                     sum = sum + 100;
                     //Sleeps.seconds(1);
                     System.out.println("==>" + sum);
@@ -19,7 +25,8 @@ public class WaitNotify2Main {
                         lock.notify();
                         System.out.println("t1 notify end");
                         //TODO 去掉break，notify只通知t2但不释放锁
-                        break;
+//                        break;
+                        running = false;
                     }
                 }
             }
