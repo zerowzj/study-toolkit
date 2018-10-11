@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 非阻塞获取锁
+ */
 public class Lock_tryLock_Main {
 
     private static Lock lock = new ReentrantLock();
