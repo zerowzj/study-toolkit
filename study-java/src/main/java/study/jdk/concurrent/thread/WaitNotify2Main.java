@@ -9,14 +9,11 @@ public class WaitNotify2Main {
 
     private static int sum = 0;
 
-    private static boolean running = true;
-
     public static void main(String[] args) {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-//                for (; ; ) {
-                while (running) {
+                for (; ; ) {
                     sum = sum + 100;
                     //Sleeps.seconds(1);
                     System.out.println("==>" + sum);
@@ -25,9 +22,7 @@ public class WaitNotify2Main {
                         lock.notify();
                         System.out.println("t1 notify end");
                         //TODO 去掉break，notify只通知t2但不释放锁
-//                        break;
-
-                        running = false;
+                        break;
                     }
                 }
             }
@@ -38,6 +33,7 @@ public class WaitNotify2Main {
                 try {
                     System.out.println("t2 wait start");
                     lock.wait();
+                    System.out.println("t2 wait end");
                     System.out.println("t2 sum= " + sum);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
