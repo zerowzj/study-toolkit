@@ -5,7 +5,7 @@ import study.Sleeps;
 /**
  *
  */
-public class WaitNotify2Main {
+public class WaitNotify2_Main {
 
     private static int sum = 0;
 

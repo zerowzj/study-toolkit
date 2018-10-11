@@ -6,7 +6,7 @@ package study.jdk.concurrent.thread;
  * t1
  * t3
  */
-public class Join2Main {
+public class Join2_Main {
 
     public static void main(String[] args) {
         Thread t1 = new Thread(new Runnable() {

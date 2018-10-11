@@ -10,7 +10,7 @@ package study.jdk.concurrent.thread;
  * Bprint:2
  * Bprint:3
  */
-public class Join3Main {
+public class Join3_Main {
 
     public static void main(String[] args) {
         final Thread A = new Thread(new Runnable() {

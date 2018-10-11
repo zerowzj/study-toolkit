@@ -2,10 +2,10 @@ package study.jdk.concurrent.thread;
 
 import study.Sleeps;
 
-public class Join1Main {
+public class Join1_Main {
 
     public static void main(String[] args) {
-        Join1Main main = new Join1Main();
+        Join1_Main main = new Join1_Main();
         main.test1();
 //        main.test2();
         System.out.println("i am main thread");

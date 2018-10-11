@@ -5,7 +5,7 @@ package study.jdk.concurrent.thread;
  *
  * 
  */
-public class WaitNotify1Main {
+public class WaitNotify1_Main {
 
     static Object lock = new Object();
 
