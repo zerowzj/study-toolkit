@@ -14,12 +14,12 @@ public class Lock1Main {
     public static void main(String[] args) {
         Lock1Main main = new Lock1Main();
         Thread t1 = new Thread(() -> {
-            main.count();
-//            main.safeCount();
+//            main.count();
+            main.safeCount();
         });
         Thread t2 = new Thread(() -> {
-            main.count();
-//            main.safeCount();
+//            main.count();
+            main.safeCount();
         });
         t1.start();
         t2.start();
