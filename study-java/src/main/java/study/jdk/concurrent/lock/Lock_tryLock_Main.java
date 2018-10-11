@@ -21,16 +21,23 @@ public class Lock_tryLock_Main {
             }
         });
         Thread t2 = new Thread(() -> {
-//            if (lock.tryLock()) {
-            if (lock.tryLock(4, TimeUnit.SECONDS)) {
-                try {
-                    System.out.println("i am t2 thread");
-                } finally {
-                    lock.unlock();
+            try {
+                //TODO 立即返回
+//                if (lock.tryLock()) {
+                //TODO 超时返回
+                if (lock.tryLock(2, TimeUnit.SECONDS)) {
+                    try {
+                        System.out.println("i am t2 thread");
+                    } finally {
+                        lock.unlock();
+                    }
+                } else {
+                    System.out.println("未获取到锁");
                 }
-            } else {
-                System.out.println("未获取到锁");
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
+
         });
         t1.start();
         t2.start();
