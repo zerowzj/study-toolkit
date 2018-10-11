@@ -1,6 +1,5 @@
 package study.jdk.concurrent.lock;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -12,26 +11,24 @@ public class Lock1Main {
 
     private Lock lock = new ReentrantLock();
 
-    private static CountDownLatch latch = new CountDownLatch(2);
-
     public static void main(String[] args) {
         Lock1Main main = new Lock1Main();
         Thread t1 = new Thread(() -> {
             main.count();
 //            main.safeCount();
-            latch.countDown();
         });
         Thread t2 = new Thread(() -> {
             main.count();
 //            main.safeCount();
-            latch.countDown();
         });
         t1.start();
         t2.start();
 
         try {
-            latch.await();
+            t1.join();
+            t2.join();
         } catch (InterruptedException ex) {
+            ex.printStackTrace();
         }
         System.out.println("sum= " + sum);
     }
@@ -49,7 +46,7 @@ public class Lock1Main {
                 sum++;
             }
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         } finally {
             lock.unlock();
         }
