@@ -2,11 +2,13 @@ package study.jdk.concurrent.lock;
 
 import study.Sleeps;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Lock_tryLock_Main {
+/**
+ * 阻塞获取锁
+ */
+public class Lock_lockInterruptibly_Main {
 
     private static Lock lock = new ReentrantLock();
 
@@ -15,21 +17,17 @@ public class Lock_tryLock_Main {
             lock.lock();
             try {
                 System.out.println("i am t1 thread");
-                Sleeps.seconds(3);
+                Sleeps.seconds(1);
             } finally {
                 lock.unlock();
             }
         });
         Thread t2 = new Thread(() -> {
-//            if (lock.tryLock()) {
-            if (lock.tryLock(4, TimeUnit.SECONDS)) {
-                try {
-                    System.out.println("i am t2 thread");
-                } finally {
-                    lock.unlock();
-                }
-            } else {
-                System.out.println("未获取到锁");
+            lock.lock();
+            try {
+                System.out.println("i am t21 thread");
+            } finally {
+                lock.unlock();
             }
         });
         t1.start();
