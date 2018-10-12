@@ -1,48 +1,28 @@
 package study.jdk.concurrent.thread;
 
+import study.Loggers;
+import study.Sleeps;
+
 /**
- * 输出结果：
- * t2
- * t1
- * t3
+ * 演示阻塞当前线程
  */
 public class Join2_Main {
 
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("t1");
-            }
+        Thread t1 = new Thread(() -> {
+            Sleeps.seconds(2);
+            Loggers.info("i am t1 thread");
         });
-
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("t2");
-            }
-        });
-        Thread t3 = new MyThread(t1);
-        t3.start();
-        t2.start();
-        t1.start();
-    }
-
-    static class MyThread extends Thread {
-        Thread t;
-
-        MyThread(Thread t) {
-            this.t = t;
-        }
-
-        @Override
-        public void run() {
+        Thread t2 = new Thread(() -> {
             try {
-                t.join();
-                System.out.println("t3");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                t1.join();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-        }
+            Loggers.info("i am t2 thread");
+        });
+        t1.start();
+        t2.start();
+        Loggers.info("i am main thread");
     }
 }
