@@ -1,43 +1,43 @@
 package study.jdk.concurrent.thread;
 
+import study.Loggers;
+
 /**
- * 输出结果：
- *
- * 
+ * 等待/通知
  */
 public class WaitNotify1_Main {
 
-    static Object lock = new Object();
-
     public static void main(String[] args) {
+        Object lock = new Object();
+
         Thread A = new Thread(new Runnable() {
             @Override
             public void run() {
                 synchronized (lock) {
-                        System.out.println("A 1");
-                        try {
-                            lock.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        System.out.println("A 2");
-                        System.out.println("A 3");
+                    Loggers.info("A 1");
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+                    Loggers.info("A 2");
+                    Loggers.info("A 3");
+                }
             }
-        });
+        }, "BThread");
 
         Thread B = new Thread(new Runnable() {
             @Override
             public void run() {
                 synchronized (lock) {
-                    System.out.println("B 1");
-                    System.out.println("B 2");
-                    System.out.println("B 3");
+                    Loggers.info("B 1");
+                    Loggers.info("B 2");
+                    Loggers.info("B 3");
 
                     lock.notify();
                 }
             }
-        });
+        }, "Athread");
         A.start();
         B.start();
     }

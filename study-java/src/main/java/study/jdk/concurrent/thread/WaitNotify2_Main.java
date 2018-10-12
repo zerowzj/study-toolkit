@@ -1,5 +1,6 @@
 package study.jdk.concurrent.thread;
 
+import study.Loggers;
 import study.Sleeps;
 
 /**
@@ -15,13 +16,13 @@ public class WaitNotify2_Main {
             synchronized (lock) {
                 for (; ; ) {
                     sum = sum + 100;
-                    //Sleeps.seconds(1);
-                    System.out.println("==>" + sum);
-                    if (sum == 2000) {
-                        System.out.println("t1 notify start");
+                    Sleeps.milliseconds(500);
+                    Loggers.info("==>{}", sum);
+                    if (sum == 500) {
+                        Loggers.info("t1 notify start");
                         lock.notify();
-                        System.out.println("t1 notify end");
-                        //TODO 去掉break，notify只通知t2但不释放锁
+                        Loggers.info("t1 notify end");
+                        //TODO 去掉break，notify只通知t2但不释放锁，t2无法再wait()方法处返回
                         break;
                     }
                 }
@@ -31,10 +32,10 @@ public class WaitNotify2_Main {
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
                 try {
-                    System.out.println("t2 wait start");
+                    Loggers.info("t2 wait start");
                     lock.wait();
-                    System.out.println("t2 wait end");
-                    System.out.println("t2 sum= " + sum);
+                    Loggers.info("t2 wait end");
+                    Loggers.info("t2 sum= {}", sum);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
