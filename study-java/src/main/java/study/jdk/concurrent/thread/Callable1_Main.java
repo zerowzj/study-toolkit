@@ -8,6 +8,8 @@ import java.util.concurrent.FutureTask;
 public class Callable1_Main {
 
     public static void main(String[] args) {
+        long now = System.currentTimeMillis();
+
         FutureTask<Integer> task1 = new FutureTask(() -> {
             int sum = 10;
             Sleeps.seconds(3);
@@ -16,6 +18,7 @@ public class Callable1_Main {
         });
         FutureTask<Integer> task2 = new FutureTask(() -> {
             int sum = 21;
+            Sleeps.seconds(5);
             Loggers.info("i am task2");
             return sum;
         });
@@ -25,7 +28,7 @@ public class Callable1_Main {
         t2.start();
         try {
             Integer sum = task1.get() + task2.get();
-            Loggers.info("sum= {}", sum);
+            Loggers.info("sum= {}, cost time= {}ms", sum, (System.currentTimeMillis() - now));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
