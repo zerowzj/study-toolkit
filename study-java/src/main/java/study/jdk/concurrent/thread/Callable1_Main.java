@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class Callable1_Main {
 
     public static void main(String[] args) {
-        FutureTask<Integer> task = new FutureTask<>(() -> {
+        FutureTask<Integer> task = new FutureTask(() -> {
             int sum = 10;
             Sleeps.seconds(3);
             Loggers.info("i am task");
