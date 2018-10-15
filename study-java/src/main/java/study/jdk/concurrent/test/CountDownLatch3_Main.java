@@ -5,51 +5,48 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 import java.lang.invoke.MethodHandles;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class CountDownLatch3_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) {
-        CountDownLatch countDown = new CountDownLatch(1);
-        CountDownLatch await = new CountDownLatch(5);
-        for (int i = 0; i < 5; ++i) {
-            new Thread(new Task(countDown, await)).start();
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(5));
+        int count = 10;
+        final CountDownLatch latch = new CountDownLatch(count);
+
+        for (int i = 0; i < count; i++) {
+            pool.execute(new Task(latch, i));
         }
-        LOGGER.info("用于触发处于等待状态的线程开始工作");
-        LOGGER.info("用于触发处于等待状态的线程工作完成，等待状态线程开始工作");
-        Sleeps.seconds(4);
-        countDown.countDown();
+
         try {
-            await.await();
-        } catch (Exception ex) {
+            latch.await();
+        } catch (InterruptedException ex) {
         }
-        LOGGER.info("Bingo!");
+        LOGGER.info("等待线程被唤醒！");
+        pool.shutdown();
     }
 
     private static class Task implements Runnable {
 
-        private final CountDownLatch countDown;
+        private final CountDownLatch latch;
 
-        private final CountDownLatch await;
+        private final int tid;
 
-        public Task(CountDownLatch countDown, CountDownLatch await) {
-            this.countDown = countDown;
-            this.await = await;
+        public Task(CountDownLatch latch, int tid) {
+            this.latch = latch;
+            this.tid = tid;
         }
 
         @Override
         public void run() {
-            try {
-                //TODO 线程启动后需等待countDown.countDown()执行后运行下面代码
-                countDown.await();// 等待主线程执行完毕，获得开始执行信号
-
-                LOGGER.info("处于等待的线程开始自己预期工作");
-                await.countDown(); //完成预期工作，发出完成信号
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            LOGGER.info("线程{}完成了操作", tid);
+            Sleeps.seconds(4);
+            latch.countDown();
         }
     }
 }
