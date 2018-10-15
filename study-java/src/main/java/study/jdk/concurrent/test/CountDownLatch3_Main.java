@@ -14,7 +14,6 @@ public class CountDownLatch3_Main {
     public static void main(String[] args) {
         CountDownLatch countDown = new CountDownLatch(1);
         CountDownLatch await = new CountDownLatch(5);
-
         for (int i = 0; i < 5; ++i) {
             new Thread(new Task(countDown, await)).start();
         }

@@ -25,6 +25,7 @@ public class CountDownLatch2_Main {
         try {
             await.await();
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
         LOGGER.info("Bingo!");
     }
