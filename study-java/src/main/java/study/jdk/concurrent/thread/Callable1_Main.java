@@ -2,7 +2,6 @@ package study.jdk.concurrent.thread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import study.Loggers;
 import study.Sleeps;
 
 import java.lang.invoke.MethodHandles;
@@ -31,6 +30,7 @@ public class Callable1_Main {
         Thread t2 = new Thread(task2);
         t1.start();
         t2.start();
+
         try {
             Integer sum = task1.get() + task2.get();
             LOGGER.info("sum= {}, cost time= {}ms", sum, (System.currentTimeMillis() - now));
