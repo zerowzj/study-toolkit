@@ -18,8 +18,9 @@ public class FixedThreadPool_Main {
         for (int i = 0; i < 5; i++) {
             final int j = i;
             pool.execute(() -> {
-                LOGGER.info("i am thread[{}]", j + 1);
+                LOGGER.info("thread[{}] sleep start", j + 1);
                 Sleeps.seconds(50000);
+                LOGGER.info("thread[{}] sleep start", j + 1);
             });
         }
         pool.shutdown();
