@@ -2,6 +2,7 @@ package study.jdk.concurrent.pool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import study.Sleeps;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -16,6 +17,9 @@ public class ThreadPoolExecutor_Main {
         for (int i = 0; i < 5; i++) {
             final int j = i;
             pool.execute(() -> {
+                if (j / 2 == 0) {
+                    Sleeps.seconds(5);
+                }
                 LOGGER.info("i am thread[{}]", j + 1);
             });
         }
