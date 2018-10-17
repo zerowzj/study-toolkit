@@ -1,4 +1,4 @@
-package study.jdk.concurrent.test;
+package study.jdk.concurrent.support;
 
 import java.util.concurrent.CyclicBarrier;
 
