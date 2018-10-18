@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：保证可见性
+ * 演示：可见性
  */
 public class Volatile2_Main {
 
@@ -23,7 +23,8 @@ public class Volatile2_Main {
 
     class Task implements Runnable {
 
-        private boolean running = true;
+        //TODO
+        private volatile boolean running = true;
 
         int m;
 

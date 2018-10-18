@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：保证可见性
+ * 演示：不可见
  */
 public class Volatile1_Main {
 
@@ -23,6 +23,7 @@ public class Volatile1_Main {
 
     class Task implements Runnable {
 
+        //TODO
         private boolean running = true;
 
         int m;
@@ -36,8 +37,8 @@ public class Volatile1_Main {
                 int c = a + b;
                 m = c;
                 //TODO 加上任意一个输出语句或者sleep方法你会发现死循环也会停止，不管isRunning变量是否被加上了上volatile关键字
-//                Sleeps.seconds(1);
-                LOGGER.info("i am print");
+                Sleeps.seconds(1);
+//                LOGGER.info("i am print");
             }
             LOGGER.info("task is stopped");
         }
