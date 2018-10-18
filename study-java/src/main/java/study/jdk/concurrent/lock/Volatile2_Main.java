@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：可见性
+ * 演示：volatile保证可见性
  */
 public class Volatile2_Main {
 

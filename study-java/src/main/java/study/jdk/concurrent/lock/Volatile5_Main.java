@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 演示：无法保证原子性
+ * 演示：volatile无法保证原子性
  */
 public class Volatile5_Main {
 
