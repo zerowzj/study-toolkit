@@ -7,12 +7,12 @@ import study.Sleeps;
 /**
  * 演示：保证可见性
  */
-public class Volatile1_Main {
+public class Volatile2_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Volatile1_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Volatile2_Main.class);
 
     public static void main(String[] args) {
-        Task task = new Volatile1_Main().new Task();
+        Task task = new Volatile2_Main().new Task();
         Thread t = new Thread(task);
         t.start();
 
@@ -35,9 +35,6 @@ public class Volatile1_Main {
                 int b = 3;
                 int c = a + b;
                 m = c;
-                //TODO 加上任意一个输出语句或者sleep方法你会发现死循环也会停止，不管isRunning变量是否被加上了上volatile关键字
-//                Sleeps.seconds(1);
-                LOGGER.info("i am print");
             }
             LOGGER.info("task is stopped");
         }
