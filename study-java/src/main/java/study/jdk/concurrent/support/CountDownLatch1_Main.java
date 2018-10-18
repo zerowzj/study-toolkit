@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * countdown: 倒数计秒
  * latch: 闭锁
- * CountDownLatch基本用法
+ * 演示：CountDownLatch基本用法
  */
 public class CountDownLatch1_Main {
 
