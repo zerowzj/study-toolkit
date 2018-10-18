@@ -7,6 +7,9 @@ import study.Sleeps;
 import java.lang.invoke.MethodHandles;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * 演示：CountDownLatch基本用法
+ */
 public class CountDownLatch2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
