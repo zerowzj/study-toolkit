@@ -34,6 +34,6 @@ public class Semaphore2_Main {
                 }
             });
             t.start();
-        }
+       }
     }
 }

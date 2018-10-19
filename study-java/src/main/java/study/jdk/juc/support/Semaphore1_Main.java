@@ -21,17 +21,18 @@ public class Semaphore1_Main {
                 semaphore.acquire();
                 LOGGER.info("i am t1 thread");
                 Sleeps.seconds(3);
+                LOGGER.info("i am t1 thread");
             } catch (InterruptedException ex) {
             } finally {
                 semaphore.release();
             }
         });
-
         Thread t2 = new Thread(() -> {
             try {
                 semaphore.acquire();
                 LOGGER.info("i am t2 thread");
                 Sleeps.seconds(3);
+                LOGGER.info("i am t2 thread");
             } catch (InterruptedException ex) {
             } finally {
                 semaphore.release();
