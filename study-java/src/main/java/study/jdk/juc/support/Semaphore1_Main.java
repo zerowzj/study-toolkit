@@ -16,7 +16,6 @@ public class Semaphore1_Main {
 
     public static void main(String[] args) {
         Semaphore semaphore = new Semaphore(1);
-
         Thread t1 = new Thread(() -> {
             try {
                 semaphore.acquire();
