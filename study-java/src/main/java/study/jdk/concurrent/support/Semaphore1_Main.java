@@ -6,6 +6,10 @@ import study.Sleeps;
 
 import java.util.concurrent.Semaphore;
 
+/**
+ * Semaphore: 信号量
+ * 演示：
+ */
 public class Semaphore1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore1_Main.class);
