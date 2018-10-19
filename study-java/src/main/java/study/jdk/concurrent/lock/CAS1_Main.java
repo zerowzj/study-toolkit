@@ -1,4 +1,4 @@
-package study.jdk.concurrent;
+package study.jdk.concurrent.lock;
 
 public class CAS1_Main {
 
