@@ -8,7 +8,7 @@ import java.lang.invoke.MethodHandles;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 演示：CountDownLatch基本用法
+ * 演示：
  */
 public class CountDownLatch2_Main {
 

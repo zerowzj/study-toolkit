@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
+/**
+ * 演示：
+ */
 public class CyclicBarrier2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CyclicBarrier2_Main.class);
