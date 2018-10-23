@@ -8,20 +8,43 @@ import java.util.Arrays;
 
 public class ArrayList_Test {
 
+    private ArrayList<String> lt = new ArrayList();
 
-    ArrayList<String> lt = new ArrayList();
-
+    /**
+     * 输出结果：
+     * i=0
+     * (++i)=1
+     * i=1
+     * a=0
+     * (a++)=0
+     * a=1
+     */
     @Test
     public void test() {
-        int i = 0;
-        System.out.println("    i=" + i);
-        System.out.println("(++i)=" + (++i));
-        System.out.println("    i=" + i);
+//        int i = 0;
+//        System.out.println("    i=" + i);
+//        System.out.println("(++i)=" + (++i));
+//        System.out.println("    i=" + i);
+//
+//        int a = 0;
+//        System.out.println("    a=" + a);
+//        System.out.println("(a++)=" + (a++));
+//        System.out.println("    a=" + a);
 
-        int a = 0;
-        System.out.println("    a=" + a);
-        System.out.println("(a++)=" + (a++));
-        System.out.println("    a=" + a);
+        Integer aa = null;
+        Long bb = null;
+        System.out.println(aa == null ? bb : aa);
+    }
+
+    /**
+     * 输出结果：
+     * 10
+     * 1
+     */
+    @Test
+    public void test_math() {
+        System.out.println("max=" + Math.max(10, 1));
+        System.out.println("min=" + Math.min(10, 1));
     }
 
     @Test
@@ -41,13 +64,13 @@ public class ArrayList_Test {
     }
 
     @Test
-    public void get_test(){
+    public void get_test() {
         add_test();
         System.out.println(lt.get(3));
     }
 
     @Test
-    public void contains_test(){
+    public void contains_test() {
         add_test();
         System.out.println(lt.contains("a"));
 
