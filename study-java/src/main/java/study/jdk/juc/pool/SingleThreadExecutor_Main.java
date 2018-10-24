@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- *
+ * 演示：单线程执行器用法
  */
 public class SingleThreadExecutor_Main {
 

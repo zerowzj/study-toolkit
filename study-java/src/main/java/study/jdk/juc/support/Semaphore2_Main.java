@@ -17,7 +17,6 @@ public class Semaphore2_Main {
 
     public static void main(String[] args) {
         Semaphore semaphore = new Semaphore(5);
-
         for (int i = 0; i < tcount; i++) {
             String tname = (i + 1) + "";
             Thread t = new Thread(() -> {
