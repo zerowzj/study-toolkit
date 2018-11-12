@@ -2,8 +2,6 @@ import java.net.InetAddress;
 
 public class LocalHost {
 
-    private static String hostName = getLocalName();
-
     public static void main(String[] args) {
         System.out.println("================");
         try {
@@ -24,4 +22,6 @@ public class LocalHost {
         }
         return hostName;
     }
+
+    private static String hostName = getLocalName();
 }
