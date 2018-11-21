@@ -13,13 +13,13 @@ public class Post_Test extends HttpClient_Test {
     @Test
     public void test() {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpPost httpPost = new HttpPost("http://www.163.com1");
+        HttpPost httpPost = new HttpPost("http://www.163.com");
         try {
             CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
             int StatusCode = httpResponse.getStatusLine().getStatusCode();
             String StatusDescription = httpResponse.getStatusLine().getReasonPhrase();
-            System.out.println("StatusCode: " + StatusCode);
-            System.out.println("StatusDescription: " + StatusDescription);
+            LOGGER.info("StatusCode: {}", StatusCode);
+            LOGGER.info("StatusDescription: {}", StatusDescription);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
