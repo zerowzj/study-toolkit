@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class Get_Test {
+public class Get_Test extends HttpClient_Test {
 
     @Test
     public void test() {
