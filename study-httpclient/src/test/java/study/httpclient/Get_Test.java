@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class Test1 {
+public class Get_Test {
 
     @Test
     public void test() {
