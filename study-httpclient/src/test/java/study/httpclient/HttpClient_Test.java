@@ -8,5 +8,4 @@ import java.lang.invoke.MethodHandles;
 public class HttpClient_Test {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
 }
