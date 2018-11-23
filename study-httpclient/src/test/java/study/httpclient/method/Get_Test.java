@@ -1,10 +1,11 @@
-package study.httpclient;
+package study.httpclient.method;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
+import study.httpclient.HttpClient_Test;
 
 import java.io.IOException;
 

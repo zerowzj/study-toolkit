@@ -1,10 +1,13 @@
 package study.httpclient;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class Header_Test extends HttpClient_Test {
 
@@ -15,6 +18,13 @@ public class Header_Test extends HttpClient_Test {
 
 //        httpGet.setHeader();
 //        httpGet.addHeader();
+        try {
+            HttpResponse response = httpClient.execute(httpGet);
+
+//            response.getHeaders()
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Test
