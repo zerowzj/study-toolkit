@@ -13,7 +13,7 @@ public class Get_Test extends HttpClient_Test {
     @Test
     public void test() {
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet("http://www.163.com");
+        HttpGet httpGet = new HttpGet(URL);
         try {
             CloseableHttpResponse httpResponse = httpClient.execute(httpGet);
             int StatusCode = httpResponse.getStatusLine().getStatusCode();
