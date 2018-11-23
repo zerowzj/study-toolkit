@@ -1,4 +1,4 @@
-package study.httpclient.entity;
+package study.httpclient;
 
 import study.httpclient.HttpClient_Test;
 
