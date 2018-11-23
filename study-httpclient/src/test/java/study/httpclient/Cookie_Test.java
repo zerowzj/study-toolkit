@@ -1,4 +1,10 @@
 package study.httpclient;
 
-public class Cookie_Test {
+import org.junit.Test;
+
+public class Cookie_Test extends HttpClient_Test {
+
+    @Test
+    public void test() {
+    }
 }
