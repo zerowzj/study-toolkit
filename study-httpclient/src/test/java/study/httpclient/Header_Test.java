@@ -40,7 +40,7 @@ public class Header_Test extends HttpClient_Test {
             //
             Header[] headers = response.getAllHeaders();
             for (Header header : headers) {
-                LOGGER.info("name={}, value={}", header.getName(), header.getValue());
+                LOGGER.info("name: {}, value: {}", header.getName(), header.getValue());
             }
         } catch (IOException ex) {
             ex.printStackTrace();
