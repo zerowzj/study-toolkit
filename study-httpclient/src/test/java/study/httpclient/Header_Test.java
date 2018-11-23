@@ -21,7 +21,7 @@ public class Header_Test extends HttpClient_Test {
         try {
             HttpResponse response = httpClient.execute(httpGet);
             Header[] headers = response.getAllHeaders();
-            for(Header header : headers){
+            for (Header header : headers) {
                 LOGGER.info("name={}, value={}", header.getName(), header.getValue());
             }
         } catch (IOException ex) {
@@ -39,7 +39,7 @@ public class Header_Test extends HttpClient_Test {
             HttpResponse response = httpClient.execute(httpPost);
             //
             Header[] headers = response.getAllHeaders();
-            for(Header header : headers){
+            for (Header header : headers) {
                 LOGGER.info("name={}, value={}", header.getName(), header.getValue());
             }
         } catch (IOException ex) {
