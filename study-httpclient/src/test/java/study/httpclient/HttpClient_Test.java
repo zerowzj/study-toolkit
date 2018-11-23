@@ -9,5 +9,5 @@ public class HttpClient_Test {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    protected static final String URL = "";
+    protected static final String URL = "http://www.163.com";
 }
