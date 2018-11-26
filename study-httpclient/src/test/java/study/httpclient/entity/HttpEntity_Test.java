@@ -1,4 +1,4 @@
-package study.httpclient;
+package study.httpclient.entity;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -8,6 +8,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
+import study.httpclient.HttpClient_Test;
 
 import java.io.IOException;
 

@@ -1,10 +1,13 @@
 package study.httpclient;
 
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.junit.After;
 import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 
 public class HttpClient_Test {
@@ -13,13 +16,21 @@ public class HttpClient_Test {
 
     protected static final String URL = "http://www.163.com";
 
-    @Before
-    public void init(){
 
+    protected CloseableHttpClient httpClient;
+
+    @Before
+    public void init() {
+        httpClient = HttpClients.createDefault();
     }
 
     @After
-    public void destroy(){
-
+    public void destroy() {
+        if (httpClient != null) {
+            try {
+                httpClient.close();
+            } catch (IOException ex) {
+            }
+        }
     }
 }

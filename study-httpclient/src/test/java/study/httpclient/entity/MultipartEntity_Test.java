@@ -1,4 +1,4 @@
-package study.httpclient;
+package study.httpclient.entity;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -7,6 +7,7 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
+import study.httpclient.HttpClient_Test;
 
 import java.io.IOException;
 
