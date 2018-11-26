@@ -16,7 +16,6 @@ public class HttpClient_Test {
 
     protected static final String URL = "http://www.163.com";
 
-
     protected CloseableHttpClient httpClient;
 
     @Before
