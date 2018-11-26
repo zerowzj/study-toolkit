@@ -2,12 +2,16 @@ package com.company.project;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +19,18 @@ import java.util.Map;
 
 public class HttpClientUtil {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientUtil.class);
+
+    private static String CHARSET_UTF_8 = "UTF-8";
+
     /**
-     * 表单提交请求
+     * 表单请求
      *
      * @param url
      * @param params
      */
     public static void form(String url, Map<String, String> params) {
-        HttpClient client = HttpClients.createDefault();
+        CloseableHttpClient client = HttpClients.createDefault();
         HttpPost post = new HttpPost(url);
         try {
             if (params != null) {
@@ -30,28 +38,46 @@ public class HttpClientUtil {
                 for (Map.Entry<String, String> param : params.entrySet()) {
                     pairLt.add(new BasicNameValuePair(param.getKey(), param.getValue()));
                 }
-                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(pairLt, "UTF-8");
+                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(pairLt, CHARSET_UTF_8);
                 post.setEntity(entity);
             }
             HttpResponse response = client.execute(post);
-
-            response.getEntity();
         } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeQuietly(client);
         }
     }
 
     /**
-     * 表单提交请求
+     * 请求
      *
      * @param url
-     * @param params
+     * @param raw
      */
-    public static void post(String url, Map<String, Object> params) {
-        HttpClient client = HttpClients.createDefault();
+    public static void post(String url, String raw) {
+        CloseableHttpClient client = HttpClients.createDefault();
         HttpPost post = new HttpPost(url);
         try {
-            client.execute(post);
+            if (raw != null) {
+                StringEntity entity = new StringEntity(raw, CHARSET_UTF_8);
+                post.setEntity(entity);
+            }
+            HttpResponse response = client.execute(post);
         } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeQuietly(client);
+        }
+    }
+
+    private static void closeQuietly(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }
