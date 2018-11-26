@@ -4,8 +4,6 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
 import study.httpclient.HttpClient_Test;
 
@@ -23,7 +21,6 @@ public class MultipartEntity_Test extends HttpClient_Test {
 //        builder.addTextBody()
         HttpEntity entity = builder.build();
 
-        CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
             HttpPost httpPost = new HttpPost();
             httpPost.setEntity(entity);
@@ -31,14 +28,6 @@ public class MultipartEntity_Test extends HttpClient_Test {
             HttpResponse response = httpClient.execute(httpPost);
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            if (httpClient != null) {
-                try {
-                    httpClient.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

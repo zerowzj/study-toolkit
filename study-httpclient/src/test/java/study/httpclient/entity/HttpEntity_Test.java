@@ -46,7 +46,6 @@ public class HttpEntity_Test extends HttpClient_Test {
      */
     @Test
     public void test_UrlEncodedFormEntity() {
-        CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
             //TODO
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(null);
