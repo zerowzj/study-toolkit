@@ -1,10 +1,11 @@
-package study.httpclient;
+package study.httpclient.header;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.junit.Test;
+import study.httpclient.HttpClient_Test;
 
 import java.io.IOException;
 
