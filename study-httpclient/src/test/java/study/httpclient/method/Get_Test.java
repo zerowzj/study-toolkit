@@ -14,7 +14,7 @@ public class Get_Test extends HttpClient_Test {
     public void test() {
         HttpGet httpGet = new HttpGet(URL);
         try {
-            CloseableHttpResponse httpResponse = httpClient.execute(httpGet);
+            CloseableHttpResponse httpResponse = client.execute(httpGet);
             //
             StatusLine statusLine = httpResponse.getStatusLine();
             int statusCode = statusLine.getStatusCode();

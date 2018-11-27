@@ -16,18 +16,18 @@ public class HttpClient_Test {
 
     protected static final String URL = "http://www.163.com";
 
-    protected CloseableHttpClient httpClient;
+    protected CloseableHttpClient client;
 
     @Before
     public void init() {
-        httpClient = HttpClients.createDefault();
+        client = HttpClients.createDefault();
     }
 
     @After
     public void destroy() {
-        if (httpClient != null) {
+        if (client != null) {
             try {
-                httpClient.close();
+                client.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

@@ -25,7 +25,7 @@ public class MultipartEntity_Test extends HttpClient_Test {
             HttpPost httpPost = new HttpPost();
             httpPost.setEntity(entity);
 
-            HttpResponse response = httpClient.execute(httpPost);
+            HttpResponse response = client.execute(httpPost);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

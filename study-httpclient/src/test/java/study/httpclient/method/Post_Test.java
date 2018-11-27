@@ -14,7 +14,7 @@ public class Post_Test extends HttpClient_Test {
     public void test() {
         HttpPost httpPost = new HttpPost(URL);
         try {
-            CloseableHttpResponse response = httpClient.execute(httpPost);
+            CloseableHttpResponse response = client.execute(httpPost);
             //
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();

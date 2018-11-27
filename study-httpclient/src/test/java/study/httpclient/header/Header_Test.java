@@ -17,7 +17,7 @@ public class Header_Test extends HttpClient_Test {
 //        httpGet.setHeader();
 //        httpGet.addHeader();
         try {
-            HttpResponse response = httpClient.execute(httpGet);
+            HttpResponse response = client.execute(httpGet);
             Header[] headers = response.getAllHeaders();
             for (Header header : headers) {
                 LOGGER.info("name={}, value={}", header.getName(), header.getValue());
@@ -33,7 +33,7 @@ public class Header_Test extends HttpClient_Test {
 //        httpPost.setHeader();
 //        httpPost.addHeader();
         try {
-            HttpResponse response = httpClient.execute(httpPost);
+            HttpResponse response = client.execute(httpPost);
             //
             Header[] headers = response.getAllHeaders();
             for (Header header : headers) {
