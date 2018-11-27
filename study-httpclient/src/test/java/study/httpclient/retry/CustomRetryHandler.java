@@ -37,31 +37,33 @@ public class CustomRetryHandler implements HttpRequestRetryHandler {
             return false;
         }
 
-        //
-        if (exception instanceof SSLHandshakeException) {//不要重试SSL握手异常
+        //SSL握手异常
+        if (exception instanceof SSLHandshakeException) {
             LOGGER.info("SSLHandshakeException");
             return false;
         }
         //
-        if (exception instanceof InterruptedIOException) {//超时不重试
+        if (exception instanceof InterruptedIOException) {
             LOGGER.info("InterruptedIOException");
             return false;
         }
-        //
-        if (exception instanceof UnknownHostException) {//目标服务器不可达不重试
+        //未知主机
+        if (exception instanceof UnknownHostException) {
             LOGGER.info("UnknownHostException");
             return true;
         }
-        //
-        if (exception instanceof ConnectTimeoutException) {//连接被拒绝不重试
+        //连接超时
+        if (exception instanceof ConnectTimeoutException) {
             LOGGER.info("ConnectTimeoutException");
             return false;
         }
-        if (exception instanceof SSLException) {// ssl握手异常不重试
+        // ssl握手异常不重试
+        if (exception instanceof SSLException) {
             LOGGER.info("SSLException");
             return false;
         }
-        if (exception instanceof NoHttpResponseException) { //如果服务器丢掉了连接，那么就重试
+        //如果服务器丢掉了连接，那么就重试
+        if (exception instanceof NoHttpResponseException) {
             LOGGER.info("NoHttpResponseException");
             return true;
         }
