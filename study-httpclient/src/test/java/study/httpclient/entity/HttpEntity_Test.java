@@ -3,7 +3,6 @@ package study.httpclient.entity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -30,14 +29,6 @@ public class HttpEntity_Test extends HttpClient_Test {
             HttpResponse response = httpClient.execute(httpPost);
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            if (httpClient != null) {
-                try {
-                    httpClient.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
@@ -56,14 +47,6 @@ public class HttpEntity_Test extends HttpClient_Test {
             HttpResponse response = httpClient.execute(httpPost);
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            if (httpClient != null) {
-                try {
-                    httpClient.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 

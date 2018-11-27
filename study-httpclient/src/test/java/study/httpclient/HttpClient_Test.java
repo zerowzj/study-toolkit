@@ -1,6 +1,5 @@
 package study.httpclient;
 
-import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.After;
@@ -30,12 +29,8 @@ public class HttpClient_Test {
             try {
                 httpClient.close();
             } catch (IOException ex) {
+                ex.printStackTrace();
             }
         }
-    }
-
-    public void setLogger() {
-        HttpClient httpClient = HttpClients.custom()
-                .build();
     }
 }

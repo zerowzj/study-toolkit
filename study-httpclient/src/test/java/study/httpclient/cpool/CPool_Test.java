@@ -20,7 +20,6 @@ public class CPool_Test {
                 .setConnectTimeout(3000)
                 .setSocketTimeout(3000)
                 .build();
-
         ConnectionSocketFactory plainsf = PlainConnectionSocketFactory.getSocketFactory();
         LayeredConnectionSocketFactory sslsf = SSLConnectionSocketFactory.getSocketFactory();
         Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
