@@ -19,7 +19,6 @@ public class Retry_Test extends HttpClient_Test {
             HttpPost post = new HttpPost(URL + "C");
             LOGGER.info("==============>");
             client.execute(post);
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }
