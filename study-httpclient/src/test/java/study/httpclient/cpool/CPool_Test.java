@@ -16,9 +16,9 @@ public class CPool_Test {
     @Test
     public void test() {
         RequestConfig config = RequestConfig.custom()
-                .setConnectionRequestTimeout(3000)
-                .setConnectTimeout(3000)
-                .setSocketTimeout(3000)
+                .setConnectionRequestTimeout(3 * 1000)
+                .setConnectTimeout(3 * 1000)
+                .setSocketTimeout(3 * 1000)
                 .build();
         ConnectionSocketFactory plainsf = PlainConnectionSocketFactory.getSocketFactory();
         LayeredConnectionSocketFactory sslsf = SSLConnectionSocketFactory.getSocketFactory();
