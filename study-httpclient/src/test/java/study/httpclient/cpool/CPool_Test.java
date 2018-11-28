@@ -76,8 +76,6 @@ public class CPool_Test {
                 .register("http", plainsf)
                 .register("https", sslsf)
                 .build();
-
-
     }
 }
 
