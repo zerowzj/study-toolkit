@@ -32,11 +32,17 @@ public class CustomRetryHandler implements HttpRequestRetryHandler {
 
     @Override
     public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
-        if (executionCount > maxExeCount) {// 如果已经重试了5次不重试
+        //超过重试次数
+        if (executionCount > maxExeCount) {
             LOGGER.info("执行次数[{}]超过最大执行次数[{}]", executionCount, maxExeCount);
             return false;
         }
 
+        //未知主机
+        if (exception instanceof UnknownHostException) {
+            LOGGER.info("UnknownHostException");
+            return true;
+        }
         //SSL握手异常
         if (exception instanceof SSLHandshakeException) {
             LOGGER.info("SSLHandshakeException");
@@ -46,11 +52,6 @@ public class CustomRetryHandler implements HttpRequestRetryHandler {
         if (exception instanceof InterruptedIOException) {
             LOGGER.info("InterruptedIOException");
             return false;
-        }
-        //未知主机
-        if (exception instanceof UnknownHostException) {
-            LOGGER.info("UnknownHostException");
-            return true;
         }
         //连接超时
         if (exception instanceof ConnectTimeoutException) {
