@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Multi_Test {
 
@@ -13,13 +14,19 @@ public class Multi_Test {
     @Test
     public void Multimap_test() {
         Multimap<String, String> map = ArrayListMultimap.create();
-        LinkedListMultimap.create();
         map.put("1", "aaa");
         map.put("1", "bbb");
         map.put("1", "ccc");
 
-        Collection<String> c = map.get("1");
-        System.out.println(c);
+        for(String str :map.keySet()){
+            System.out.println(str);
+        }
+
+        for(String key : map.keySet()){
+            System.out.println(map.get(key));
+        }
+//        Collection<String> c = map.get("1");
+//        System.out.println(c);
     }
 
     //Multiset
