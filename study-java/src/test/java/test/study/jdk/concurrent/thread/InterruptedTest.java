@@ -5,7 +5,6 @@ import test.study.jdk.concurrent.SleepUtils;
 public class InterruptedTest {
 
     public static void main(String[] args) {
-
     }
 
     static class SleepRunner implements Runnable {
