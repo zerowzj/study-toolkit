@@ -16,13 +16,13 @@ public class Callable1_Main {
 
         FutureTask<Integer> task1 = new FutureTask(() -> {
             int sum = 10;
-            Sleeps.seconds(3);
+            Sleeps.seconds(3); //3秒
             LOGGER.info("i am task1");
             return sum;
         });
         FutureTask<Integer> task2 = new FutureTask(() -> {
             int sum = 21;
-            Sleeps.seconds(5);
+            Sleeps.seconds(5); //5秒
             LOGGER.info("i am task2");
             return sum;
         });
