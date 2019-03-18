@@ -16,7 +16,7 @@ public class CyclicBarrier1_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(CyclicBarrier1_Main.class);
 
     public static void main(String[] args) {
-        int t = 5;
+        int t = 500;
         CyclicBarrier barrier = new CyclicBarrier(t);
         for (int i = 0; i < t; i++) {
             Thread t1 = new Thread(new CyclicBarrier1_Main().new Runner(barrier, (i + 1) + "号选手"));
