@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 演示：N个人去银行存款，但是该银行只有两个办公柜台，有空位则上去存钱，没有空位则只能去排队等待
@@ -52,17 +53,15 @@ public class Semaphore4_Main {
                 LOGGER.info("用户[{}]进入银行，无位置，去排队等待", name);
             }
             try {
-                //
                 semaphore.acquire();
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", name, bank.getAccount());
-                //
-//                TimeUnit.SECONDS.sleep(5);
-                Thread.sleep(5 * 1000);
+                TimeUnit.SECONDS.sleep(5);
                 LOGGER.info("用户[{}]存钱完毕，离开银行", name);
-                semaphore.release();
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
+            } finally {
+                semaphore.release();
             }
         }
     }
