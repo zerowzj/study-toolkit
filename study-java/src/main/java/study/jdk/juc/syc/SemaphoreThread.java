@@ -89,6 +89,6 @@ public class SemaphoreThread {
 
     public static void main(String[] args) {
         SemaphoreThread test = new SemaphoreThread();
-        test.useThread();
+        test.test();
     }
 }

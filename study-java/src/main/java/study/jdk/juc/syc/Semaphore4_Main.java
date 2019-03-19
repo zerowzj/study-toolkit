@@ -48,15 +48,15 @@ public class Semaphore4_Main {
         public void run() {
             String name = Thread.currentThread().getName();
             if (semaphore.availablePermits() > 0) {
-                LOGGER.info("用户[{}]进入银行，有位置，立即去存钱", name);
+                LOGGER.info("用户[{}]进入银行，有位置，立即存钱", name);
             } else {
-                LOGGER.info("用户[{}]进入银行，无位置，去排队等待", name);
+                LOGGER.info("用户[{}]进入银行，无位置，排队等待", name);
             }
             try {
                 semaphore.acquire();
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", name, bank.getAccount());
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(1);
                 LOGGER.info("用户[{}]存钱完毕，离开银行", name);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
