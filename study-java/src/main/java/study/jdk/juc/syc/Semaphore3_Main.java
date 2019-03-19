@@ -14,15 +14,32 @@ public class Semaphore3_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore3_Main.class);
 
-    private static final int NUM = 20;
+    private static final int NUM = 5;
 
     public static void main(String[] args) {
         Bank bank = new Bank();
         Semaphore semaphore = new Semaphore(2);
         for (int i = 0; i < NUM; i++) {
-            User user = new User(String.format("[%s]", i + 1), bank);
+            User user = new User(String.format("%s", i + 1), bank);
             new Thread(new SaveMoney(user, semaphore)).start();
         }
+    }
+}
+
+
+/**
+ * 银行
+ */
+class Bank {
+
+    private int account = 0;
+
+    public int getAccount() {
+        return account;
+    }
+
+    public void save(int money) {
+        account += money;
     }
 }
 
@@ -43,18 +60,19 @@ class SaveMoney implements Runnable {
     @Override
     public void run() {
         if (semaphore.availablePermits() > 0) {
-            Loggers.info("用户[{}]进入银行,有位置立即去存钱", user.getName());
+            Loggers.info("用户[{}]进入银行，有位置，立即去存钱", user.getName());
         } else {
-            Loggers.info("用户[{}]进入银行,无位置，去排队等待", user.getName());
+            Loggers.info("用户[{}]进入银行，无位置，去排队等待", user.getName());
         }
         try {
             semaphore.acquire();
             user.saveMoney(10);
-            TimeUnit.SECONDS.sleep(5);
+//            TimeUnit.SECONDS.sleep(5);
+            Thread.sleep(1000);
             Loggers.info("用户[{}]存钱完毕，离开银行", user.getName());
         } catch (InterruptedException ex) {
         } finally {
-            semaphore.release();
+            semaphore.release(1);
         }
     }
 }
@@ -80,21 +98,5 @@ class User {
 
     public String getName() {
         return name;
-    }
-}
-
-/**
- * 银行
- */
-class Bank {
-
-    private int account = 0;
-
-    public int getAccount() {
-        return account;
-    }
-
-    public void save(int money) {
-        account += money;
     }
 }
