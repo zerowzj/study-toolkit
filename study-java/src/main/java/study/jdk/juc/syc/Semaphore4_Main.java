@@ -68,7 +68,7 @@ public class Semaphore4_Main {
 
     public void test() {
         Bank bank = new Bank();
-        Semaphore semaphore = new Semaphore(2);
+        Semaphore semaphore = new Semaphore(3);
         for (int i = 0; i < N; i++) {
             Thread t = new Thread(new SaveMoney(bank, semaphore));
             t.start();
