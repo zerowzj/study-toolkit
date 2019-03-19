@@ -46,7 +46,7 @@ public class SemaphoreThread {
                 semaphore.acquire();
                 bank.save(10);
                 System.out.println(b + "账户余额为：" + bank.getAccount());
-                Thread.sleep(1000);
+                Thread.sleep(5000);
                 System.out.println("线程" + b + "存钱完毕，离开银行");
                 semaphore.release();
             } catch (InterruptedException e) {
@@ -85,10 +85,15 @@ public class SemaphoreThread {
         for (int i = 0; i < 5; i++) {
             new Thread(new NewThread(bank, semaphore)).start();
         }
+        // 从信号量中获取两个许可，并且在获得许可之前，一直将线程阻塞
+        semaphore.acquireUninterruptibly(2);
+        System.out.println("到点了，工作人员要吃饭了");
+        // 释放两个许可，并将其返回给信号量
+        semaphore.release(2);
     }
 
     public static void main(String[] args) {
         SemaphoreThread test = new SemaphoreThread();
-        test.test();
+        test.useThread();
     }
 }

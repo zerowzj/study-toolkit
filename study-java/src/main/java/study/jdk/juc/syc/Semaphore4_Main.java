@@ -13,7 +13,7 @@ public class Semaphore4_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore4_Main.class);
 
-    private static final int N = 5;
+    private static final int N = 7;
 
     /**
      * 银行类
@@ -70,8 +70,14 @@ public class Semaphore4_Main {
         Bank bank = new Bank();
         Semaphore semaphore = new Semaphore(2);
         for (int i = 0; i < N; i++) {
-            new Thread(new SaveMoney(bank, semaphore)).start();
+            Thread t = new Thread(new SaveMoney(bank, semaphore));
+            t.start();
         }
+        // 从信号量中获取两个许可，并且在获得许可之前，一直将线程阻塞
+        semaphore.acquireUninterruptibly(2);
+        System.out.println("到点了，工作人员要吃饭了");
+        // 释放两个许可，并将其返回给信号量
+        semaphore.release(2);
     }
 
     public static void main(String[] args) {
