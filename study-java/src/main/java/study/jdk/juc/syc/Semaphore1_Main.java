@@ -15,7 +15,9 @@ public class Semaphore1_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore1_Main.class);
 
     public static void main(String[] args) {
-        Semaphore semaphore = new Semaphore(1);
+        //permits:初始化可用的许可数目。
+        //fair: 若该信号量保证在征用时按FIFO的顺序授予许可，则为true，否则为false；
+        Semaphore semaphore = new Semaphore(2);
         Thread t1 = new Thread(() -> {
             try {
                 semaphore.acquire();
