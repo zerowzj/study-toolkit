@@ -79,8 +79,16 @@ public class SemaphoreThread {
         semaphore.release(2);
     }
 
+    public void test(){
+        Bank bank = new Bank();
+        Semaphore semaphore = new Semaphore(2);
+        for (int i = 0; i < 5; i++) {
+            new Thread(new NewThread(bank, semaphore)).start();
+        }
+    }
+
     public static void main(String[] args) {
         SemaphoreThread test = new SemaphoreThread();
-        test.useThread();
+        test.test();
     }
 }
