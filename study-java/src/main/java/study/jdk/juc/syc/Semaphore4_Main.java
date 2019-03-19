@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Semaphore4_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore3_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore4_Main.class);
 
     private static final int NUM = 5;
 
@@ -55,7 +55,7 @@ public class Semaphore4_Main {
                 semaphore.acquire();
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", Thread.currentThread().getName(), bank.getAccount());
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(2);
                 LOGGER.info("用户[{}]存钱完毕，离开银行", Thread.currentThread().getName());
                 semaphore.release();
             } catch (InterruptedException ex) {
@@ -72,10 +72,6 @@ public class Semaphore4_Main {
         for (int i = 0; i < NUM; i++) {
             new Thread(new SaveMoney(bank, semaphore)).start();
         }
-//        semaphore.acquireUninterruptibly(2);
-//        System.out.println("到点了，工作人员要吃饭了");
-//        // 释放两个许可，并将其返回给信号量
-//        semaphore.release(2);
     }
 
     public static void main(String[] args) {
