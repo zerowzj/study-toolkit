@@ -14,8 +14,6 @@ public class Semaphore4_Main {
 
     private static final int N = 5;
 
-    int a = 0;
-
     /**
      * 银行类
      */
