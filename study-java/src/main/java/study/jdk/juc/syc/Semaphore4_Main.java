@@ -54,7 +54,6 @@ public class Semaphore4_Main {
             try {
                 //
                 semaphore.acquire();
-                LOGGER.info("用户[{}]开始存钱", name);
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", name, bank.getAccount());
                 //
