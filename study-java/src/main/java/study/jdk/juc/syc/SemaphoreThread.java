@@ -36,6 +36,7 @@ public class SemaphoreThread {
 
         @Override
         public void run() {
+            System.out.println("availablePermits  "+semaphore.availablePermits());
             int b = a++;
             if (semaphore.availablePermits() > 0) {
                 System.out.println("线程" + b + "启动，进入银行,有位置立即去存钱");

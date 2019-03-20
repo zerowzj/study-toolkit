@@ -15,12 +15,14 @@ public class Semaphore5_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore5_Main.class);
 
-    private static final int NUM = 10;
+    private static final int NUM = 3;
+
+    private static final int PERMITS = 3;
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newCachedThreadPool();
-        Semaphore semaphore = new Semaphore(3);
-        LOGGER.info("初始化：当前有[{}]个并发", 3 - semaphore.availablePermits());
+        Semaphore semaphore = new Semaphore(PERMITS);
+        LOGGER.info("初始化：当前有[{}]个许可", semaphore.availablePermits());
         for (int i = 0; i < NUM; i++) {
             int no = i;
             pool.submit(() -> {
@@ -34,9 +36,8 @@ public class Semaphore5_Main {
                     semaphore.release();  //释放许可
                     LOGGER.info("[{}]释放许可({})，剩余：{}", name, no, semaphore.availablePermits());
                 } catch (InterruptedException ex) {
-
+                    ex.printStackTrace();
                 }
-
             });
         }
         pool.shutdown();

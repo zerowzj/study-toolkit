@@ -47,16 +47,17 @@ public class Semaphore4_Main {
         @Override
         public void run() {
             String name = Thread.currentThread().getName();
+            LOGGER.info("用户[{}]进入银行，有位置，{}", name, semaphore.availablePermits());
             if (semaphore.availablePermits() > 0) {
                 LOGGER.info("用户[{}]进入银行，有位置，立即存钱", name);
             } else {
                 LOGGER.info("用户[{}]进入银行，无位置，排队等待", name);
             }
             try {
-                semaphore.acquireUninterruptibly();
+                semaphore.acquire(1);
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", name, bank.getAccount());
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(5);
                 LOGGER.info("用户[{}]存钱完毕，离开银行", name);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
