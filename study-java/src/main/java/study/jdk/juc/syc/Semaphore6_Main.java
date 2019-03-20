@@ -24,7 +24,7 @@ public class Semaphore6_Main {
         ExecutorService pool = Executors.newCachedThreadPool();
         Semaphore semaphore = new Semaphore(PERMITS, true);
         for (int i = 0; i < T_NUM; i++) {
-            pool.submit(() -> {
+            pool.execute(() -> {
                 String name = Thread.currentThread().getName();
                 try {
                     //获取信号灯许可
