@@ -16,10 +16,8 @@ public class CountDownLatch1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private static CountDownLatch latch = new CountDownLatch(2);
-
     public static void main(String[] args) {
-
+        CountDownLatch latch = new CountDownLatch(2);
         Thread t1 = new Thread(() -> {
             Sleeps.seconds(2);
             LOGGER.info("i am t1 thread");
