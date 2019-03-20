@@ -8,9 +8,9 @@ import java.util.concurrent.Semaphore;
 /**
  * 演示：N个人去银行存款，但是该银行只有两个办公柜台，有空位则上去存钱，没有空位则只能去排队等待
  */
-public class Semaphore4_Main {
+public class Semaphore2_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore4_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore2_Main.class);
 
     private static final int N = 100;
 
@@ -84,7 +84,7 @@ public class Semaphore4_Main {
     }
 
     public static void main(String[] args) {
-        Semaphore4_Main test = new Semaphore4_Main();
+        Semaphore2_Main test = new Semaphore2_Main();
         test.test();
     }
 }
