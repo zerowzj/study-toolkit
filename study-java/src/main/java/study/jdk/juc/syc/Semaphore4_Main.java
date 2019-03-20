@@ -13,7 +13,9 @@ public class Semaphore4_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore4_Main.class);
 
-    private static final int N = 7;
+    private static final int N = 10;
+
+    private static final int PERMITS = 3;
 
     /**
      * 银行类
@@ -47,17 +49,19 @@ public class Semaphore4_Main {
         @Override
         public void run() {
             String name = Thread.currentThread().getName();
-            LOGGER.info("[{}]进入银行{}", name, semaphore.availablePermits());
-            if (semaphore.availablePermits() > 0) {
-                LOGGER.info("[{}]进入银行，有位置，立即存钱", name);
-            } else {
-                LOGGER.info("[{}]进入银行，无位置，排队等待", name);
+            synchronized (semaphore) {
+                if (semaphore.availablePermits() > 0) {
+                    LOGGER.info("[{}]进入银行，有位置，立即存钱", name);
+                } else {
+                    LOGGER.info("[{}]进入银行，无位置，排队等待", name);
+                }
             }
             try {
                 semaphore.acquire();
+//                LOGGER.info("[{}]进入银行，availablePermits={}", name, semaphore.availablePermits());
                 bank.save(10);
                 LOGGER.info("[{}]存钱后，银行存款：{}", name, bank.getAccount());
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(1);
                 LOGGER.info("[{}]存钱完毕，离开银行", name);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
@@ -69,7 +73,7 @@ public class Semaphore4_Main {
 
     public void test() {
         Bank bank = new Bank();
-        Semaphore semaphore = new Semaphore(2);
+        Semaphore semaphore = new Semaphore(PERMITS);
         for (int i = 0; i < N; i++) {
             Thread t = new Thread(new SaveMoney(bank, semaphore));
             t.start();
