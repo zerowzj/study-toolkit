@@ -53,7 +53,7 @@ public class Semaphore4_Main {
                 LOGGER.info("用户[{}]进入银行，无位置，排队等待", name);
             }
             try {
-                semaphore.acquire();
+                semaphore.acquireUninterruptibly();
                 bank.save(10);
                 LOGGER.info("用户[{}]存钱后，银行存款：{}", name, bank.getAccount());
                 TimeUnit.SECONDS.sleep(1);
@@ -73,11 +73,6 @@ public class Semaphore4_Main {
             Thread t = new Thread(new SaveMoney(bank, semaphore));
             t.start();
         }
-        // 从信号量中获取两个许可，并且在获得许可之前，一直将线程阻塞
-        semaphore.acquireUninterruptibly(2);
-        System.out.println("到点了，工作人员要吃饭了");
-        // 释放两个许可，并将其返回给信号量
-        semaphore.release(2);
     }
 
     public static void main(String[] args) {

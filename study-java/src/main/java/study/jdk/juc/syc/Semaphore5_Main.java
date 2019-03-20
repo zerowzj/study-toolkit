@@ -1,0 +1,44 @@
+package study.jdk.juc.syc;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 演示：
+ */
+public class Semaphore5_Main {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Semaphore5_Main.class);
+
+    private static final int NUM = 10;
+
+    public static void main(String[] args) {
+        ExecutorService pool = Executors.newCachedThreadPool();
+        Semaphore semaphore = new Semaphore(3);
+        LOGGER.info("初始化：当前有[{}]个并发", 3 - semaphore.availablePermits());
+        for (int i = 0; i < NUM; i++) {
+            int no = i;
+            pool.submit(() -> {
+                try {
+                    String name = Thread.currentThread().getName();
+                    // 获取许可
+                    semaphore.acquire();
+                    LOGGER.info("[{}]获取许可({})，剩余：{}", name, no, semaphore.availablePermits());
+                    TimeUnit.SECONDS.sleep(5);
+                    // 访问完后记得释放，否则在控制台只能打印3条记录，之后线程一直阻塞
+                    semaphore.release();  //释放许可
+                    LOGGER.info("[{}]释放许可({})，剩余：{}", name, no, semaphore.availablePermits());
+                } catch (InterruptedException ex) {
+
+                }
+
+            });
+        }
+        pool.shutdown();
+    }
+}
