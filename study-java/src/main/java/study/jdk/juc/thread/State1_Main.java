@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
+ * jstack
  */
 public class State1_Main {
 
@@ -25,7 +25,7 @@ public class State1_Main {
                     ex.printStackTrace();
                 }
             }
-        });
+        }, "ssssssssss");
         LOGGER.info("new(): {}", t.getState().name());
         t.start();
         LOGGER.info("start(): {}", t.getState().name());
