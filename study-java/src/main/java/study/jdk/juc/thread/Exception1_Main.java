@@ -8,7 +8,7 @@ import study.Sleeps;
  *
  * 异常后线程停止运行
  */
-public class ThreadException1_Main {
+public class Exception1_Main {
 
     public static void main(String[] args) {
         Thread t = new Thread(() -> {

@@ -6,7 +6,7 @@ import study.Sleeps;
 /**
  * 异常后线程继续执行
  */
-public class ThreadException2_Main {
+public class Exception2_Main {
 
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
