@@ -11,7 +11,7 @@ public class State1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(State1_Main.class);
 
-    public void test() {
+    public static void main(String[] args) {
         Thread t = new Thread(() -> {
             LOGGER.info("i am t thread");
         });
@@ -19,9 +19,5 @@ public class State1_Main {
 
         t.start();
         LOGGER.info("start(): {}", t.getState().name());
-    }
-
-    public static void main(String[] args) {
-        new State1_Main().test();
     }
 }
