@@ -5,9 +5,9 @@ public class ThreadMain {
     String str2 = "abc";
 
     public static void main(String[] args) {
-//        new ThreadMain().testNew();
-//        new ThreadMain().testRunnable();
-//        new ThreadMain().testBlocked();
+//        new Thread1_Main().testNew();
+//        new Thread1_Main().testRunnable();
+//        new Thread1_Main().testBlocked();
 
         String str1 = "hello";
         String str2 = "hello";
