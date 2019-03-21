@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import study.Randoms;
 import study.Sleeps;
 
-import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -21,7 +20,7 @@ public class CyclicBarrier1_Main {
     private static final int T_NUM = 10;
 
     /**
-     *
+     * 选手
      */
     class Runner implements Runnable {
 
