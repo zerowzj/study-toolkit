@@ -3,7 +3,7 @@ package study.jdk.juc.thread;
 import study.Sleeps;
 
 /**
- *
+ * 演示：BLOCKED
  */
 public class State4_Main {
 

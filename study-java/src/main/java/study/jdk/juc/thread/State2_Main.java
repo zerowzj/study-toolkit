@@ -5,7 +5,7 @@ import study.Sleeps;
 /**
  * jps jstack
  *
- * 演示：
+ * 演示：TIMED_WAITING和WAITING
  */
 public class State2_Main {
 
