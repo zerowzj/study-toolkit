@@ -11,27 +11,28 @@ public class WaitNotify2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WaitNotify2_Main.class);
 
-    private static int sum = 0;
+    private int sum = 0;
 
-    public static void main(String[] args) {
+    public void test() {
         Object lock = new Object();
+        //计算线程
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
                 for (; ; ) {
-                    sum = sum + 100;
-                    Sleeps.milliseconds(500);
+                    sum += 100;
+                    //Sleeps.milliseconds(500);
                     LOGGER.info("==>{}", sum);
                     if (sum == 500) {
                         LOGGER.info("t1 notify start");
-                        lock.notify();
+                        lock.notify(); //仅仅notify()，不会跳出循环
                         LOGGER.info("t1 notify end");
-                        //TODO 去掉break，notify只通知t2但不释放锁，t2无法再wait()方法处返回
-                        break;
+                        //去掉break，notify只通知t2但不释放锁，t2无法再wait()方法处返回
+                        // break;
                     }
                 }
             }
         });
-
+        //输出线程
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
                 try {
@@ -44,9 +45,13 @@ public class WaitNotify2_Main {
                 }
             }
         });
-        //TODO t2需要先执行并且紧跟着要sleep一下保证其充分启动
+        //t2需要先执行并且紧跟着要sleep一下保证其充分启动
         t2.start();
         Sleeps.seconds(1);
         t1.start();
+    }
+
+    public static void main(String[] args) {
+        new WaitNotify2_Main().test();
     }
 }
