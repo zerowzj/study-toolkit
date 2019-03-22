@@ -4,7 +4,24 @@ import study.Sleeps;
 
 /**
  * jps jstack
- *
+ */
+public class State2_Main {
+
+    public static void main(String[] args) {
+        Thread t = new Thread(() -> {
+            Sleeps.seconds(Integer.MAX_VALUE);
+        }, "t1");
+        t.start();
+
+        try {
+//            t.join();
+            t.join(Integer.MAX_VALUE);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+/*
  * "t1" #11 prio=5 os_prio=0 tid=0x000000001b57e800 nid=0x6f0 waiting on condition [0x000000001be3f000]
  *    java.lang.Thread.State: TIMED_WAITING (sleeping)
  *         at java.lang.Thread.sleep(Native Method)
@@ -32,19 +49,3 @@ import study.Sleeps;
  *         - locked <0x00000000d7149238> (a java.lang.Thread)
  *         at study.jdk.juc.thread.State2_Main.main(State2_Main.java:37)
  */
-public class State2_Main {
-
-    public static void main(String[] args) {
-        Thread t = new Thread(() -> {
-            Sleeps.seconds(Integer.MAX_VALUE);
-        }, "t1");
-        t.start();
-
-        try {
-//            t.join();
-            t.join(Integer.MAX_VALUE);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
-    }
-}
