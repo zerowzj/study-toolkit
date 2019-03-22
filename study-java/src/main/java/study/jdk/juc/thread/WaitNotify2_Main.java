@@ -6,7 +6,7 @@ import study.Loggers;
 import study.Sleeps;
 
 /**
- *
+ * 一个线程计算
  */
 public class WaitNotify2_Main {
 

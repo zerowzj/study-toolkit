@@ -3,7 +3,7 @@ package study.jdk.juc.thread;
 import study.Loggers;
 
 /**
- * 演示：等待/通知
+ * 等待/通知
  */
 public class WaitNotify1_Main {
 
