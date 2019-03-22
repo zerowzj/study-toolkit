@@ -1,5 +1,7 @@
 package study.jdk.juc.thread;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import study.Loggers;
 import study.Sleeps;
 
@@ -7,6 +9,8 @@ import study.Sleeps;
  *
  */
 public class WaitNotify2_Main {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(WaitNotify2_Main.class);
 
     private static int sum = 0;
 
@@ -17,7 +21,7 @@ public class WaitNotify2_Main {
                 for (; ; ) {
                     sum = sum + 100;
                     Sleeps.milliseconds(500);
-                    Loggers.info("==>{}", sum);
+                    LOGGER.info("==>{}", sum);
                     if (sum == 500) {
                         Loggers.info("t1 notify start");
                         lock.notify();
@@ -32,10 +36,10 @@ public class WaitNotify2_Main {
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
                 try {
-                    Loggers.info("t2 wait start");
+                    LOGGER.info("t2 wait start");
                     lock.wait();
-                    Loggers.info("t2 wait end");
-                    Loggers.info("t2 sum= {}", sum);
+                    LOGGER.info("t2 wait end");
+                    LOGGER.info("t2 sum= {}", sum);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }

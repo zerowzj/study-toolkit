@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 /**
  * 演示：wait()与sleep()区别，两者都释放cpu；前者释放锁，后者不释放
  */
-public class WaitSleep_Main {
+public class Sleep_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WaitSleep_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Sleep_Main.class);
 
     public static void main(String[] args) {
 
