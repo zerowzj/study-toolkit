@@ -2,7 +2,6 @@ package study.jdk.juc.thread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import study.Loggers;
 import study.Sleeps;
 
 /**
@@ -23,9 +22,9 @@ public class WaitNotify2_Main {
                     Sleeps.milliseconds(500);
                     LOGGER.info("==>{}", sum);
                     if (sum == 500) {
-                        Loggers.info("t1 notify start");
+                        LOGGER.info("t1 notify start");
                         lock.notify();
-                        Loggers.info("t1 notify end");
+                        LOGGER.info("t1 notify end");
                         //TODO 去掉break，notify只通知t2但不释放锁，t2无法再wait()方法处返回
                         break;
                     }

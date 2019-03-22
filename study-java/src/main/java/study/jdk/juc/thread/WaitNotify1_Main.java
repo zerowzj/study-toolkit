@@ -1,32 +1,37 @@
 package study.jdk.juc.thread;
 
-import study.Loggers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 等待/通知
  */
 public class WaitNotify1_Main {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(WaitNotify1_Main.class);
+
     public static void main(String[] args) {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-                Loggers.info("A 1");
+                LOGGER.info("A 1");
+                //等待
                 try {
                     lock.wait();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
-                Loggers.info("A 2");
-                Loggers.info("A 3");
+
+                LOGGER.info("A 2");
+                LOGGER.info("A 3");
             }
         }, "t1");
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
-                Loggers.info("B 1");
-                Loggers.info("B 2");
-                Loggers.info("B 3");
-
+                LOGGER.info("B 1");
+                LOGGER.info("B 2");
+                LOGGER.info("B 3");
+                //通知
                 lock.notify();
             }
         }, "t2");
