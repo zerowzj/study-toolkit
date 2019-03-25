@@ -28,7 +28,7 @@ public class Interrupt2_Main {
         if (Thread.interrupted()) {
             throw new InterruptedException("文件扫描任务被中断");
         }
-        LOGGER.info("{}", file.getName());
+        LOGGER.info("===>{}", file.getName());
         File[] files = file.listFiles();
         for (File f : files) {
             LOGGER.info("sleep 2s");
@@ -40,7 +40,7 @@ public class Interrupt2_Main {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
             try {
-                listFile(new File("c:\\"));
+                listFile(new File("D:\\build"));
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

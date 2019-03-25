@@ -17,12 +17,12 @@ public class Interrupt1_Main {
 
         Thread t = new Thread(() -> {
             try {
-                LOGGER.info("休息20s");
+                LOGGER.info("sleep 20s");
                 TimeUnit.SECONDS.sleep(20);
             } catch (InterruptedException ex) {
                 LOGGER.info("===={}", new RuntimeException("被中断了"));
             }
-            LOGGER.info("休息结束");
+            LOGGER.info("sleep over ");
         });
         t.start();
 
