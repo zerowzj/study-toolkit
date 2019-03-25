@@ -11,7 +11,6 @@ public class Sleep_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Sleep_Main.class);
 
     public static void main(String[] args) {
-
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
@@ -21,7 +20,7 @@ public class Sleep_Main {
                     //TODO 释放锁
                     lock.wait();
                 } catch (InterruptedException ex) {
-
+                    ex.printStackTrace();
                 }
             }
         });
