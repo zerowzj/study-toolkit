@@ -1,15 +1,14 @@
 package study.jdk.juc.thread;
 
-/**
- * 输出结果：
- * t2
- * t1
- * t3
- */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Join4_Main {
 
-    static class MyThread extends Thread {
-        Thread t;
+    private static Logger LOGGER = LoggerFactory.getLogger(Join4_Main.class);
+
+    class MyThread extends Thread {
+        private Thread t;
 
         MyThread(Thread t) {
             this.t = t;
@@ -26,24 +25,22 @@ public class Join4_Main {
         }
     }
 
-    public static void main(String[] args) {
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("t1");
-            }
+    public void test() {
+        Thread t1 = new Thread(() -> {
+            System.out.println("t1");
         });
 
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("t2");
-            }
+        Thread t2 = new Thread(() -> {
+            System.out.println("t2");
         });
         Thread t3 = new MyThread(t1);
+
         t3.start();
         t2.start();
         t1.start();
     }
 
+    public static void main(String[] args) {
+        new Join4_Main().test();
+    }
 }

@@ -19,8 +19,8 @@ public class Join2_Main {
             try {
                 t.join();
                 LOGGER.info("t3");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
         }
     }
