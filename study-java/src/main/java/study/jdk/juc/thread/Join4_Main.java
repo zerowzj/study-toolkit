@@ -8,6 +8,24 @@ package study.jdk.juc.thread;
  */
 public class Join4_Main {
 
+    static class MyThread extends Thread {
+        Thread t;
+
+        MyThread(Thread t) {
+            this.t = t;
+        }
+
+        @Override
+        public void run() {
+            try {
+                t.join();
+                System.out.println("t3");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Thread t1 = new Thread(new Runnable() {
             @Override
@@ -28,21 +46,4 @@ public class Join4_Main {
         t1.start();
     }
 
-    static class MyThread extends Thread {
-        Thread t;
-
-        MyThread(Thread t) {
-            this.t = t;
-        }
-
-        @Override
-        public void run() {
-            try {
-                t.join();
-                System.out.println("t3");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

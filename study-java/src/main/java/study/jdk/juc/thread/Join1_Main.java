@@ -18,7 +18,7 @@ public class Join1_Main {
         });
         Thread t2 = new Thread(() -> {
             try {
-                //阻塞调用线程（主线程或父线程都不准确）
+                //TODO 阻塞调用线程（主线程或父线程都不准确）
                 t1.join();
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
