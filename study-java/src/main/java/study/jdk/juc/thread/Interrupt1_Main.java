@@ -7,7 +7,7 @@ import study.Sleeps;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * 中断
  */
 public class Interrupt1_Main {
 
@@ -20,8 +20,7 @@ public class Interrupt1_Main {
                 LOGGER.info("休息20s");
                 TimeUnit.SECONDS.sleep(20);
             } catch (InterruptedException ex) {
-                //ex.printStackTrace();
-                LOGGER.info("", new RuntimeException("被中断了"));
+                LOGGER.info("===={}", new RuntimeException("被中断了"));
             }
             LOGGER.info("休息结束");
         });
@@ -29,6 +28,5 @@ public class Interrupt1_Main {
 
         Sleeps.seconds(5);
         t.interrupt();
-        //LOGGER.info("i am thread main");
     }
 }
