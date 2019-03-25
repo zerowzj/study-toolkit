@@ -5,19 +5,39 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- *
+ * 异步
  */
 public class Thread1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Thread1_Main.class);
 
-    public static void main(String[] args) {
+    private void enjoy_music() {
+        for (; ; ) {
+            LOGGER.info("enjoy music...");
+            Sleeps.seconds(1);
+        }
+    }
+
+    private void enjoy_news() {
+        for (; ; ) {
+            LOGGER.info("enjoy news...");
+            Sleeps.seconds(3);
+        }
+    }
+
+    public void test() {
+        //
+        //enjoy_music();
+        //
         Thread t = new Thread(() -> {
-            LOGGER.info("i am t thread");
-            //Sleeps.seconds(2);
+            enjoy_music();
         });
         t.start();
-        Sleeps.seconds(3);
-        LOGGER.info("i am main thread");
+
+        enjoy_news();
+    }
+
+    public static void main(String[] args) {
+        new Thread1_Main().test();
     }
 }

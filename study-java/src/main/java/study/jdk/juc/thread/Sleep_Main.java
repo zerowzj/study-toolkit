@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 演示：wait()与sleep()区别，两者都释放cpu；前者释放锁，后者不释放
+ * wait()与sleep()：两者都释放cpu；前者释放锁，后者不释放锁
  */
 public class Sleep_Main {
 
@@ -15,10 +15,10 @@ public class Sleep_Main {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-                //不释放锁
+                //TODO 不释放锁
 //                Sleeps.seconds(20);
                 try {
-                    //释放锁
+                    //TODO 释放锁
                     lock.wait();
                 } catch (InterruptedException ex) {
 
