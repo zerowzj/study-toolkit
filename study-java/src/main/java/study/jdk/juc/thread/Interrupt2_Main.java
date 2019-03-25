@@ -20,7 +20,7 @@ public class Interrupt2_Main {
         if (file == null) {
             throw new IllegalArgumentException();
         }
-        if (file.isFile()) {
+        if (file.isFile() && !file.isHidden()) {
             LOGGER.info("file: {}", file.getName());
             return;
         }
@@ -39,8 +39,9 @@ public class Interrupt2_Main {
     public void test() {
         t = new Thread(() -> {
             try {
-                listFile(new File("d:/"));
+                listFile(new File("d:\\"));
             } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
         });
         t.start();
