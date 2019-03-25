@@ -46,7 +46,7 @@ public class WaitNotify2_Main {
                 }
             }
         });
-        //t2 需要先执行并且紧跟着要sleep一下保证其充分启动
+        //TODO t2 需要先执行并且紧跟着要sleep一下保证其充分启动
         t2.start();
         Sleeps.seconds(1);
         t1.start();

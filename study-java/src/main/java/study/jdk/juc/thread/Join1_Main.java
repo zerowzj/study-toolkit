@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：join()基本用法
+ * join()用法
  */
 public class Join1_Main {
 
