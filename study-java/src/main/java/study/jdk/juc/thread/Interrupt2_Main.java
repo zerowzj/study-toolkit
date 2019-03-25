@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 import java.io.File;
+import java.util.Scanner;
 
 /**
  * 这里新建了一个磁盘文件扫描的任务，扫描某个目录下的所有文件并将文件路径打印到控制台，扫描的过程可能会很长。
@@ -16,7 +17,7 @@ public class Interrupt2_Main {
 
     Thread t;
 
-    public void listFile(File file) throws InterruptedException {
+    static void listFile(File file) throws InterruptedException {
         if (file == null) {
             throw new IllegalArgumentException();
         }
@@ -36,19 +37,31 @@ public class Interrupt2_Main {
         }
     }
 
-    public void test() {
-        t = new Thread(() -> {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
             try {
-                listFile(new File("d:\\"));
+                listFile(new File("c:\\"));
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         });
-        t.start();
-    }
-
-    public static void main(String[] args) {
-        new Interrupt2_Main().test();
-        Sleeps.seconds(1100000000);
+//        Scanner scan = new Scanner(System.in);
+//        String read = scan.nextLine();
+        Thread t2 = new Thread(() -> {
+            while (true) {
+                Scanner scan = new Scanner(System.in);
+                String read = scan.nextLine();
+                if ("quit".equalsIgnoreCase(read)) {
+                    if (t1.isAlive()) {
+                        t1.interrupt();
+                        return;
+                    }
+                } else {
+                    System.out.println("输入quit退出文件扫描");
+                }
+            }
+        });
+        t2.start();
+        t1.start();
     }
 }
