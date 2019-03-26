@@ -14,15 +14,14 @@ public class Interrupt2_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Interrupt2_Main.class);
 
     public static void main(String[] args) {
-
         Thread t = new Thread(() -> {
-            //
+            //普通方法
 //            while (true) {
 //                //LOGGER.info("loop");
 //            }
-            //
+            //阻塞方法
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(20);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
