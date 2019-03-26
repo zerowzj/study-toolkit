@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 演示：固定线程池用法
+ * 固定线程池
  */
 public class FixedThreadPool_Main {
 
