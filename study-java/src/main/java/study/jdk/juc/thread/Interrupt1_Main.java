@@ -17,9 +17,10 @@ public class Interrupt1_Main {
 
         Thread t = new Thread(() -> {
             try {
+                //睡眠
 //                LOGGER.info("sleep 10s");
 //                TimeUnit.SECONDS.sleep(20);
-
+                //等待
                 synchronized (lock) {
                     LOGGER.info("i am waiting");
                     lock.wait();

@@ -29,8 +29,8 @@ public class Interrupt2_Main {
         t.start();
 
         Sleeps.seconds(2);
-        LOGGER.info("isInterrupted= {}", t.isInterrupted());
+        LOGGER.info("before interrupt= {}", t.isInterrupted());
         t.interrupt();
-        LOGGER.info("isInterrupted= {}", t.isInterrupted());
+        LOGGER.info("after interrupt= {}", t.isInterrupted());
     }
 }
