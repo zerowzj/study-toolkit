@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
-import java.util.concurrent.TimeUnit;
-
 /**
- * 中断
+ * 普通方法中断
  */
 public class Interrupt2_Main {
 
@@ -15,15 +13,11 @@ public class Interrupt2_Main {
 
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
-            //普通方法
-//            while (true) {
-//                //LOGGER.info("loop");
-//            }
-            //阻塞方法
-            try {
-                TimeUnit.SECONDS.sleep(20);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
+            while (true) {
+                if (Thread.currentThread().isInterrupted()) {
+                    break;
+                }
+                LOGGER.info("loop");
             }
         });
         t.start();
