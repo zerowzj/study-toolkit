@@ -15,7 +15,7 @@ public class Exception1_Main {
             int i = 0;
             for (; ; ) {
                 i++;
-                Sleeps.milliseconds(500);
+                Sleeps.seconds(2);
                 System.out.println("==>" + i);
                 if (i == 10) {
                     throw new NullPointerException();
