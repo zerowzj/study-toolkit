@@ -4,8 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * 中断
  */
@@ -22,12 +20,12 @@ public class Interrupt1_Main {
 //                LOGGER.info("sleep 10s");
 //                TimeUnit.SECONDS.sleep(20);
 
-                synchronized (lock){
+                synchronized (lock) {
                     LOGGER.info("i am waiting");
                     lock.wait();
                 }
             } catch (InterruptedException ex) {
-                LOGGER.info("===={}", new RuntimeException("被中断了"));
+                LOGGER.info("", new RuntimeException("i am interrupted"));
             }
             LOGGER.info("after interrupt exception");
         });
