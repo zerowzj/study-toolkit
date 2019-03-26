@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 演示：NEW和RUNNABLE
+ * NEW和RUNNABLE
  */
 public class State1_Main {
 
