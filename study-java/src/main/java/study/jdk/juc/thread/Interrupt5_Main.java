@@ -11,9 +11,9 @@ import java.util.Scanner;
  * 这里新建了一个磁盘文件扫描的任务，扫描某个目录下的所有文件并将文件路径打印到控制台，扫描的过程可能会很长。
  * 若需要中止该任务，只需在控制台键入quit并回车即可
  */
-public class Interrupt2_Main {
+public class Interrupt5_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Interrupt2_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Interrupt5_Main.class);
 
     Thread t;
 

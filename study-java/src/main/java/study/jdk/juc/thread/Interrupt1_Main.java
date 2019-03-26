@@ -13,20 +13,28 @@ public class Interrupt1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Interrupt1_Main.class);
 
+    private static Object lock = new Object();
+
     public static void main(String[] args) {
 
         Thread t = new Thread(() -> {
             try {
-                LOGGER.info("sleep 20s");
-                TimeUnit.SECONDS.sleep(20);
+//                LOGGER.info("sleep 10s");
+//                TimeUnit.SECONDS.sleep(20);
+
+                synchronized (lock){
+                    LOGGER.info("i am waiting");
+                    lock.wait();
+                }
             } catch (InterruptedException ex) {
                 LOGGER.info("===={}", new RuntimeException("被中断了"));
             }
-            LOGGER.info("sleep over ");
+            LOGGER.info("after interrupt exception");
         });
         t.start();
 
         Sleeps.seconds(5);
         t.interrupt();
+        LOGGER.info("interrupt over");
     }
 }
