@@ -36,6 +36,6 @@ public class Callable1_Main {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        LOGGER.info("i am main thread");
+        LOGGER.info("i am thread main");
     }
 }
