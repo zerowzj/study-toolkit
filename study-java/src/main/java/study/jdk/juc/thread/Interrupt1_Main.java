@@ -32,7 +32,7 @@ public class Interrupt1_Main {
         });
         t.start();
 
-        Sleeps.seconds(5);
+        Sleeps.seconds(2);
         t.interrupt();
         LOGGER.info("interrupt over");
     }
