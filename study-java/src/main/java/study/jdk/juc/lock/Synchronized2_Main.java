@@ -13,7 +13,7 @@ public class Synchronized2_Main {
 
     private Object lock = new Object();
 
-    public void test() {
+    void test() {
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
                 LOGGER.info("i am thread t1");
