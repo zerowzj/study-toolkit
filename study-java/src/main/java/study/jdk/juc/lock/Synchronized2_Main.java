@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 不可中断
+ * synchronized不可中断
  */
 public class Synchronized2_Main {
 
