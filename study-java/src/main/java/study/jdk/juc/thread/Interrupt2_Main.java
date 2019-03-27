@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 普通方法中断
+ * 中断普通方法
  */
 public class Interrupt2_Main {
 
@@ -25,6 +25,6 @@ public class Interrupt2_Main {
         Sleeps.seconds(2);
         LOGGER.info("before interrupt= {}", t.isInterrupted());
         t.interrupt();
-        LOGGER.info("after interrupt= {}", t.isInterrupted());
+        LOGGER.info(" after interrupt= {}", t.isInterrupted());
     }
 }

@@ -35,7 +35,7 @@ public class Lock_lock1_Main {
             }
         });
         t1.start();
-//        Sleeps.seconds(1);
+Sleeps.seconds(1);
         t2.start();
     }
 

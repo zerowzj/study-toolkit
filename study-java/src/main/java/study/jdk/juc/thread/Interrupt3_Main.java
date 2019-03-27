@@ -7,7 +7,7 @@ import study.Sleeps;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 阻塞方法中断
+ * 中断阻塞方法
  */
 public class Interrupt3_Main {
 
@@ -16,18 +16,18 @@ public class Interrupt3_Main {
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(20);
+                TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
             } catch (InterruptedException ex) {
-                //ex.printStackTrace();
-               // LOGGER.info("middle interrupt= {}", Thread.currentThread().isInterrupted());
+                ex.printStackTrace();
+                LOGGER.info("middle interrupt= {}", Thread.currentThread().isInterrupted());
             }
         });
         t.start();
 
-        Sleeps.seconds(1);
         LOGGER.info("before interrupt= {}", t.isInterrupted());
+        Sleeps.seconds(1);
         t.interrupt();
 //        Sleeps.seconds(1);
-        LOGGER.info("after interrupt= {}", t.isInterrupted());
+        LOGGER.info(" after interrupt= {}", t.isInterrupted());
     }
 }

@@ -11,29 +11,28 @@ public class Interrupt1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Interrupt1_Main.class);
 
-    private static Object lock = new Object();
+    private Object lock = new Object();
 
-    public static void main(String[] args) {
-
+    void test() {
         Thread t = new Thread(() -> {
             try {
-                //睡眠
-//                LOGGER.info("sleep 10s");
-//                TimeUnit.SECONDS.sleep(20);
-                //等待
                 synchronized (lock) {
                     LOGGER.info("i am waiting");
                     lock.wait();
                 }
             } catch (InterruptedException ex) {
-                LOGGER.info("", new RuntimeException("i am interrupted"));
+                LOGGER.info("i am interrupted");
             }
-            LOGGER.info("after interrupt exception");
+            LOGGER.info("after interrupt");
         });
         t.start();
 
         Sleeps.seconds(2);
         t.interrupt();
         LOGGER.info("interrupt over");
+    }
+
+    public static void main(String[] args) {
+        new Interrupt1_Main().test();
     }
 }
