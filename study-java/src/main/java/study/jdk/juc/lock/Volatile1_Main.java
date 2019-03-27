@@ -37,8 +37,8 @@ public class Volatile1_Main {
         }
     }
 
-    public static void main(String[] args) {
-        Task task = new Volatile1_Main().new Task();
+    void test() {
+        Task task = new Task();
         Thread t = new Thread(task);
         t.start();
 
@@ -47,4 +47,7 @@ public class Volatile1_Main {
         task.stop();
     }
 
+    public static void main(String[] args) {
+
+    }
 }
