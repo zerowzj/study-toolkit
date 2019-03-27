@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 阻塞获取锁
+ * 阻塞获取锁且可中断
  */
 public class Lock_lockInterruptibly_Main {
 
@@ -19,21 +19,32 @@ public class Lock_lockInterruptibly_Main {
     public void test() {
         Thread t1 = new Thread(() -> {
             try {
-                lock.lockInterruptibly();
+                lock.lock();
                 LOGGER.info("i am thread t1");
-                Sleeps.seconds(10);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                LOGGER.info("AAAAAAAAAAA");
+                Sleeps.deep();
             } finally {
                 lock.unlock();
             }
         });
+        Thread t2 = new Thread(() -> {
+            try {
+                lock.lockInterruptibly();
+                LOGGER.info("i am thread t2");
+            } catch (InterruptedException ex) {
+               LOGGER.info("i am interrupt");
+            } finally {
+                LOGGER.info("code in finally");
+                lock.unlock();
+            }
+            LOGGER.info("code after finally ");
+        });
         t1.start();
+        Sleeps.seconds(1);
+        t2.start();
 
+        //main线程中断t2
         Sleeps.seconds(3);
-        t1.interrupt();
-        LOGGER.info("SSSSSSSS");
+        t2.interrupt();
     }
 
     public static void main(String[] args) {

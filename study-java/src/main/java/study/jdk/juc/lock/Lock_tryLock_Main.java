@@ -1,8 +1,9 @@
 package study.jdk.juc.lock;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,38 +12,38 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Lock_tryLock_Main {
 
-    private static Lock lock = new ReentrantLock();
+    private static final Logger LOGGER = LoggerFactory.getLogger(Lock_tryLock_Main.class);
 
-    public static void main(String[] args) {
+    private Lock lock = new ReentrantLock();
+
+    void test() {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
-                System.out.println("i am t1 thread");
-                Sleeps.seconds(3);
+                LOGGER.info("i am thread t1 ");
+                Sleeps.deep();
             } finally {
                 lock.unlock();
             }
         });
         Thread t2 = new Thread(() -> {
-            try {
-                //TODO 立即返回
-//                if (lock.tryLock()) {
-                //TODO 超时返回
-                if (lock.tryLock(2, TimeUnit.SECONDS)) {
-                    try {
-                        System.out.println("i am t2 thread");
-                    } finally {
-                        lock.unlock();
-                    }
-                } else {
-                    System.out.println("未获取到锁");
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            if (lock.tryLock()) {
+                try {
 
+                } finally {
+                    lock.unlock();
+                }
+            } else {
+                LOGGER.info("not get lock");
+            }
         });
+
         t1.start();
+        Sleeps.seconds(1);
         t2.start();
+    }
+
+    public static void main(String[] args) {
+        new Lock_tryLock_Main().test();
     }
 }
