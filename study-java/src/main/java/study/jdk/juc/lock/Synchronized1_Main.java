@@ -5,19 +5,19 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：
+ * 演示：synchronized互斥性（同步、锁）
  */
 public class Synchronized1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Synchronized1_Main.class);
 
     synchronized void a() {
-        LOGGER.info("i am aaa");
-        Sleeps.deep();
+        LOGGER.info("i am a()");
+        Sleeps.seconds(10);
     }
 
     synchronized void b() {
-        LOGGER.info("i am bbb");
+        LOGGER.info("i am b()");
     }
 
     void test() {

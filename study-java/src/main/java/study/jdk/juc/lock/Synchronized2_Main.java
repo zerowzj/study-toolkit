@@ -17,7 +17,7 @@ public class Synchronized2_Main {
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
                 LOGGER.info("i am thread t1");
-                Sleeps.deep();
+                Sleeps.seconds(20);
             }
         });
         Thread t2 = new Thread(() -> {
@@ -29,7 +29,7 @@ public class Synchronized2_Main {
         Sleeps.seconds(1);
         t2.start();
 
-        //main线程中断t2
+        //线程t1持有锁，t2阻塞于该锁，main中断t2
         Sleeps.seconds(3);
         t2.interrupt();
     }
