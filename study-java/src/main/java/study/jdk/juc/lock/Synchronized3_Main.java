@@ -12,9 +12,7 @@ public class Synchronized3_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Synchronized3_Main.class);
 
-    private Object lock = new Object();
-
-    synchronized void a() {
+    private synchronized void a() {
         LOGGER.info("i am thread t1");
         while (true) {
             int random = Randoms.nextInt(10);
@@ -28,11 +26,11 @@ public class Synchronized3_Main {
         }
     }
 
-    synchronized void b() {
+    private synchronized void b() {
         LOGGER.info("i am thread t2");
     }
 
-    void test() {
+    private void test() {
         Thread t1 = new Thread(() -> {
             a();
         });
