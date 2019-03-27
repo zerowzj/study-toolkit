@@ -1,5 +1,7 @@
 package study.jdk.juc.lock;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 import java.util.concurrent.locks.Lock;
@@ -10,27 +12,31 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Lock_lockInterruptibly_Main {
 
-    private static Lock lock = new ReentrantLock();
+    private static final Logger LOGGER = LoggerFactory.getLogger(Lock_lockInterruptibly_Main.class);
 
-    public static void main(String[] args) {
+    private Lock lock = new ReentrantLock();
+
+    public void test() {
         Thread t1 = new Thread(() -> {
-            lock.lock();
             try {
-                System.out.println("i am t1 thread");
-                Sleeps.seconds(1);
-            } finally {
-                lock.unlock();
-            }
-        });
-        Thread t2 = new Thread(() -> {
-            lock.lock();
-            try {
-                System.out.println("i am t21 thread");
+                lock.lockInterruptibly();
+                LOGGER.info("i am thread t1");
+                Sleeps.seconds(10);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+                LOGGER.info("AAAAAAAAAAA");
             } finally {
                 lock.unlock();
             }
         });
         t1.start();
-        t2.start();
+
+        Sleeps.seconds(3);
+        t1.interrupt();
+        LOGGER.info("SSSSSSSS");
+    }
+
+    public static void main(String[] args) {
+        new Lock_lockInterruptibly_Main().test();
     }
 }
