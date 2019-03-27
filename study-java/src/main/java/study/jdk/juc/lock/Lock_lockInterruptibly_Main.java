@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 阻塞获取锁且可中断
+ * 演示：阻塞获取锁且可中断
  */
 public class Lock_lockInterruptibly_Main {
 

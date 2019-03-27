@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 阻塞获取锁
+ * 演示：阻塞获取锁
  */
 public class Lock_lock1_Main {
 

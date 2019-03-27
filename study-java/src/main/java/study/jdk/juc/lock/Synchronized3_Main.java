@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 异常退出
+ * 演示：异常退出
  */
 public class Synchronized3_Main {
 

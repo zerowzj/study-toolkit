@@ -11,19 +11,8 @@ public class Volatile1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Volatile1_Main.class);
 
-    public static void main(String[] args) {
-        Task task = new Volatile1_Main().new Task();
-        Thread t = new Thread(task);
-        t.start();
-
-        Sleeps.seconds(1);
-        LOGGER.info("stop task");
-        task.stop();
-    }
-
     class Task implements Runnable {
 
-        //TODO
         private boolean running = true;
 
         int m;
@@ -47,4 +36,15 @@ public class Volatile1_Main {
             running = false;
         }
     }
+
+    public static void main(String[] args) {
+        Task task = new Volatile1_Main().new Task();
+        Thread t = new Thread(task);
+        t.start();
+
+        Sleeps.seconds(1);
+        LOGGER.info("stop task");
+        task.stop();
+    }
+
 }
