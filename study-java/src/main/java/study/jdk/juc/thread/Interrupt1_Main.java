@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 中断
+ * 演示：中断
  */
 public class Interrupt1_Main {
 

@@ -3,9 +3,8 @@ package study.jdk.juc.thread;
 import study.Sleeps;
 
 /**
+ * 演示：TIMED_WAITING和WAITING
  * jps jstack
- *
- * TIMED_WAITING和WAITING
  */
 public class State2_Main {
 

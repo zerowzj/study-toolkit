@@ -3,7 +3,7 @@ package study.jdk.juc.thread;
 import study.Sleeps;
 
 /**
- * BLOCKED
+ * 演示：线程状态BLOCKED
  */
 public class State4_Main {
 
@@ -11,14 +11,14 @@ public class State4_Main {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-                Sleeps.seconds(Integer.MAX_VALUE);
+                Sleeps.deep();
             }
         }, "t1");
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
             }
         }, "t2");
-
+        //t1持有锁，t2阻塞于该锁
         t1.start();
         t2.start();
     }

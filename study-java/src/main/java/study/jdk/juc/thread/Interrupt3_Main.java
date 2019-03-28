@@ -7,7 +7,7 @@ import study.Sleeps;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 中断阻塞方法
+ * 演示：中断阻塞方法
  */
 public class Interrupt3_Main {
 
