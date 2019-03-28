@@ -50,7 +50,7 @@ public class Condition1_Main {
         Thread t2 = new Thread(() -> {
             b();
         });
-        //t2无锁阻塞，t1持有锁执行完通知t2
+        //t2无锁阻塞，t1持有锁执行完通知t2，t2收到通知继续执行
         t2.start();
         Sleeps.seconds(1);
         t1.start();

@@ -18,11 +18,12 @@ public class Base64Test {
     @Test
     public void encodeBase64String_test() {
         try {
-            byte[] bytes = FileUtils.readFileToByteArray(new File("d:/query_dubbo.jmx"));
+            byte[] bytes = FileUtils.readFileToByteArray(new File("d:/111.txt"));
             String str = Base64.encodeBase64String(bytes);
-            System.out.println(str);
+            //System.out.println(str);
+            System.out.println(new String(Base64.decodeBase64(str)));
 
-            FileUtils.writeByteArrayToFile(new File("d:/ttt.jms"), Base64.decodeBase64(str.getBytes()));
+            //FileUtils.writeByteArrayToFile(new File("d:/ttt.jms"), Base64.decodeBase64(str.getBytes()));
 
         } catch (Exception ex) {
             ex.printStackTrace();
