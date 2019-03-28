@@ -38,7 +38,7 @@ public class Synchronized3_Main {
             b();
         });
 
-        //线程t1获取锁执行，t2阻塞；t1执行发生异常后释放锁，t2获取
+        //t1获取锁执行，t2阻塞；t1执行发生异常后释放锁，t2获取
         t1.start();
         Sleeps.seconds(1);
         t2.start();

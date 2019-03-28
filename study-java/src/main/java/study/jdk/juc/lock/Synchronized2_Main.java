@@ -29,7 +29,7 @@ public class Synchronized2_Main {
         Sleeps.seconds(1);
         t2.start();
 
-        //线程t1持有锁，t2阻塞于该锁，main中断t2
+        //t1持有锁，t2阻塞于该锁，main中断t2
         Sleeps.seconds(3);
         t2.interrupt();
     }
