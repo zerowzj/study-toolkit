@@ -35,7 +35,7 @@ public class Condition1_Main {
         try {
             LOGGER.info("i am method b()");
             condition.await();
-            LOGGER.info("b() exe");
+            LOGGER.info("method b() exe");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } finally {
@@ -50,10 +50,10 @@ public class Condition1_Main {
         Thread t2 = new Thread(() -> {
             b();
         });
-
-        t1.start();
-        Sleeps.seconds(1);
+        //t2无锁阻塞，t1持有锁执行完通知t2
         t2.start();
+        Sleeps.seconds(1);
+        t1.start();
     }
 
     public static void main(String[] args) {

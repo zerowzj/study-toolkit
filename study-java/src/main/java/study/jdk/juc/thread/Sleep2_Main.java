@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：wait()与sleep()区别，两者都释放cpu；前者释放锁，后者不释放锁
+ * 演示：
  */
 public class Sleep2_Main {
 
@@ -14,17 +14,9 @@ public class Sleep2_Main {
     public static void main(String[] args) {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
-            synchronized (lock) {
-                //不释放锁，t2无法获取锁阻塞于该锁
-                LOGGER.info("i am thread t1");
-                Sleeps.seconds(5);
-//                try {
-//                    //释放锁，t2获取锁并执行
-//                    lock.wait();
-//                } catch (InterruptedException ex) {
-//                    ex.printStackTrace();
-//                }
-            }
+            //t1并不持有锁
+            Sleeps.seconds(10);
+            LOGGER.info("i am thread t1");
         });
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
