@@ -13,7 +13,7 @@ public class Daemon1_Main {
 
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
-            while(true){
+            while (true) {
                 LOGGER.info("i am thread t, sleep 2s");
                 Sleeps.seconds(2);
             }
@@ -21,6 +21,7 @@ public class Daemon1_Main {
         t.setDaemon(true);
         t.start();
 
+        //t线程sleep 2s执行1次，main线程sleep 10s退出
         LOGGER.info("i am thread main, sleep 10s");
         Sleeps.seconds(10);
     }
