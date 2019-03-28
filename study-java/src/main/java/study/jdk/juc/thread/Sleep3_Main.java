@@ -7,9 +7,9 @@ import study.Sleeps;
 /**
  * 演示：
  */
-public class Sleep1_Main {
+public class Sleep3_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Sleep1_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Sleep3_Main.class);
 
     public static void main(String[] args) {
         Object lock = new Object();
