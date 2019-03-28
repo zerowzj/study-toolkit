@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：synchronized互斥性（同步、锁）
+ * 演示：synchronized访问互斥（资源同步、锁）
  */
 public class Synchronized1_Main {
 
