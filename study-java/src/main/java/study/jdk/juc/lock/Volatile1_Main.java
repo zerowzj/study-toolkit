@@ -26,7 +26,7 @@ public class Volatile1_Main {
 //                int b = 3;
 //                int c = a + b;
 //                m = c;
-                //加上任意一个输出语句或者sleep，死循环也会停止，不管running变量是否被加上了上volatile关键字
+                //输出语句或者sleep时，running是否被volatile修饰，死循环也会停止
                 Sleeps.seconds(1);
 //                LOGGER.info("i am print");
             }
