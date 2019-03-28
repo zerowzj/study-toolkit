@@ -2,8 +2,6 @@ package study.jdk.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import study.Randoms;
-import study.Sleeps;
 
 /**
  * 演示：循环体内捕获异常，循环继续
@@ -18,7 +16,7 @@ public class Exception_loop2_Main {
             try {
                 main.test();
             } catch (Exception ex) {
-                LOGGER.info("SSSSSSSSSS");
+                LOGGER.info("loop exception");
             }
         }
     }
