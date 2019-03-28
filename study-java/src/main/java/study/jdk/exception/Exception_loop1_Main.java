@@ -6,21 +6,26 @@ import study.Randoms;
 import study.Sleeps;
 
 /**
- * 演示：循环体内抛异常终止循环
+ * 演示：循环体内未捕获异常，终止循环
  */
 public class Exception_loop1_Main {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(Exception_loop1_Main.class);
 
+    void test() {
+        int random = Randoms.nextInt(10);
+        if (random == 6) {
+            LOGGER.info("random={}, throw exception", random);
+            throw new RuntimeException("");
+        }
+        LOGGER.info("random={}, sleep 2s", random);
+        Sleeps.seconds(2);
+    }
+
     public static void main(String[] args) {
+        Exception_loop1_Main main = new Exception_loop1_Main();
         for (; ; ) {
-            int random = Randoms.nextInt(10);
-            if (random == 6) {
-                LOGGER.info("random={}, throw exception", random);
-                throw new RuntimeException("");
-            }
-            LOGGER.info("random={}, sleep 2s", random);
-            Sleeps.seconds(2);
+            main.test();
         }
     }
 }

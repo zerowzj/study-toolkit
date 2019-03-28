@@ -6,22 +6,17 @@ import study.Randoms;
 import study.Sleeps;
 
 /**
- * 演示：
+ * 演示：循环体内捕获异常，循环继续
  */
 public class Exception_loop2_Main {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(Exception_loop2_Main.class);
 
     public static void main(String[] args) {
+        Exception_loop1_Main main = new Exception_loop1_Main();
         for (; ; ) {
             try {
-                int random = Randoms.nextInt(10);
-                if (random == 6) {
-                    LOGGER.info("random={}, throw exception", random);
-                    throw new RuntimeException("");
-                }
-                LOGGER.info("random={}, sleep 2s", random);
-                Sleeps.seconds(2);
+                main.test();
             } catch (Exception ex) {
                 LOGGER.info("SSSSSSSSSS");
             }
