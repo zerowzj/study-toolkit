@@ -1,59 +1,62 @@
 package study.jdk.juc.lock;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 演示：
+ */
 public class Condition1_Main {
 
-    private static int sum = 0;
+    public static final Logger LOGGER = LoggerFactory.getLogger(Condition1_Main.class);
 
-    private static Lock lock = new ReentrantLock();
+    private Lock lock = new ReentrantLock();
 
-    private static Condition condition = lock.newCondition();
+    private Condition condition = lock.newCondition();
 
-    private static volatile boolean running = true;
+    void a() {
+        lock.tryLock();
+        try {
+            LOGGER.info("i am method a()");
+            Sleeps.seconds(10);
+            condition.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    void b() {
+        lock.lock();
+        try {
+            LOGGER.info("i am method b()");
+            condition.await();
+            LOGGER.info("b() exe");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    void test() {
+        Thread t1 = new Thread(() -> {
+            a();
+        });
+        Thread t2 = new Thread(() -> {
+            b();
+        });
+
+        t1.start();
+        Sleeps.seconds(1);
+        t2.start();
+    }
 
     public static void main(String[] args) {
-        Thread t1 = new Thread(() -> {
-            lock.lock();
-            try {
-                while (running) {
-                    sum = sum + 100;
-                    Sleeps.milliseconds(500);
-                    System.out.println("==>" + sum);
-                    if (sum == 2000) {
-                        System.out.println("t1 signal start");
-                        condition.signal();
-                        System.out.println("t1 signal end");
-
-                        running = false;
-                    }
-                }
-            } finally {
-                lock.unlock();
-            }
-
-        });
-
-        Thread t2 = new Thread(() -> {
-            lock.lock();
-            try {
-                System.out.println("t2 await start");
-                condition.await();
-                System.out.println("t2 await end");
-                System.out.println("t2 sum= " + sum);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            } finally {
-                lock.unlock();
-            }
-        });
-
-        t2.start();
-        Sleeps.seconds(1);
-        t1.start();
+        new Condition1_Main().test();
     }
 }

@@ -16,12 +16,12 @@ public class Lock_lock1_Main {
 
     private Lock lock = new ReentrantLock();
 
-    public void test() {
+    void test() {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
                 LOGGER.info("i am thread t1");
-                Sleeps.seconds(5);
+                Sleeps.seconds(5); //sleep()不释放锁
             } finally {
                 lock.unlock();
             }
