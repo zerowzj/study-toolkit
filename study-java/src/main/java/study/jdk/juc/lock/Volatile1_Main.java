@@ -13,7 +13,7 @@ public class Volatile1_Main {
 
     class Task implements Runnable {
 
-        private volatile boolean running = true;
+        private boolean running = true;
 
         int m;
 
@@ -21,12 +21,13 @@ public class Volatile1_Main {
         public void run() {
             LOGGER.info("enter into task");
             while (running) {
-                int a = 2;
-                int b = 3;
-                int c = a + b;
-                m = c;
+                //
+//                int a = 2;
+//                int b = 3;
+//                int c = a + b;
+//                m = c;
                 //加上任意一个输出语句或者sleep，死循环也会停止，不管running变量是否被加上了上volatile关键字
-//                Sleeps.seconds(1);
+                Sleeps.seconds(1);
 //                LOGGER.info("i am print");
             }
             LOGGER.info("task is stopped");
