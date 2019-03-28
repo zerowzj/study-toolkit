@@ -34,6 +34,8 @@ public class Lock_lock1_Main {
                 lock.unlock();
             }
         });
+
+        //t1持有锁，t2阻塞于该锁
         t1.start();
         Sleeps.seconds(1);
         t2.start();

@@ -14,9 +14,8 @@ public class Lock_lockInterruptibly_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Lock_lockInterruptibly_Main.class);
 
-    private Lock lock = new ReentrantLock();
-
-    public void test() {
+    public static void main(String[] args) {
+        Lock lock = new ReentrantLock();
         Thread t1 = new Thread(() -> {
             try {
                 lock.lock();
@@ -29,25 +28,22 @@ public class Lock_lockInterruptibly_Main {
         Thread t2 = new Thread(() -> {
             try {
                 lock.lockInterruptibly();
-                LOGGER.info("i am thread t2");
             } catch (InterruptedException ex) {
-               LOGGER.info("i am interrupt");
+                //中断时的逻辑
+                LOGGER.info("i am interrupted");
             } finally {
-                LOGGER.info("code in finally");
+                LOGGER.info("======> code in finally");
                 lock.unlock();
             }
-            LOGGER.info("code after finally ");
+            LOGGER.info("======> code after finally ");
         });
+
+        //t1持有锁，t2阻塞于该锁
         t1.start();
         Sleeps.seconds(1);
         t2.start();
-
-        //main线程中断t2
+        //主线程中断t2，t2抛出InterruptedException
         Sleeps.seconds(3);
         t2.interrupt();
-    }
-
-    public static void main(String[] args) {
-        new Lock_lockInterruptibly_Main().test();
     }
 }

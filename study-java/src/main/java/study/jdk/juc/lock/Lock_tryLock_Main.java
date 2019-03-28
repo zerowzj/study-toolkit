@@ -14,9 +14,8 @@ public class Lock_tryLock_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Lock_tryLock_Main.class);
 
-    private Lock lock = new ReentrantLock();
-
-    void test() {
+    public static void main(String[] args) {
+        Lock lock = new ReentrantLock();
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
@@ -38,12 +37,9 @@ public class Lock_tryLock_Main {
             }
         });
 
+        //t1持有锁，t2非阻塞获取锁
         t1.start();
         Sleeps.seconds(1);
         t2.start();
-    }
-
-    public static void main(String[] args) {
-        new Lock_tryLock_Main().test();
     }
 }

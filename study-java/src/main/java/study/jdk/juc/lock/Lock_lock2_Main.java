@@ -14,9 +14,8 @@ public class Lock_lock2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Lock_lock2_Main.class);
 
-    private Lock lock = new ReentrantLock();
-
-    public void test() {
+    public static void main(String[] args) {
+        Lock lock = new ReentrantLock();
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
@@ -35,15 +34,12 @@ public class Lock_lock2_Main {
             }
         });
 
+        //t1持有锁，t2阻塞于该锁
         t1.start();
         Sleeps.seconds(1);
         t2.start();
-
+        //主线程中断t2，t2无响应
         Sleeps.seconds(3);
         t2.interrupt();
-    }
-
-    public static void main(String[] args) {
-        new Lock_lock2_Main().test();
     }
 }
