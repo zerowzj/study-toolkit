@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 演示：不可见
+ * 演示：volatile保证可见性，不保证原子性、顺序性
  */
 public class Volatile1_Main {
 
@@ -13,7 +13,7 @@ public class Volatile1_Main {
 
     class Task implements Runnable {
 
-        private boolean running = true;
+        private volatile boolean running = true;
 
         int m;
 
@@ -25,14 +25,15 @@ public class Volatile1_Main {
                 int b = 3;
                 int c = a + b;
                 m = c;
-                //TODO 加上任意一个输出语句或者sleep方法你会发现死循环也会停止，不管isRunning变量是否被加上了上volatile关键字
-                Sleeps.seconds(1);
+                //加上任意一个输出语句或者sleep，死循环也会停止，不管running变量是否被加上了上volatile关键字
+//                Sleeps.seconds(1);
 //                LOGGER.info("i am print");
             }
             LOGGER.info("task is stopped");
         }
 
         public void stop() {
+            LOGGER.info("stop task");
             running = false;
         }
     }
@@ -42,12 +43,12 @@ public class Volatile1_Main {
         Thread t = new Thread(task);
         t.start();
 
+        //t1，主线程stop
         Sleeps.seconds(1);
-        LOGGER.info("stop task");
         task.stop();
     }
 
     public static void main(String[] args) {
-
+        new Volatile1_Main().test();
     }
 }

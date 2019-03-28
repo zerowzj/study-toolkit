@@ -23,7 +23,6 @@ public class Volatile2_Main {
 
     class Task implements Runnable {
 
-        //TODO
         private volatile boolean running = true;
 
         int m;
