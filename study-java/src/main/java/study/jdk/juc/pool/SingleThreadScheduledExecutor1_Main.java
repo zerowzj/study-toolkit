@@ -14,7 +14,7 @@ public class SingleThreadScheduledExecutor1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadScheduledExecutor1_Main.class);
 
-    class Task implements Runnable {
+    private class Task implements Runnable {
         @Override
         public void run() {
             LOGGER.info("i am doing the task");
