@@ -22,12 +22,15 @@ public class FixedThreadPool_1_Main {
             int random = Randoms.nextInt(10);
             LOGGER.info("i am thread [{}], sleep {}s", Thread.currentThread().getName(), random);
             Sleeps.seconds(random);
-            LOGGER.info("thread [{}] sleep end", Thread.currentThread().getName());
+            LOGGER.info("thread [{}] sleep finish", Thread.currentThread().getName());
         };
         //线程池pool执行
         for (int i = 0; i < 5; i++) {
             pool.execute(task);
         }
+        //
+        LOGGER.info("i am thread main");
         pool.shutdown();
+        LOGGER.info("pool.shutdown()");
     }
 }

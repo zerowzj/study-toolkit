@@ -1,0 +1,26 @@
+package study.jdk.juc.lock;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import study.Sleeps;
+
+import java.util.concurrent.locks.LockSupport;
+
+public class LockSupport2_Main {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(LockSupport2_Main.class);
+
+    public static void main(String[] args) {
+
+        Thread t = new Thread(() -> {
+            LOGGER.info("i am t thread, begin park");
+            LockSupport.park();
+            LOGGER.info("i am t thread, begin unpark");
+        });
+        t.start();
+
+        Sleeps.seconds(5);
+        LOGGER.info("main thread begin unpark");
+        LockSupport.unpark(t);
+    }
+}
