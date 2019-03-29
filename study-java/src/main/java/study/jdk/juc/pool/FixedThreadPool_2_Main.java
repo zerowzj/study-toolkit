@@ -37,7 +37,7 @@ public class FixedThreadPool_2_Main {
 
         @Override
         public Thread newThread(Runnable r) {
-            return new Thread(r, "poo-thread-" + tnum.getAndIncrement());
+            return new Thread(r, "pool-thread-" + tnum.getAndIncrement());
         }
     }
 
