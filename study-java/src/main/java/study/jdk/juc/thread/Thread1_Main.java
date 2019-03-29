@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
 /**
- * 异步
+ * 演示：多任务
  */
 public class Thread1_Main {
 
