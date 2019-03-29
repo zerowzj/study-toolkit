@@ -16,12 +16,15 @@ public class SingleThreadExecutor_Main {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newSingleThreadExecutor();
-        for (; ; ) {
+        for (int i = 0; i < 6; i++) {
             pool.execute(() -> {
                 LOGGER.info("sleep 2s");
                 Sleeps.seconds(2);
             });
         }
-//        pool.shutdown();
+        //main线程结束，程序依然运行一会儿
+        LOGGER.info("i am main thread");
+        pool.shutdown();
+        LOGGER.info("main thread finish");
     }
 }
