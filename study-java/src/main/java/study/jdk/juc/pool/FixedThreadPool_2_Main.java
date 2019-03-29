@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 演示：
@@ -23,17 +24,25 @@ public class FixedThreadPool_2_Main {
 
         @Override
         public void run() {
-//            LOGGER.info();
+            LOGGER.info("ssssssssssss");
+        }
+    }
+
+    /**
+     * 线程工厂
+     */
+    private class MyThreadFactory implements ThreadFactory {
+
+        private AtomicInteger tnum = new AtomicInteger(1);
+
+        @Override
+        public Thread newThread(Runnable r) {
+            return new Thread(r, "Thread===" + tnum.getAndIncrement());
         }
     }
 
     private void test() {
-        ExecutorService pool = Executors.newFixedThreadPool(3, new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return null;
-            }
-        });
+        ExecutorService pool = Executors.newFixedThreadPool(3, new MyThreadFactory());
         Task task = new Task();
         //线程池pool执行
         for (int i = 0; i < 5; i++) {
