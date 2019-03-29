@@ -17,7 +17,7 @@ public class FixedThreadPool_1_Main {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(3);
-        //执行单元（任务）
+        //执行单元
         Runnable task = () -> {
             int random = Randoms.nextInt(10);
             LOGGER.info("i am thread [{}], sleep {}s", Thread.currentThread().getName(), random);

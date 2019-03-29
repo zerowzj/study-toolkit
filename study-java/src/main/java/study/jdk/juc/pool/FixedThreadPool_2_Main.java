@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * 演示：
@@ -16,7 +17,7 @@ public class FixedThreadPool_2_Main {
     /**
      * 线程执行单元
      */
-    class Task implements Runnable {
+    private class Task implements Runnable {
 
         private int no;
 
@@ -26,8 +27,13 @@ public class FixedThreadPool_2_Main {
         }
     }
 
-    void test() {
-        ExecutorService pool = Executors.newFixedThreadPool(3);
+    private void test() {
+        ExecutorService pool = Executors.newFixedThreadPool(3, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                return null;
+            }
+        });
         Task task = new Task();
         //线程池pool执行
         for (int i = 0; i < 5; i++) {
