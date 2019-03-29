@@ -21,7 +21,7 @@ public class Daemon1_Main {
         t.setDaemon(true);
         t.start();
 
-        //t线程sleep 2s执行1次，main线程sleep 10s退出
+        //线程t sleep 2s执行1次，main线程sleep 10s退出后，t退出
         LOGGER.info("i am thread main, sleep 10s");
         Sleeps.seconds(10);
     }

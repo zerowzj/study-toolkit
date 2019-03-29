@@ -14,9 +14,8 @@ public class Exception_loop1_Main {
 
     void test() {
         int random = Randoms.nextInt(10);
-        if (random == 6) {
-            LOGGER.info("random={}, throw exception", random);
-            throw new RuntimeException("");
+        if (random == 0) {
+            throw new RuntimeException("random is 0");
         }
         LOGGER.info("random={}, sleep 2s", random);
         Sleeps.seconds(2);
