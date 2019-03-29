@@ -1,4 +1,4 @@
-package study.jdk.juc.lock;
+package study.jdk.juc.syc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
