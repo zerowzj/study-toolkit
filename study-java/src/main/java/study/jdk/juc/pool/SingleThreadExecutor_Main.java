@@ -16,12 +16,12 @@ public class SingleThreadExecutor_Main {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newSingleThreadExecutor();
-        for (int i = 0; i < 5; i++) {
+        for (;;) {
             pool.execute(() -> {
                 LOGGER.info("sleep 2s");
                 Sleeps.seconds(2);
             });
         }
-        pool.shutdown();
+//        pool.shutdown();
     }
 }

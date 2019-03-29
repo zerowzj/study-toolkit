@@ -37,12 +37,12 @@ public class FixedThreadPool_2_Main {
 
         @Override
         public Thread newThread(Runnable r) {
-            return new Thread(r, "Thread===" + tnum.getAndIncrement());
+            return new Thread(r, "poo-thread-" + tnum.getAndIncrement());
         }
     }
 
     private void test() {
-        ExecutorService pool = Executors.newFixedThreadPool(3, new MyThreadFactory());
+        ExecutorService pool = Executors.newFixedThreadPool(3);
         Task task = new Task();
         //线程池pool执行
         for (int i = 0; i < 5; i++) {
