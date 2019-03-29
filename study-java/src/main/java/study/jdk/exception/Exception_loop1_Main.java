@@ -12,6 +12,11 @@ public class Exception_loop1_Main {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(Exception_loop1_Main.class);
 
+    void test2(){
+        Sleeps.seconds(2);
+        test();
+    }
+
     void test() {
         int random = Randoms.nextInt(10);
         if (random == 0) {
