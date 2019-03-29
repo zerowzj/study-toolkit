@@ -25,7 +25,7 @@ public class LockSupport2_Main {
         Sleeps.seconds(5);
         LOGGER.info("main thread begin unpark");
 
-         //线程t获取许可证，同时唤醒阻塞中的t
+         //线程t获取许可证，同时唤醒阻塞
         LockSupport.unpark(t);
     }
 }
