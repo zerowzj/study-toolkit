@@ -6,6 +6,9 @@ import study.Sleeps;
 
 import java.util.concurrent.locks.LockSupport;
 
+/**
+ * 演示：
+ */
 public class LockSupport2_Main {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(LockSupport2_Main.class);
@@ -21,6 +24,8 @@ public class LockSupport2_Main {
 
         Sleeps.seconds(5);
         LOGGER.info("main thread begin unpark");
+
+         //线程t获取许可证，同时唤醒阻塞中的t
         LockSupport.unpark(t);
     }
 }
