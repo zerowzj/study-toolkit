@@ -4,8 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,13 +21,23 @@ public class SingleThreadScheduledExecutor2_Main {
 
         @Override
         public String call() throws Exception {
-            return null;
+            return "sssssssssssss";
         }
     }
 
     private void test() {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
-        LOGGER.info("");
+        LOGGER.info("schedule start");
+        ScheduledFuture<String> future = schedule.schedule(new Task(), 5, TimeUnit.SECONDS);
+        try {
+            //阻塞调用线程
+            String data = future.get();
+            LOGGER.info("data={}", data);
+        } catch (InterruptedException ex) {
+        } catch (ExecutionException ex) {
+        }
+        schedule.shutdown();
+        LOGGER.info("schedule shutdown");
     }
 
     public static void main(String[] args) {
