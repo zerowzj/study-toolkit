@@ -54,7 +54,7 @@ public class ThreadPoolExecutor1_Main {
                 LOGGER.info("task[{}] end", no);
             });
         }
-        LOGGER.info("shutdowning...");
+        LOGGER.info("shutdown...");
         pool.shutdown();
         LOGGER.info("main thread end");
     }
