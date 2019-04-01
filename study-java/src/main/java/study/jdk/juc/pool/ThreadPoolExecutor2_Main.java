@@ -47,15 +47,18 @@ public class ThreadPoolExecutor2_Main {
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             LOGGER.info("task[{}] rejected", ((Task) r).getTaskNo());
+            executor.getActiveCount();
+            executor.getCompletedTaskCount();
+            executor.getTaskCount();
         }
     }
 
     private void test() {
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
-        pool.setRejectedExecutionHandler(new MyRejectedExecutionHandler());
+        RejectedExecutionHandler handler = new MyRejectedExecutionHandler();
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), handler);
         for (int i = 0; i < 8; i++) {
-            int index = i + 1;
-            pool.execute(new Task(String.valueOf(index)));
+            int no = i + 1;
+            pool.execute(new Task(String.valueOf(no)));
         }
         pool.shutdown();
     }
