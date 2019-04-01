@@ -17,13 +17,36 @@ public class ThreadPoolExecutor2_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolExecutor2_Main.class);
 
     /**
+     * 任务
+     */
+    private class Task implements Runnable {
+
+        private String taskNo;
+
+        public Task(String taskNo) {
+            this.taskNo = taskNo;
+        }
+
+        @Override
+        public void run() {
+            LOGGER.info("i am task[{}], sleep 10s", taskNo);
+            Sleeps.seconds(10);
+            LOGGER.info("task[{}] end", taskNo);
+        }
+
+        public String getTaskNo() {
+            return this.taskNo;
+        }
+    }
+
+    /**
      * 拒绝处理器
      */
     private class MyRejectedExecutionHandler implements RejectedExecutionHandler {
 
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            LOGGER.info("sssssssss");
+            LOGGER.info("task[{}] rejected", ((Task) r).getTaskNo());
         }
     }
 
@@ -32,11 +55,7 @@ public class ThreadPoolExecutor2_Main {
         pool.setRejectedExecutionHandler(new MyRejectedExecutionHandler());
         for (int i = 0; i < 8; i++) {
             int index = i + 1;
-            pool.execute(() -> {
-                LOGGER.info("i am task[{}], sleep 10s", index);
-                Sleeps.seconds(10);
-                LOGGER.info("task[{}] end", index);
-            });
+            pool.execute(new Task(String.valueOf(index)));
         }
         pool.shutdown();
     }
