@@ -31,11 +31,17 @@ public class ThreadPoolExecutor1_Main {
         //阻塞任务队列
         BlockingQueue workQueue = new ArrayBlockingQueue<>(1);
         //线程创建工厂
-        ThreadFactory factory = (r) -> {
-            Thread t = new Thread(r);
-            return t;
+        ThreadFactory factory = new ThreadFactory() {
+
+            private int num;
+
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread t = new Thread(r);
+                return t;
+            }
         };
-        //当提交任务数超过maxmumPoolSize+workQueue之和时，任务会交给RejectedExecutionHandler来处理
+        //当提交任务数超过maximumPoolSize + workQueue之和时，任务会交给RejectedExecutionHandler来处理
         RejectedExecutionHandler handler = (r, executor) -> {
             LOGGER.info("discard");
         };
@@ -54,7 +60,7 @@ public class ThreadPoolExecutor1_Main {
                 LOGGER.info("task[{}] end", no);
             });
         }
-        LOGGER.info("shutdown...");
+        LOGGER.info("shutdown......");
         pool.shutdown();
         LOGGER.info("main thread end");
     }

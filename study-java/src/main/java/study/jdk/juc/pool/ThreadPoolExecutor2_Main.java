@@ -55,7 +55,10 @@ public class ThreadPoolExecutor2_Main {
 
     private void test() {
         RejectedExecutionHandler handler = new MyRejectedExecutionHandler();
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), handler);
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(1),
+                handler);
         for (int i = 0; i < 8; i++) {
             int no = i + 1;
             pool.execute(new Task(String.valueOf(no)));
