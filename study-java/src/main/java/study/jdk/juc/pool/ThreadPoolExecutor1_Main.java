@@ -22,10 +22,12 @@ public class ThreadPoolExecutor1_Main {
         int corePoolSize = 5;
         //最大线程数大小
         int maximumPoolSize = 5;
-        //存活时间
+        //线程池中超过corePoolSize数目的空闲线程最大存活时间
         int keepAliveTime = 0;
-        //工作队列
+        //阻塞任务队列
         BlockingQueue workQueue = new ArrayBlockingQueue<>(1);
+        //线程工厂
+        //当提交任务数超过maxmumPoolSize+workQueue之和时，任务会交给RejectedExecutionHandler来处理
 
         ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize,
                 maximumPoolSize,
