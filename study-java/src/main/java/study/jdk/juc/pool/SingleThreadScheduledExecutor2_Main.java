@@ -34,6 +34,7 @@ public class SingleThreadScheduledExecutor2_Main {
             String data = future.get();
             LOGGER.info("data={}", data);
         } catch (InterruptedException ex) {
+            ex.printStackTrace();
         } catch (ExecutionException ex) {
         }
         schedule.shutdown();
