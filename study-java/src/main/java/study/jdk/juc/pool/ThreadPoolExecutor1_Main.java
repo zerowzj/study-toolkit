@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：线程池执行器用法
+ * 演示：线程池执行器基本用法
  */
 public class ThreadPoolExecutor1_Main {
 
