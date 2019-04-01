@@ -16,6 +16,14 @@ public class ThreadPoolExecutor2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolExecutor2_Main.class);
 
+    public static final int TASK_NUM = 5;
+
+    public static final int CORE_POOL_SIZE = 2;
+
+    public static final int MAX_POOL_SIZE = 2;
+
+    public static final int QUEUE_SIZE = 1;
+
     /**
      * 任务
      */
@@ -56,11 +64,11 @@ public class ThreadPoolExecutor2_Main {
 
     private void test() {
         RejectedExecutionHandler handler = new MyRejectedExecutionHandler();
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0,
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 0,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(1),
+                new ArrayBlockingQueue<>(QUEUE_SIZE),
                 handler);
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < TASK_NUM; i++) {
             int no = i + 1;
             pool.execute(new Task(String.valueOf(no)));
         }
