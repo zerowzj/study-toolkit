@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：
+ * 演示：基本用法
  */
 public class ThreadPoolExecutor1_Main {
 
@@ -22,10 +22,11 @@ public class ThreadPoolExecutor1_Main {
         int corePoolSize = 5;
         //最大线程数大小
         int maximumPoolSize = 5;
-        //
+        //存活时间
         int keepAliveTime = 0;
-        //
-        BlockingQueue workQueue = new ArrayBlockingQueue<>(5);
+        //工作队列
+        BlockingQueue workQueue = new ArrayBlockingQueue<>(1);
+
         ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize,
                 maximumPoolSize,
                 keepAliveTime, TimeUnit.SECONDS,
