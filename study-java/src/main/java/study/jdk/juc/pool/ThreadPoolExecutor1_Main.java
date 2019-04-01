@@ -29,7 +29,7 @@ public class ThreadPoolExecutor1_Main {
         //线程池中超过corePoolSize数目的空闲线程最大存活时间
         int keepAliveTime = 0;
         //阻塞任务队列
-        BlockingQueue workQueue = new ArrayBlockingQueue<>(1);
+        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(1);
         //线程创建工厂
         ThreadFactory factory = new ThreadFactory() {
 
