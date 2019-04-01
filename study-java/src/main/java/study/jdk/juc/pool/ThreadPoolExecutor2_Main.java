@@ -46,10 +46,11 @@ public class ThreadPoolExecutor2_Main {
 
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-            LOGGER.info("task[{}] rejected", ((Task) r).getTaskNo());
-            executor.getActiveCount();
-            executor.getCompletedTaskCount();
-            executor.getTaskCount();
+            Task task = (Task) r;
+            LOGGER.info("==========task[{}] rejected!==========", task.getTaskNo());
+            LOGGER.info("ActiveCount=[{}], TaskCount=[{}], CompletedTaskCount=[{}]", executor.getActiveCount(), executor.getTaskCount(), executor.getCompletedTaskCount());
+            LOGGER.info("CorePoolSize=[{}], MaximumPoolSize=[{}], PoolSize=[{}], LargestPoolSize=[{}]", executor.getCorePoolSize(), executor.getMaximumPoolSize(), executor.getPoolSize(), executor.getLargestPoolSize());
+            LOGGER.info("======================================");
         }
     }
 
@@ -63,7 +64,9 @@ public class ThreadPoolExecutor2_Main {
             int no = i + 1;
             pool.execute(new Task(String.valueOf(no)));
         }
+        LOGGER.info("shutdown......");
         pool.shutdown();
+        LOGGER.info("main thread end");
     }
 
     public static void main(String[] args) {

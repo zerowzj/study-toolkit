@@ -19,7 +19,7 @@ public class ThreadPoolExecutor1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolExecutor1_Main.class);
 
-    public static final int T_NUM = 5;
+    public static final int TASK_NUM = 5;
 
     public static void main(String[] args) {
         //核心线程池数量
@@ -51,7 +51,7 @@ public class ThreadPoolExecutor1_Main {
                 workQueue,
                 //factory,
                 handler);
-        for (int i = 0; i < T_NUM; i++) {
+        for (int i = 0; i < TASK_NUM; i++) {
             int no = i + 1;
             pool.execute(() -> {
                 int random = Randoms.nextInt(10);
