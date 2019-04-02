@@ -47,10 +47,7 @@ public class ThreadPoolExecutor2_Main {
         }
     }
 
-    /**
-     * 拒绝处理器
-     */
-    private class MyRejectedExecutionHandler implements RejectedExecutionHandler {
+    private class MyPolicy implements RejectedExecutionHandler {
 
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
@@ -63,7 +60,7 @@ public class ThreadPoolExecutor2_Main {
     }
 
     private void test() {
-        RejectedExecutionHandler handler = new MyRejectedExecutionHandler();
+        RejectedExecutionHandler handler = new MyPolicy();
         ThreadPoolExecutor pool = new ThreadPoolExecutor(CORE_POOL_SIZE,
                 MAX_POOL_SIZE,
                 0, TimeUnit.SECONDS,
