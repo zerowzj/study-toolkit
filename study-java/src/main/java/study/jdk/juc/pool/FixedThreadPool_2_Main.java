@@ -61,9 +61,7 @@ public class FixedThreadPool_2_Main {
 
     private void test() {
         ExecutorService pool = Executors.newFixedThreadPool(WINDOW_NUM);
-        //叫号机
         Machine machine = new Machine();
-        //线程池pool执行
         for (int i = 0; i < WINDOW_NUM; i++) {
             pool.execute(new Window(String.valueOf(i + 1), machine));
         }
