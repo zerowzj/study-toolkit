@@ -14,7 +14,6 @@ public class FixedThreadPool_2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool_2_Main.class);
 
-    //一个窗口一个线程
     private static final int WINDOW_NUM = 3;
 
     /**
@@ -30,7 +29,7 @@ public class FixedThreadPool_2_Main {
     }
 
     /**
-     * 窗口，一个窗口一个线程，窗口是业务执行单元，线程是并发单元
+     * 窗口，，一个窗口一个线程，窗口是业务执行单元，线程是并发单元
      */
     private class Window implements Runnable {
 

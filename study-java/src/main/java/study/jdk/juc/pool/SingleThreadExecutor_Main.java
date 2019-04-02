@@ -14,9 +14,11 @@ public class SingleThreadExecutor_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadExecutor_Main.class);
 
+    private static final int TASK_NUM = 5;
+
     public static void main(String[] args) {
         ExecutorService pool = Executors.newSingleThreadExecutor();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < TASK_NUM; i++) {
             int no = i + 1;
             pool.execute(() -> {
                 LOGGER.info("i am task[{}], sleep 2s", no);

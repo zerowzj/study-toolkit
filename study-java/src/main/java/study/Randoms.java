@@ -8,4 +8,9 @@ public class Randoms {
         ThreadLocalRandom random = ThreadLocalRandom.current();
         return random.nextInt(bound);
     }
+
+    public static long nextLong(int bound) {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        return random.nextLong(bound);
+    }
 }

@@ -44,11 +44,11 @@ public class FixedThreadPool_1_Main {
                 int random = Randoms.nextInt(10);
                 LOGGER.info("i am task [{}], sleep {}s", no, random);
                 Sleeps.seconds(random);
-                LOGGER.info("task [{}] finish", no);
+                LOGGER.info("task [{}] end", no);
             });
         }
         //
-        LOGGER.info("i am thread main");
+        LOGGER.info("i am main thread ");
         pool.shutdown();
         LOGGER.info("main thread end");
     }

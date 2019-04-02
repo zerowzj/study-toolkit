@@ -36,9 +36,12 @@ public class SingleThreadScheduledExecutor2_Main {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {
+            ex.printStackTrace();
         }
-        schedule.shutdown();
         LOGGER.info("schedule shutdown");
+        schedule.shutdown();
+        LOGGER.info("main thread end");
+
     }
 
     public static void main(String[] args) {

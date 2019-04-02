@@ -2,6 +2,8 @@ package study.jdk.juc.pool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import study.Randoms;
+import study.Sleeps;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -14,42 +16,23 @@ public class SingleThreadScheduledExecutor1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadScheduledExecutor1_Main.class);
 
-    private class Task implements Runnable {
-        @Override
-        public void run() {
-            LOGGER.info("i am doing the task");
-        }
-    }
-
-    private void test() {
-        ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
-        LOGGER.info("schedule start");
-        /**
-         * command
-         * delay
-         * unit
-         */
-        //
-//        schedule.schedule(new Task(), 5, TimeUnit.SECONDS);
-//        schedule.shutdown();
-//        LOGGER.info("schedule shutdown");
-        /**
-         * command
-         * initialDelay
-         * period
-         * unit
-         */
-//        schedule.scheduleAtFixedRate(new Task(), 0, 5, TimeUnit.SECONDS);
-        /**
-         * command
-         * initialDelay
-         * delay
-         * unit
-         */
-        schedule.scheduleWithFixedDelay(new Task(), 0, 5, TimeUnit.SECONDS);
-    }
+    private static final int TASK_NUM = 5;
 
     public static void main(String[] args) {
-        new SingleThreadScheduledExecutor1_Main().test();
+        ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
+        LOGGER.info("schedule start");
+
+        for (int i = 0; i < TASK_NUM; i++) {
+            int no = i + 1;
+            long delay = Randoms.nextLong(10);
+            schedule.schedule(() -> {
+                LOGGER.info("i am task[{}], delay {}s", no, delay);
+                Sleeps.seconds(delay);
+                LOGGER.info("task[{}] end", no);
+            }, delay, TimeUnit.SECONDS);
+        }
+        LOGGER.info("schedule shutdown");
+        schedule.shutdown();
+        LOGGER.info("main thread end");
     }
 }
