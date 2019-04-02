@@ -2,62 +2,71 @@ package study.jdk.juc.pool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import study.Sleeps;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 演示：
+ * 演示：线程池共享对象
  */
 public class FixedThreadPool_2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool_2_Main.class);
 
-    private Set set = new HashSet();
+    //一个窗口一个线程
+    private static final int WINDOW_NUM = 3;
 
     /**
-     * 线程执行单元
+     * 叫号机
      */
-    private class Task implements Runnable {
+    private class Caller {
 
         private int no;
 
+        public int getNo() {
+            return ++no;
+        }
+    }
+
+    /**
+     * 窗口
+     */
+    private class Window implements Runnable {
+
+        private String winNo;
+
+        private Caller caller;
+
+        public Window(String winNo, Caller caller) {
+            this.winNo = winNo;
+            this.caller = caller;
+        }
+
         @Override
         public void run() {
-            for (int i = 0; i < 5; i++) {
-                int n = ++no;
-                set.add(n);
-                LOGGER.info("当前号：{}", n);
+            while (true) {
+                int no;
+                //同步
+//                synchronized (caller) {
+//                    no = caller.getNo();
+//                }
+                //临界区
+                no = caller.getNo();
+                LOGGER.info("请{}号到==>{}号窗口", no, winNo);
+                Sleeps.seconds(3);
             }
         }
     }
 
-    /**
-     * 线程工厂
-     */
-    private class MyThreadFactory implements ThreadFactory {
-
-        private AtomicInteger tnum = new AtomicInteger(1);
-
-        @Override
-        public Thread newThread(Runnable r) {
-            Thread t = new Thread(r, "pool-thread-" + tnum.getAndIncrement());
-            return t;
-        }
-    }
-
     private void test() {
-        ExecutorService pool = Executors.newFixedThreadPool(3, new MyThreadFactory());
-        Task task = new Task();
+        ExecutorService pool = Executors.newFixedThreadPool(WINDOW_NUM);
+        //叫号机
+        Caller caller = new Caller();
         //线程池pool执行
-        for (int i = 0; i < 3; i++) {
-            pool.execute(task);
+        for (int i = 0; i < WINDOW_NUM; i++) {
+            pool.execute(new Window(String.valueOf(i + 1), caller));
         }
-        LOGGER.info("===> {}", set.size());
         pool.shutdown();
     }
 
