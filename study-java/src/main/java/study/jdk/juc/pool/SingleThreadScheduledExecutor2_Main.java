@@ -11,7 +11,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：单线程调度执行器
+ * 演示：有返回值的单线程调度执行器
  */
 public class SingleThreadScheduledExecutor2_Main {
 

@@ -8,13 +8,13 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：单线程调度执行器
+ * 演示：固定延迟
  */
 public class SingleThreadScheduledExecutor3_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadScheduledExecutor3_Main.class);
 
-    private void test() {
+    public static void main(String[] args) {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
         //
         long initialDelay = 2;
@@ -27,9 +27,5 @@ public class SingleThreadScheduledExecutor3_Main {
         //
 //        schedule.shutdown();
         LOGGER.info("main thread end");
-    }
-
-    public static void main(String[] args) {
-        new SingleThreadScheduledExecutor3_Main().test();
     }
 }

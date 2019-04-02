@@ -22,6 +22,8 @@ public class ScheduledThreadPool_Main {
         for (int i = 0; i < TASK_NUM; i++) {
             int no = i+1;
 
+//            schedule.schedule(()->{}, 0, delay)
+
         }
         schedule.shutdown();
         LOGGER.info("schedule shutdown");

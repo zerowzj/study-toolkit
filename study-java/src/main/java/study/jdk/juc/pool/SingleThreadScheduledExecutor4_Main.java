@@ -25,8 +25,8 @@ public class SingleThreadScheduledExecutor4_Main {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
         LOGGER.info("schedule start");
         long initialDelay = 0;
-        long delay = 5;
-        schedule.scheduleAtFixedRate(new Task(), initialDelay, delay, TimeUnit.SECONDS);
+        long period = 5;
+        schedule.scheduleAtFixedRate(new Task(), initialDelay, period, TimeUnit.SECONDS);
     }
 
     public static void main(String[] args) {
