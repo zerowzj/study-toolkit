@@ -20,7 +20,7 @@ public class FixedThreadPool_2_Main {
     /**
      * 叫号机
      */
-    private class Caller {
+    private class Machine {
 
         private int no;
 
@@ -30,17 +30,17 @@ public class FixedThreadPool_2_Main {
     }
 
     /**
-     * 窗口
+     * 窗口，一个窗口一个线程，窗口是业务执行单元，线程是并发单元
      */
     private class Window implements Runnable {
 
         private String winNo;
 
-        private Caller caller;
+        private Machine machine;
 
-        public Window(String winNo, Caller caller) {
+        public Window(String winNo, Machine machine) {
             this.winNo = winNo;
-            this.caller = caller;
+            this.machine = machine;
         }
 
         @Override
@@ -48,12 +48,12 @@ public class FixedThreadPool_2_Main {
             while (true) {
                 int no;
                 //同步
-//                synchronized (caller) {
-//                    no = caller.getNo();
-//                }
+                synchronized (machine) {
+                    no = machine.getNo();
+                }
                 //临界区
-                no = caller.getNo();
-                LOGGER.info("请{}号到==>{}号窗口", no, winNo);
+//                no = machine.getNo();
+                LOGGER.info("请 {} 号到[{}号窗口]", no, winNo);
                 Sleeps.seconds(3);
             }
         }
@@ -62,10 +62,10 @@ public class FixedThreadPool_2_Main {
     private void test() {
         ExecutorService pool = Executors.newFixedThreadPool(WINDOW_NUM);
         //叫号机
-        Caller caller = new Caller();
+        Machine machine = new Machine();
         //线程池pool执行
         for (int i = 0; i < WINDOW_NUM; i++) {
-            pool.execute(new Window(String.valueOf(i + 1), caller));
+            pool.execute(new Window(String.valueOf(i + 1), machine));
         }
         pool.shutdown();
     }
