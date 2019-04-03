@@ -11,7 +11,8 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 演示：固定线程池
+ * 演示：
+ * （1）固定线程池
  */
 public class FixedThreadPool_1_Main {
 
@@ -47,10 +48,7 @@ public class FixedThreadPool_1_Main {
                 LOGGER.info("task [{}] end", no);
             });
         }
-        //
-        LOGGER.info("i am main thread ");
         pool.shutdown();
-        LOGGER.info("main thread end");
     }
 
     public static void main(String[] args) {
