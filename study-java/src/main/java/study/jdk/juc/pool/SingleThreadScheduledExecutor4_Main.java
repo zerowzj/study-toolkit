@@ -8,7 +8,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：单线程调度执行器
+ * 演示：scheduleAtFixedRate()，以上一个任务开始的时间计时，period过去后，
+ * 检测上一个任务是否执行完毕，如果上一个任务执行完毕，则当前任务立即执行，
+ * 如果上一个任务没有执行完毕，则需要等上一个任务执行完毕后立即执行
  */
 public class SingleThreadScheduledExecutor4_Main {
 
@@ -24,9 +26,12 @@ public class SingleThreadScheduledExecutor4_Main {
     private void test() {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
         LOGGER.info("schedule start");
+
         long initialDelay = 0;
         long period = 5;
-        schedule.scheduleAtFixedRate(new Task(), initialDelay, period, TimeUnit.SECONDS);
+        schedule.scheduleAtFixedRate(new Task(),
+                initialDelay,
+                period, TimeUnit.SECONDS);
     }
 
     public static void main(String[] args) {

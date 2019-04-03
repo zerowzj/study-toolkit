@@ -20,8 +20,8 @@ public class SingleThreadScheduledExecutor1_Main {
 
     public static void main(String[] args) {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
-        LOGGER.info("schedule start");
 
+        LOGGER.info("schedule start");
         for (int i = 0; i < TASK_NUM; i++) {
             int no = i + 1;
             long delay = Randoms.nextLong(10);
@@ -31,6 +31,7 @@ public class SingleThreadScheduledExecutor1_Main {
                 LOGGER.info("task[{}] end", no);
             }, delay, TimeUnit.SECONDS);
         }
+
         LOGGER.info("schedule shutdown");
         schedule.shutdown();
         LOGGER.info("main thread end");

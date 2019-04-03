@@ -17,7 +17,7 @@ public class SingleThreadScheduledExecutor2_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadScheduledExecutor2_Main.class);
 
-    class Task implements Callable<String> {
+    private class Task implements Callable<String> {
 
         @Override
         public String call() throws Exception {
@@ -27,8 +27,12 @@ public class SingleThreadScheduledExecutor2_Main {
 
     private void test() {
         ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
+
         LOGGER.info("schedule start");
-        ScheduledFuture<String> future = schedule.schedule(new Task(), 5, TimeUnit.SECONDS);
+        long delay = 5;
+        ScheduledFuture<String> future = schedule.schedule(new Task(),
+                delay,
+                TimeUnit.SECONDS);
         try {
             //阻塞调用线程
             String data = future.get();
@@ -38,6 +42,7 @@ public class SingleThreadScheduledExecutor2_Main {
         } catch (ExecutionException ex) {
             ex.printStackTrace();
         }
+
         LOGGER.info("schedule shutdown");
         schedule.shutdown();
         LOGGER.info("main thread end");

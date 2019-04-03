@@ -7,11 +7,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 /**
- *
+ * 演示：
  */
-public class ScheduledThreadPool_Main {
+public class ScheduledThreadPool1_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduledThreadPool_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduledThreadPool1_Main.class);
 
     private static final int THREAD_NUM = 3;
 
