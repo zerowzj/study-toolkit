@@ -15,12 +15,12 @@ public class ScheduledThreadPool2_Main {
 
     private static final int THREAD_NUM = 3;
 
-    private static final int TASK_NUM = 3;
+    private static final int TASK_NUM = 2;
 
     public static void main(String[] args) {
         ScheduledExecutorService schedule = Executors.newScheduledThreadPool(THREAD_NUM);
         for (int i = 0; i < TASK_NUM; i++) {
-        
+
         }
         schedule.shutdown();
         LOGGER.info("schedule shutdown");
