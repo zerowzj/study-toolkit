@@ -11,8 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 演示：
- * （1）一次性任务
- * （2）某个任务执行异常不影响其他任务执行
+ * （1）单线程调度执行器
+ * （3）一次性任务
+ * （4）某个任务执行异常不影响其他任务执行
  */
 public class SingleThreadScheduledExecutor1_Main {
 

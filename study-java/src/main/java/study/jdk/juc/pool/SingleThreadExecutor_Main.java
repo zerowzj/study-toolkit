@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
  * 演示：
  * （1）单线程执行器
  * （2）主线程结束，线程池线程可能还在运行
- * （3）线程和任务是2个概念，数量关系为M:N
+ * （3）线程和任务是2个概念，数量关系为M:N（线程数=任务数，线程数>任务数，线程数<任务数）
  * （4）线程池是个重量级的对象，尽量全局共享，使用完关闭
  */
 public class SingleThreadExecutor_Main {

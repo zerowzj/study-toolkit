@@ -8,7 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 演示：线程池共享对象
+ * 演示：
+ * （1）线程池共享对象
  */
 public class FixedThreadPool_2_Main {
 
@@ -29,7 +30,7 @@ public class FixedThreadPool_2_Main {
     }
 
     /**
-     * 窗口，，一个窗口一个线程，窗口是业务执行单元，线程是并发单元
+     * 窗口，一个窗口一个线程，窗口是业务执行单元，线程是并发单元
      */
     private class Window implements Runnable {
 
