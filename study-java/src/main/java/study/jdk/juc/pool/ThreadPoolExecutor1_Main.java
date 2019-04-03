@@ -13,7 +13,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：线程池执行器基本用法
+ * 演示：
+ * （1）
+ * （2）
+ * （3）
  */
 public class ThreadPoolExecutor1_Main {
 
@@ -51,16 +54,16 @@ public class ThreadPoolExecutor1_Main {
                 workQueue,
                 //factory,
                 handler);
+        LOGGER.info("i am main thread");
         for (int i = 0; i < TASK_NUM; i++) {
-            int no = i + 1;
+            int taskNo = i + 1;
             pool.execute(() -> {
                 int random = Randoms.nextInt(10);
-                LOGGER.info("i am task[{}], sleep {}s", no, random);
+                LOGGER.info("i am task[{}], sleep {}s", taskNo, random);
                 Sleeps.seconds(random);
-                LOGGER.info("task[{}] end", no);
+                LOGGER.info("task[{}] end", taskNo);
             });
         }
-        LOGGER.info("shutdown......");
         pool.shutdown();
         LOGGER.info("main thread end");
     }
