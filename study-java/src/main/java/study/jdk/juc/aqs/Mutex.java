@@ -10,11 +10,13 @@ public class Mutex {
 
     class Sync extends AbstractQueuedSynchronizer {
 
+        //是否处于占用状态
         @Override
         protected boolean isHeldExclusively() {
             return getState() == 1;
         }
 
+        //当状态为0的时候获取锁，CAS操作成功，则state状态为1，
         @Override
         protected boolean tryAcquire(int acquires) {
             if (compareAndSetState(0, 1)) {
@@ -24,6 +26,7 @@ public class Mutex {
             return false;
         }
 
+        //释放锁，将同步状态置为0
         @Override
         protected boolean tryRelease(int acquires) {
             if (getState() == 0)

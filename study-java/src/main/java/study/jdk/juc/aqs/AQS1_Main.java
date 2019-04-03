@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -17,7 +19,7 @@ public class AQS1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AQS1_Main.class);
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(3);
         Mutex lock = new Mutex();
         for (int i = 0; i < 3; i++) {
@@ -34,5 +36,14 @@ public class AQS1_Main {
         }
         pool.shutdown();
         LOGGER.info("main thread end");
+    }
+
+    public static void main(String[] args) {
+//        Date time1 = new Date(1554275230749L);
+//        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.sss").format(time1));
+
+        Date time2 = new Date(1554275230936L);
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.sss").format(time2));
+
     }
 }
