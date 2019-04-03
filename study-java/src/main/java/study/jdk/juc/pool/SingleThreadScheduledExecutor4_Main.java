@@ -18,25 +18,16 @@ public class SingleThreadScheduledExecutor4_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SingleThreadScheduledExecutor4_Main.class);
 
-    private class Task implements Runnable {
-        @Override
-        public void run() {
-            LOGGER.info("i am doing the task");
-        }
-    }
-
-    private void test() {
-        ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
-        LOGGER.info("schedule start");
-
-        long initialDelay = 0;
-        long period = 5;
-        schedule.scheduleAtFixedRate(new Task(),
-                initialDelay,
-                period, TimeUnit.SECONDS);
-    }
 
     public static void main(String[] args) {
-        new SingleThreadScheduledExecutor4_Main().test();
+        ScheduledExecutorService schedule = Executors.newSingleThreadScheduledExecutor();
+        LOGGER.info("schedule start");
+        long initialDelay = 0;
+        long period = 5;
+        schedule.scheduleAtFixedRate(() -> {
+
+                },
+                initialDelay,
+                period, TimeUnit.SECONDS);
     }
 }
