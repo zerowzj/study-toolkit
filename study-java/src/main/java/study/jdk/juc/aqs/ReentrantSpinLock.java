@@ -29,6 +29,12 @@ public class ReentrantSpinLock {
 
     public void unlock() {
         Thread current = Thread.currentThread();
-        cas.compareAndSet(current, null);
+        if (current == cas.get()) {
+            if (count > 0) { //如果大于0，表示当前线程多次获取了该锁，释放锁通过count减一来模拟
+                count--;
+            } else { //如果count==0，可以将锁释放，这样就能保证获取锁的次数与释放锁的次数是一致的了
+                cas.compareAndSet(current, null);
+            }
+        }
     }
 }

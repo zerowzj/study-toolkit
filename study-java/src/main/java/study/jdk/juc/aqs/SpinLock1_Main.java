@@ -6,6 +6,7 @@ import study.Sleeps;
 
 /**
  * 演示：
+ * （1）
  */
 public class SpinLock1_Main {
 

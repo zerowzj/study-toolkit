@@ -26,6 +26,6 @@ public class SpinLock {
 
     public void unlock() {
         Thread current = Thread.currentThread();
-        owner.compareAndSet(current, null);
+        LOGGER.info("unlock= {}", owner.compareAndSet(current, null));
     }
 }
