@@ -21,14 +21,13 @@ public class AtomicInteger1_Main {
 
     private static int MAX_VALUE = 1000;
 
-
-    private void d(AtomicInteger value) {
+    private void a(AtomicInteger value) {
         while (value.get() < MAX_VALUE) {
             value.incrementAndGet();
         }
     }
 
-    private void dd(AtomicInteger value) {
+    private void aa(AtomicInteger value) {
         synchronized (this) {
             while (value.get() < MAX_VALUE) {
                 value.incrementAndGet();
@@ -36,7 +35,7 @@ public class AtomicInteger1_Main {
         }
     }
 
-    private void ddd(AtomicInteger value) {
+    private void b(AtomicInteger value) {
         for (int i = 0; i < MAX_VALUE; i++) {
             value.incrementAndGet();
         }
@@ -48,7 +47,7 @@ public class AtomicInteger1_Main {
         CountDownLatch latch = new CountDownLatch(THREAD_NUM);
         for (int i = 0; i < THREAD_NUM; i++) {
             pool.execute(() -> {
-                dd(value);
+                a(value);
                 latch.countDown();
             });
         }
