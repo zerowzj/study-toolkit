@@ -19,7 +19,7 @@ public class CAS2_Main {
 
     private AtomicInteger casI = new AtomicInteger(0);
 
-    private int syncI = 0;
+
 
     private void test_cas() {
         ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUM);
@@ -37,6 +37,5 @@ public class CAS2_Main {
 
 
     public static void main(String[] args) {
-//        new CAS2_Main().test();
     }
 }

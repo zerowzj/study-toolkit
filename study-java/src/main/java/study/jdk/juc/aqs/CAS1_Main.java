@@ -10,12 +10,15 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 演示：
- * （1）
+ * （1）自定义简单自旋锁
  */
 public class CAS1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CAS1_Main.class);
 
+    /*
+     * 自旋锁
+     */
     private class SpinLock {
 
         private AtomicReference<Thread> owner = new AtomicReference<>();
@@ -23,6 +26,7 @@ public class CAS1_Main {
         public void lock() {
             Thread current = Thread.currentThread();
             while (!owner.compareAndSet(null, current)) {
+
             }
         }
 

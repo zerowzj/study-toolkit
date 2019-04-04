@@ -2,36 +2,67 @@ package study.jdk.juc.atomic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import study.Sleeps;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 演示：
- * （1）
+ * （1）incrementAndGet()方法线程安全
+ * （2）get()方法线程不安全
  */
 public class AtomicInteger1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AtomicInteger1_Main.class);
 
-    private static int THREAD_NUM = 100;
+    private static int THREAD_NUM = 1000;
 
     private static int MAX_VALUE = 1000;
 
-    public static void main(String[] args) {
+
+    private void d(AtomicInteger value) {
+        while (value.get() < MAX_VALUE) {
+            value.incrementAndGet();
+        }
+    }
+
+    private void dd(AtomicInteger value) {
+        synchronized (this) {
+            while (value.get() < MAX_VALUE) {
+                value.incrementAndGet();
+            }
+        }
+    }
+
+    private void ddd(AtomicInteger value) {
+        for (int i = 0; i < MAX_VALUE; i++) {
+            value.incrementAndGet();
+        }
+    }
+
+    private void test() {
         ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUM);
         AtomicInteger value = new AtomicInteger(0);
+        CountDownLatch latch = new CountDownLatch(THREAD_NUM);
         for (int i = 0; i < THREAD_NUM; i++) {
             pool.execute(() -> {
-                while (value.get() < MAX_VALUE) {
-                    value.incrementAndGet();
-                }
+                dd(value);
+                latch.countDown();
             });
         }
-        Sleeps.seconds(8);
+        try {
+            latch.await();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         LOGGER.info("value= {}", value.get());
         pool.shutdown();
+
+    }
+
+    public static void main(String[] args) {
+        new AtomicInteger1_Main().test();
     }
 }
