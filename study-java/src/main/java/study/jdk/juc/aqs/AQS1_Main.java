@@ -18,7 +18,7 @@ public class AQS1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AQS1_Main.class);
 
-    public class Mutex {
+    private class Mutex {
 
         /**
          * 自定义同步器
@@ -94,6 +94,6 @@ public class AQS1_Main {
     }
 
     public static void main(String[] args) {
-
+        new AQS1_Main().test();
     }
 }
