@@ -22,7 +22,7 @@ public class AtomicInteger1_Main {
     private static int MAX_VALUE = 1000;
 
     private void a(AtomicInteger value) {
-        while (value.get() < MAX_VALUE) {
+        while (value.get() < MAX_VALUE) { //该行有并发问题
             value.incrementAndGet();
         }
     }

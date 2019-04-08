@@ -18,7 +18,8 @@ public class SpinLock1_Main {
             lock.lock();
             try {
                 LOGGER.info("i am t1 thread");
-                Sleeps.seconds(10);
+                Sleeps.seconds(5);
+                LOGGER.info("t1 thread end");
             } finally {
                 lock.unlock();
             }
@@ -28,6 +29,7 @@ public class SpinLock1_Main {
             try {
                 LOGGER.info("i am t2 thread");
                 Sleeps.seconds(5);
+                LOGGER.info("t2 thread end");
             } finally {
                 lock.unlock();
             }
@@ -36,6 +38,7 @@ public class SpinLock1_Main {
             lock.lock();
             try {
                 LOGGER.info("i am t3 thread");
+                LOGGER.info("t3 thread end");
             } finally {
                 lock.unlock();
             }

@@ -22,7 +22,7 @@ public class ReentrantSpinLock {
             count++;
             return;
         }
-        //如果没获取到锁，则通过CAS自旋
+
         while (!cas.compareAndSet(null, current)) {
         }
     }
