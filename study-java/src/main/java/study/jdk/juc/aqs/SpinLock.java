@@ -17,9 +17,8 @@ public class SpinLock {
 
     public void lock() {
         Thread current = Thread.currentThread();
-
-     /*   boolean lock = cas.compareAndSet(null, current);
-        while(!lock)*/
+       /* boolean lock = cas.compareAndSet(null, current);
+        while (!lock) */
         //如果没获取到锁，则通过CAS自旋；使用上面两行代码为什么不行？
         while (!cas.compareAndSet(null, current)) {
             LOGGER.info("thread[{}] is spinning", current.getName());
@@ -31,6 +30,6 @@ public class SpinLock {
     public void unlock() {
         Thread current = Thread.currentThread();
         boolean unlock = cas.compareAndSet(current, null);
-        LOGGER.info("thread[{}] release the lock, {}", current.getName(), unlock);
+        LOGGER.info("thread[{}] release the lock[{}]", current.getName(), unlock);
     }
 }
