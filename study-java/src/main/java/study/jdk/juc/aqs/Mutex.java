@@ -4,9 +4,6 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 public class Mutex {
 
-    /**
-     * 自定义同步器
-     */
     class Sync extends AbstractQueuedSynchronizer {
 
         //是否处于占用状态
