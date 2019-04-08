@@ -1,6 +1,8 @@
 package study.jdk.juc.atomic;
 
-public class AtomicInteger2_Main {
+import java.util.concurrent.atomic.AtomicReference;
+
+public class AtomicReference_Main {
 
     private void test(){
 
