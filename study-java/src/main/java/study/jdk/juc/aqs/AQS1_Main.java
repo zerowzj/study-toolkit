@@ -18,6 +18,9 @@ public class AQS1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AQS1_Main.class);
 
+    /**
+     *
+     */
     private class Mutex {
 
         /**
