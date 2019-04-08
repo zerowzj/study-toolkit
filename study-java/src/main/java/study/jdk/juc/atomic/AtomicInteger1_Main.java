@@ -17,12 +17,13 @@ public class AtomicInteger1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AtomicInteger1_Main.class);
 
-    private static int THREAD_NUM = 1000;
+    private static int THREAD_NUM = 2;
 
-    private static int MAX_VALUE = 1000;
+    private static int MAX_VALUE = 100;
 
     private void a(AtomicInteger value) {
-        while (value.get() < MAX_VALUE) { //该行有并发问题
+        while (get(value) < MAX_VALUE) { //该行有并发问题
+            LOGGER.info("thread[{}] get value={}", Thread.currentThread().getName(), value.get());
             value.incrementAndGet();
         }
     }
@@ -30,9 +31,14 @@ public class AtomicInteger1_Main {
     private void aa(AtomicInteger value) {
         synchronized (this) {
             while (value.get() < MAX_VALUE) {
+                LOGGER.info("thread[{}] get value={}", Thread.currentThread().getName(), value.get());
                 value.incrementAndGet();
             }
         }
+    }
+
+    private synchronized int get(AtomicInteger value) {
+        return value.get();
     }
 
     private void b(AtomicInteger value) {
@@ -47,7 +53,7 @@ public class AtomicInteger1_Main {
         CountDownLatch latch = new CountDownLatch(THREAD_NUM);
         for (int i = 0; i < THREAD_NUM; i++) {
             pool.execute(() -> {
-                a(value);
+                aa(value);
                 latch.countDown();
             });
         }
