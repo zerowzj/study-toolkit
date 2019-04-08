@@ -13,11 +13,11 @@ public class SpinLock {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpinLock.class);
 
-    private AtomicReference<Thread> owner = new AtomicReference<>();
+    private AtomicReference<Thread> cas = new AtomicReference<>();
 
     public void lock() {
         Thread current = Thread.currentThread();
-        while (!owner.compareAndSet(null, current)) {
+        while (!cas.compareAndSet(null, current)) {
             LOGGER.info("thread[{}] is spinning", current.getName());
             Sleeps.seconds(1);
         }
@@ -26,6 +26,6 @@ public class SpinLock {
 
     public void unlock() {
         Thread current = Thread.currentThread();
-        LOGGER.info("unlock= {}", owner.compareAndSet(current, null));
+        LOGGER.info("unlock= {}", cas.compareAndSet(current, null));
     }
 }
