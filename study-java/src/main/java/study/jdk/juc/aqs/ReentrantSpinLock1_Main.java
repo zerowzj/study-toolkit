@@ -3,6 +3,10 @@ package study.jdk.juc.aqs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 演示：
+ * （1）锁可重入
+ */
 public class ReentrantSpinLock1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ReentrantSpinLock1_Main.class);
