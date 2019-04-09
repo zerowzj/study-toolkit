@@ -55,9 +55,7 @@ public class ArrayList_Test {
      */
     @Test
     public void test_set() {
-        ArrayList<String> data = new ArrayList<>();
-        data.add("a");
-        data.add("b");
+        List<String> data = Arrays.asList("a", "b");
         //
         data.set(0, "c");
         LOGGER.info("{}", data);
@@ -90,6 +88,9 @@ public class ArrayList_Test {
         LOGGER.info(data.get(2));
     }
 
+    /**
+     * 演示：获取元素位置
+     */
     @Test
     public void test_indexOf() {
         List<String> data = Arrays.asList("a", "b", "c", "d");
@@ -103,12 +104,7 @@ public class ArrayList_Test {
      */
     @Test
     public void contains_test() {
-        List<String> lt = new ArrayList<>();
-        System.out.println(lt.contains("a"));
-
-        ArrayList<User> userLt = new ArrayList();
-        userLt.add(new User("1"));
-        userLt.add(new User("2"));
+        List<User> userLt = Arrays.asList(new User("1"), new User("2"));
 
         LOGGER.info("{}", userLt.contains(new User("1")));
         LOGGER.info("{}", userLt.containsAll(Arrays.asList(new User("1"), new User("6"))));
