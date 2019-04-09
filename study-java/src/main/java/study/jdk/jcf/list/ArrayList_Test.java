@@ -51,6 +51,15 @@ public class ArrayList_Test {
     }
 
     /**
+     * 演示：元素大小
+     */
+    @Test
+    public void test_size() {
+        List<String> dataLt = Arrays.asList("a", "b", "c");
+        LOGGER.info("{}", dataLt.size());
+    }
+
+    /**
      * 演示：替换元素
      */
     @Test
@@ -109,4 +118,5 @@ public class ArrayList_Test {
         LOGGER.info("{}", userLt.contains(new User("1")));
         LOGGER.info("{}", userLt.containsAll(Arrays.asList(new User("1"), new User("6"))));
     }
+
 }
