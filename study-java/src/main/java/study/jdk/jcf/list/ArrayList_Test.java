@@ -17,7 +17,7 @@ public class ArrayList_Test {
      * 演示：自增自减操作
      */
     @Test
-    public void test_incr_decr() {
+    public void test_incrAnddecr() {
         int a = 0;
         LOGGER.info("    a={}", a);
         LOGGER.info("(++a)={}", (++a));
@@ -34,19 +34,20 @@ public class ArrayList_Test {
      */
     @Test
     public void test_add() {
-        List<String> lt = new ArrayList<>();
-        lt.add("a");
-        lt.add("b");
-        LOGGER.info("{}", lt);
-
-        lt.add(0, "1");
-        LOGGER.info("{}", lt);
-
-        lt.addAll(Arrays.asList("2", "3"));
-        LOGGER.info("{}", lt);
-
-        lt.addAll(0, Arrays.asList("4", "5"));
-        LOGGER.info("{}", lt);
+        ArrayList<String> data = new ArrayList<>();
+        //列表尾部插入元素
+        data.add("a");
+        data.add("b");
+        LOGGER.info("{}", data);
+        //列表尾部插入元素列表
+        data.addAll(Arrays.asList("2", "3"));
+        LOGGER.info("{}", data);
+        //指定位置插入指定元素，原来元素后移
+        data.add(0, "aa");
+        LOGGER.info("{}", data);
+        //指定位置插入指定元素列表，原来元素后移
+        data.addAll(1, Arrays.asList("4", "5"));
+        LOGGER.info("{}", data);
     }
 
     /**
@@ -54,8 +55,8 @@ public class ArrayList_Test {
      */
     @Test
     public void get_test() {
-        ArrayList<String> lt = new ArrayList<>();
-        System.out.println(lt.get(3));
+        List<String> data = Arrays.asList("a", "b", "c");
+        LOGGER.info(data.get(2));
     }
 
     /**
