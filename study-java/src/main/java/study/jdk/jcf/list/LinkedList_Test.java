@@ -12,7 +12,7 @@ public class LinkedList_Test {
 
     @Test
     public void test_add() {
-        LinkedList<String> dataLt = new LinkedList();
+        LinkedList<String> dataLt = new LinkedList<>();
         //linkLast()
         //（1）获取last节点
         //（2）生成新节点
