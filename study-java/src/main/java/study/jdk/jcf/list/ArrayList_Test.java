@@ -67,10 +67,11 @@ public class ArrayList_Test {
         List<String> lt = new ArrayList<>();
         System.out.println(lt.contains("a"));
 
-        ArrayList<User> ult = new ArrayList();
-        ult.add(new User("1"));
-        ult.add(new User("2"));
+        ArrayList<User> userLt = new ArrayList();
+        userLt.add(new User("1"));
+        userLt.add(new User("2"));
 
-        System.out.println(ult.contains(new User("1")));
+        LOGGER.info("{}", userLt.contains(new User("1")));
+        LOGGER.info("{}", userLt.containsAll(Arrays.asList(new User("1"), new User("6"))));
     }
 }
