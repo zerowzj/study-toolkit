@@ -20,6 +20,8 @@ public class LinkedList_Test {
         dataLt.add("a");
         dataLt.add("b");
 
+        LOGGER.info("{}", dataLt);
+
         dataLt.add(0, "a");
     }
 
