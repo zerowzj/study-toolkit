@@ -17,7 +17,7 @@ public class ArrayList_Test {
      * 演示：自增自减操作
      */
     @Test
-    public void test_incrAnddecr() {
+    public void test_incr_decr() {
         int a = 0;
         LOGGER.info("    a={}", a);
         LOGGER.info("(++a)={}", (++a));
@@ -121,7 +121,6 @@ public class ArrayList_Test {
         LOGGER.info("data2={}", Arrays.toString(data2));
     }
 
-
     /**
      * 演示：包含元素
      */
@@ -132,5 +131,4 @@ public class ArrayList_Test {
         LOGGER.info("{}", userLt.contains(new User("1")));
         LOGGER.info("{}", userLt.containsAll(Arrays.asList(new User("1"), new User("6"))));
     }
-
 }
