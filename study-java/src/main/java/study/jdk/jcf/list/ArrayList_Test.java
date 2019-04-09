@@ -34,20 +34,20 @@ public class ArrayList_Test {
      */
     @Test
     public void test_add() {
-        ArrayList<String> data = new ArrayList<>();
+        ArrayList<String> dataLt = new ArrayList<>();
         //列表尾部插入元素
-        data.add("a");
-        data.add("b");
-        LOGGER.info("{}", data);
+        dataLt.add("a");
+        dataLt.add("b");
+        LOGGER.info("{}", dataLt);
         //列表尾部插入元素列表
-        data.addAll(Arrays.asList("2", "3"));
-        LOGGER.info("{}", data);
+        dataLt.addAll(Arrays.asList("2", "3"));
+        LOGGER.info("{}", dataLt);
         //指定位置插入指定元素，原来元素后移
-        data.add(0, "aa");
-        LOGGER.info("{}", data);
+        dataLt.add(0, "aa");
+        LOGGER.info("{}", dataLt);
         //指定位置插入指定元素列表，原来元素后移
-        data.addAll(1, Arrays.asList("4", "5"));
-        LOGGER.info("{}", data);
+        dataLt.addAll(1, Arrays.asList("4", "5"));
+        LOGGER.info("{}", dataLt);
     }
 
     /**
@@ -64,10 +64,10 @@ public class ArrayList_Test {
      */
     @Test
     public void test_set() {
-        List<String> data = Arrays.asList("a", "b");
+        List<String> dataLt = Arrays.asList("a", "b");
         //
-        data.set(0, "c");
-        LOGGER.info("{}", data);
+        dataLt.set(0, "c");
+        LOGGER.info("{}", dataLt);
     }
 
     /**
@@ -76,16 +76,16 @@ public class ArrayList_Test {
      */
     @Test
     public void test_remove() {
-        List<String> data = Arrays.asList("a", "b", "c", "d");
+        List<String> dataLt = Arrays.asList("a", "b", "c", "d");
         //
-        data.remove("a");
-        LOGGER.info("data={}", data);
+        dataLt.remove("a");
+        LOGGER.info("data={}", dataLt);
         //
-        data.remove(0);
-        LOGGER.info("data={}", data);
+        dataLt.remove(0);
+        LOGGER.info("data={}", dataLt);
         //
-        data.removeAll(Arrays.asList("c", "b"));
-        LOGGER.info("data={}", data);
+        dataLt.removeAll(Arrays.asList("c", "b"));
+        LOGGER.info("data={}", dataLt);
     }
 
     /**
@@ -93,8 +93,8 @@ public class ArrayList_Test {
      */
     @Test
     public void get_test() {
-        List<String> data = Arrays.asList("a", "b", "c");
-        LOGGER.info(data.get(2));
+        List<String> dataLt = Arrays.asList("a", "b", "c");
+        LOGGER.info(dataLt.get(2));
     }
 
     /**
@@ -102,9 +102,23 @@ public class ArrayList_Test {
      */
     @Test
     public void test_indexOf() {
-        List<String> data = Arrays.asList("a", "b", "c", "d");
-        LOGGER.info("{}", data.indexOf("b"));
-        LOGGER.info("{}", data.indexOf("e"));
+        List<String> dataLt = Arrays.asList("a", "b", "c", "d");
+        LOGGER.info("{}", dataLt.indexOf("b"));
+        LOGGER.info("{}", dataLt.indexOf("e"));
+    }
+
+    /**
+     * 演示：转换数组
+     */
+    @Test
+    public void test_toArray() {
+        List<String> dataLt = Arrays.asList("a", "b", "c", "d");
+        //
+        Object[] data1 = dataLt.toArray();
+        LOGGER.info("data1={}", Arrays.toString(data1));
+        //
+        String[] data2 = dataLt.toArray(new String[]{});
+        LOGGER.info("data2={}", Arrays.toString(data2));
     }
 
 

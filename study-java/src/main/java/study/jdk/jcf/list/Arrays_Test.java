@@ -28,6 +28,7 @@ public class Arrays_Test {
         String[] original = new String[]{"a", "b", "c", "d"};
         int newLength = 9;
         String[] data = Arrays.copyOf(original, newLength);
+        LOGGER.info("length={}", data.length);
         LOGGER.info("data={}", Arrays.asList(data));
     }
 }
