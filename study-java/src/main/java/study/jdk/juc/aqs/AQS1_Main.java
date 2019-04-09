@@ -8,10 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 演示：Unsafe
+ * 演示：
  * （1）
- * （2）
- * （3）
  */
 public class AQS1_Main {
 
