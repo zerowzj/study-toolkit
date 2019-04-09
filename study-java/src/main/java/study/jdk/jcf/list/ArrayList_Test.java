@@ -17,16 +17,16 @@ public class ArrayList_Test {
      * 演示：自增自减操作
      */
     @Test
-    public void test_incre_decre() {
+    public void test_incr_decr() {
         int a = 0;
-        LOGGER.info("    a=", a);
-        LOGGER.info("(++a)=" + (++a));
-        LOGGER.info("    a=" + a);
+        LOGGER.info("    a={}", a);
+        LOGGER.info("(++a)={}", (++a));
+        LOGGER.info("    a={}", a);
 
         int b = 0;
-        LOGGER.info("    b=" + b);
-        LOGGER.info("(b++)=" + (b++));
-        LOGGER.info("    b=" + b);
+        LOGGER.info("    b={}", b);
+        LOGGER.info("(b++)={}", (b++));
+        LOGGER.info("    b={}", b);
     }
 
     /**
