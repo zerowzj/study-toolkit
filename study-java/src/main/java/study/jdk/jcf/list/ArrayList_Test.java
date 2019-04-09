@@ -51,6 +51,37 @@ public class ArrayList_Test {
     }
 
     /**
+     * 演示：替换元素
+     */
+    @Test
+    public void test_set() {
+        ArrayList<String> data = new ArrayList<>();
+        data.add("a");
+        data.add("b");
+        //
+        data.set(0, "c");
+        LOGGER.info("{}", data);
+    }
+
+    /**
+     * 演示：移除元素
+     * （1）使用equal()判断
+     */
+    @Test
+    public void test_remove() {
+        List<String> data = Arrays.asList("a", "b", "c", "d");
+        //
+        data.remove("a");
+        LOGGER.info("data={}", data);
+        //
+        data.remove(0);
+        LOGGER.info("data={}", data);
+        //
+        data.removeAll(Arrays.asList("c", "b"));
+        LOGGER.info("data={}", data);
+    }
+
+    /**
      * 演示：获取元素
      */
     @Test
@@ -58,6 +89,14 @@ public class ArrayList_Test {
         List<String> data = Arrays.asList("a", "b", "c");
         LOGGER.info(data.get(2));
     }
+
+    @Test
+    public void test_indexOf() {
+        List<String> data = Arrays.asList("a", "b", "c", "d");
+        LOGGER.info("{}", data.indexOf("b"));
+        LOGGER.info("{}", data.indexOf("e"));
+    }
+
 
     /**
      * 演示：包含元素
