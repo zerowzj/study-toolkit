@@ -10,6 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 演示：
+ * （1）AQS
  */
 public class Condition1_Main {
 
@@ -19,41 +20,35 @@ public class Condition1_Main {
 
     private Condition condition = lock.newCondition();
 
-    void a() {
-        lock.tryLock();
-        try {
-            LOGGER.info("i am method a()");
-            Sleeps.seconds(10);
-            condition.signal();
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    void b() {
-        lock.lock();
-        try {
-            LOGGER.info("i am method b()");
-            condition.await();
-            LOGGER.info("method b() exe");
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        } finally {
-            lock.unlock();
-        }
-    }
-
-    void test() {
+    private void test() {
         Thread t1 = new Thread(() -> {
-            a();
+            lock.lock();
+            try {
+                LOGGER.info("i am t1 thread");
+                condition.await();
+                LOGGER.info("t1 thread end");
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
         });
+
         Thread t2 = new Thread(() -> {
-            b();
+            lock.tryLock();
+            try {
+                LOGGER.info("i am t2 thread");
+                Sleeps.seconds(5);
+                condition.signal();
+            } finally {
+                lock.unlock();
+            }
         });
-        //t2无锁阻塞，t1持有锁执行完通知t2，t2收到通知继续执行
-        t2.start();
-        Sleeps.seconds(1);
+
+        //t1释放锁阻塞，t2持有锁执行完通知t1，t1收到通知继续执行
         t1.start();
+        Sleeps.seconds(1);
+        t2.start();
     }
 
     public static void main(String[] args) {
