@@ -10,7 +10,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 演示：
- * （1）AQS
+ * （1）Condition的await()和signal()用法
+ * （2）先获取await()和signal()相关Condition的锁
  */
 public class Condition1_Main {
 
@@ -45,7 +46,7 @@ public class Condition1_Main {
             }
         });
 
-        //t1释放锁阻塞，t2持有锁执行完通知t1，t1收到通知继续执行
+        //t1阻塞并释放锁，t2持有锁执行完通知t1，t1收到通知继续执行
         t1.start();
         Sleeps.seconds(1);
         t2.start();
