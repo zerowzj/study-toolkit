@@ -18,4 +18,8 @@ public class ListsTest {
         String[] strs = new String[]{"", ""};
         Lists.asList("", strs);
     }
+
+    public void _test(){
+
+    }
 }
