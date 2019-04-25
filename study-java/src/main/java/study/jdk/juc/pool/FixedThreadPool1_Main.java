@@ -11,12 +11,12 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 演示：
- * （1）固定线程池
+ * 演示：固定线程池
+ * （1）任务异步执行
  */
-public class FixedThreadPool_1_Main {
+public class FixedThreadPool1_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool_1_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool1_Main.class);
 
     private static final int THREAD_NUM = 3;
 
@@ -52,6 +52,6 @@ public class FixedThreadPool_1_Main {
     }
 
     public static void main(String[] args) {
-        new FixedThreadPool_1_Main().test();
+        new FixedThreadPool1_Main().test();
     }
 }

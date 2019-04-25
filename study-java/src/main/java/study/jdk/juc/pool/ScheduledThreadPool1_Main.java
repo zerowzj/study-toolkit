@@ -9,9 +9,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 演示：
- * （1）调度线程池
- * （2）多个线程多个任务，任务可以并发执行
+ * 演示：调度线程池
+ * （1）多个线程多个任务，任务可以并发执行
  */
 public class ScheduledThreadPool1_Main {
 

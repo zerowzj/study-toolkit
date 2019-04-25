@@ -11,9 +11,9 @@ import java.util.concurrent.Executors;
  * 演示：
  * （1）线程池共享对象
  */
-public class FixedThreadPool_2_Main {
+public class FixedThreadPool2_Main {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool_2_Main.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool2_Main.class);
 
     private static final int WINDOW_NUM = 3;
 
@@ -69,6 +69,6 @@ public class FixedThreadPool_2_Main {
     }
 
     public static void main(String[] args) {
-        new FixedThreadPool_2_Main().test();
+        new FixedThreadPool2_Main().test();
     }
 }
