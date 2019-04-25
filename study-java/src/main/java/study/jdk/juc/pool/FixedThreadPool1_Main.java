@@ -12,7 +12,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 演示：固定线程池
- * （1）任务异步执行
+ * （1）任务异步执行，无临界区
+ * （2）ThreadFactory用法
  */
 public class FixedThreadPool1_Main {
 
@@ -27,11 +28,11 @@ public class FixedThreadPool1_Main {
      */
     private class MyThreadFactory implements ThreadFactory {
 
-        private AtomicInteger tnum = new AtomicInteger(1);
+        private AtomicInteger tNo = new AtomicInteger(1);
 
         @Override
         public Thread newThread(Runnable r) {
-            Thread t = new Thread(r, "pool-thread-" + tnum.getAndIncrement());
+            Thread t = new Thread(r, "pool-thread-" + tNo.getAndIncrement());
             return t;
         }
     }

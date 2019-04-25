@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 演示：
- * （1）线程池共享对象
+ * （1）线程有共享对象
  */
 public class FixedThreadPool2_Main {
 

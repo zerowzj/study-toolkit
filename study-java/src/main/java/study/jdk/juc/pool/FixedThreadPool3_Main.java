@@ -44,7 +44,7 @@ public class FixedThreadPool3_Main {
         public Result call() throws Exception {
             LOGGER.info("task_no={}, sleep {}s", taskNo, value);
             Sleeps.seconds(value);
-            Result result = new Result(taskNo, value);
+            Result result = new Result(taskNo, value * 1000);
             return result;
         }
     }
@@ -78,8 +78,8 @@ public class FixedThreadPool3_Main {
         List<Future<Result>> futureLt = new ArrayList<>();
         for (int i = 0; i < TASK_NUM; i++) {
             String taskNo = String.valueOf(i + 1);
-            int random = Randoms.nextInt(9);
-            futureLt.add(POOL.submit(new Task(taskNo, random)));
+            int value = Randoms.nextInt(9);
+            futureLt.add(POOL.submit(new Task(taskNo, value)));
         }
         //阻塞主线程获取结果
         for (Future<Result> future : futureLt) {
