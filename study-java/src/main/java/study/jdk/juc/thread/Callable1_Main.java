@@ -4,10 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import study.Sleeps;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
- * 演示：
+ * 演示：返回值的异步执行
  */
 public class Callable1_Main {
 
@@ -33,7 +34,7 @@ public class Callable1_Main {
         try {
             Integer sum = task1.get() + task2.get();
             LOGGER.info("sum= {}, cost time= {}ms", sum, (System.currentTimeMillis() - now));
-        } catch (Exception ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         LOGGER.info("i am thread main");
