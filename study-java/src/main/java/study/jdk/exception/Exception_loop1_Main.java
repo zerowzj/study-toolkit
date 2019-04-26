@@ -12,19 +12,14 @@ public class Exception_loop1_Main {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(Exception_loop1_Main.class);
 
-    void test() {
-        int random = Randoms.nextInt(10);
-        if (random == 0) {
-            throw new RuntimeException("random is 0");
-        }
-        LOGGER.info("random={}, sleep 2s", random);
-        Sleeps.seconds(2);
-    }
-
     public static void main(String[] args) {
-        Exception_loop1_Main main = new Exception_loop1_Main();
         for (; ; ) {
-            main.test();
+            int random = Randoms.nextInt(10);
+            if (random == 0) {
+                throw new RuntimeException("random is 0");
+            }
+            LOGGER.info("random={}, sleep 2s", random);
+            Sleeps.seconds(2);
         }
     }
 }
