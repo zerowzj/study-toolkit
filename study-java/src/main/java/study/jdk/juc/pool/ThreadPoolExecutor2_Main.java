@@ -18,12 +18,6 @@ public class ThreadPoolExecutor2_Main {
 
     private static final int TASK_NUM = 5;
 
-    private static final int CORE_POOL_SIZE = 2;
-
-    private static final int MAX_POOL_SIZE = 2;
-
-    private static final int QUEUE_SIZE = 1;
-
     /**
      * 任务
      */
@@ -47,30 +41,34 @@ public class ThreadPoolExecutor2_Main {
         }
     }
 
+    /**
+     * 拒绝策略
+     */
     private class MyPolicy implements RejectedExecutionHandler {
 
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
             Task task = (Task) r;
-            LOGGER.info("==========task[{}] rejected!==========", task.getTaskNo());
-            LOGGER.info("ActiveCount=[{}], TaskCount=[{}], CompletedTaskCount=[{}]", executor.getActiveCount(), executor.getTaskCount(), executor.getCompletedTaskCount());
-            LOGGER.info("CorePoolSize=[{}], MaximumPoolSize=[{}], PoolSize=[{}], LargestPoolSize=[{}]", executor.getCorePoolSize(), executor.getMaximumPoolSize(), executor.getPoolSize(), executor.getLargestPoolSize());
-            LOGGER.info("======================================");
+            LOGGER.info("===task[{}] rejected!===", task.getTaskNo());
+            LOGGER.info("active_cn={}, task_cnt={}, completed_task_cnt={}", executor.getActiveCount(), executor.getTaskCount(), executor.getCompletedTaskCount());
+            LOGGER.info("core_pool_size={}, max_pool_size={}, pool_size={}, largest_pool_size={}", executor.getCorePoolSize(), executor.getMaximumPoolSize(), executor.getPoolSize(), executor.getLargestPoolSize());
         }
     }
 
     private void test() {
+        int corePoolSize = 2;
+        int maxPoolSize = 2;
+        int queueSize = 2;
         RejectedExecutionHandler handler = new MyPolicy();
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(CORE_POOL_SIZE,
-                MAX_POOL_SIZE,
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize,
+                maxPoolSize,
                 0, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(QUEUE_SIZE),
+                new ArrayBlockingQueue<>(queueSize),
                 handler);
         for (int i = 0; i < TASK_NUM; i++) {
-            int no = i + 1;
-            pool.execute(new Task(String.valueOf(no)));
+            int taskNo = i + 1;
+            pool.execute(new Task(String.valueOf(taskNo)));
         }
-        LOGGER.info("shutdown......");
         pool.shutdown();
         LOGGER.info("main thread end");
     }
