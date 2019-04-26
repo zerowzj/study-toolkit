@@ -33,10 +33,10 @@ public class Callable1_Main {
 
         try {
             Integer sum = task1.get() + task2.get();
-            LOGGER.info("sum= {}, cost time= {}ms", sum, (System.currentTimeMillis() - now));
+            LOGGER.info("sum= {}, cost_time= {} ms", sum, (System.currentTimeMillis() - now));
         } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
-        LOGGER.info("i am thread main");
+        LOGGER.info("main thread end");
     }
 }

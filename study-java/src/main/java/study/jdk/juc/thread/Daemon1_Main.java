@@ -6,6 +6,7 @@ import study.Sleeps;
 
 /**
  * 演示：守护线程
+ * （1）守护线程依赖创建它的线程，用户线程不依赖
  */
 public class Daemon1_Main {
 
@@ -21,7 +22,7 @@ public class Daemon1_Main {
         t.setDaemon(true);
         t.start();
 
-        //线程t sleep 2s执行1次，main线程sleep 10s退出后，t退出
+        //线程t sleep 2s执行1次；main线程sleep 10s退出，然后t退出
         LOGGER.info("i am thread main, sleep 10s");
         Sleeps.seconds(10);
     }
