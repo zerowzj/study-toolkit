@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 演示：固定线程池
  * （1）任务异步执行，无临界区
- * （2）ThreadFactory用法
+ * （2）ThreadFactory 用法
  */
 public class FixedThreadPool1_Main {
 

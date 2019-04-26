@@ -58,8 +58,8 @@ public class ThreadPoolExecutor2_Main {
 
     private void test() {
         int corePoolSize = 2;
-        int maxPoolSize = 2;
-        int queueSize = 2;
+        int maxPoolSize = 3;
+        int queueSize = 4;
         RejectedExecutionHandler handler = new MyPolicy();
         ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize,
                 maxPoolSize,

@@ -2,7 +2,6 @@ package study.jdk.juc.pool;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import study.Randoms;
 import study.Sleeps;
 
 import java.io.Serializable;
@@ -17,12 +16,13 @@ import java.util.concurrent.Future;
 /**
  * 演示：线程池执行有返回值的任务
  * （1）任务独立，无临界区
+ * （2）Future.get() 阻塞当前线程；List<Future>时，列表后可能比列表前先执行完成
  */
 public class FixedThreadPool3_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FixedThreadPool3_Main.class);
 
-    private static final int THREAD_NUM = 3;
+    private static final int THREAD_NUM = 10;
 
     private static final int TASK_NUM = 10;
 
@@ -45,6 +45,7 @@ public class FixedThreadPool3_Main {
             LOGGER.info("task_no={}, sleep {}s", taskNo, value);
             Sleeps.seconds(value);
             Result result = new Result(taskNo, value * 1000);
+            LOGGER.info("task_no={} finish", taskNo);
             return result;
         }
     }
@@ -73,13 +74,15 @@ public class FixedThreadPool3_Main {
     }
 
     private void test() {
-        ExecutorService POOL = Executors.newFixedThreadPool(THREAD_NUM);
+        ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUM);
+        long start = System.currentTimeMillis();
         //任务异步执行
         List<Future<Result>> futureLt = new ArrayList<>();
+        int j = TASK_NUM;
         for (int i = 0; i < TASK_NUM; i++) {
             String taskNo = String.valueOf(i + 1);
-            int value = Randoms.nextInt(9);
-            futureLt.add(POOL.submit(new Task(taskNo, value)));
+            int value = j--;
+            futureLt.add(pool.submit(new Task(taskNo, value)));
         }
         //阻塞主线程获取结果
         for (Future<Result> future : futureLt) {
@@ -90,6 +93,8 @@ public class FixedThreadPool3_Main {
                 ex.printStackTrace();
             }
         }
+        LOGGER.info("cost_time={} ms", System.currentTimeMillis() - start);
+        pool.shutdown();
     }
 
     public static void main(String[] args) {
