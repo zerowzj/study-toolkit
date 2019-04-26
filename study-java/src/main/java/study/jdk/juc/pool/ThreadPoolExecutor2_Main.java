@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 演示：拒绝策略
+ * （1）默认使用 AbortPolicy 策略
  */
 public class ThreadPoolExecutor2_Main {
 
