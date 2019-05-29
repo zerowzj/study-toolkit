@@ -9,20 +9,18 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * Cyclic: 循环
- * Barrier: 屏障
- * 演示：
+ * 演示：循环栅栏
  */
 public class CyclicBarrier1_Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CyclicBarrier1_Main.class);
 
-    private static final int T_NUM = 10;
+    private static final int THREAD_NUM = 3;
 
     /**
      * 选手
      */
-    class Runner implements Runnable {
+    private class Runner implements Runnable {
 
         private String name;
 
@@ -35,22 +33,24 @@ public class CyclicBarrier1_Main {
 
         @Override
         public void run() {
-            Sleeps.seconds(Randoms.nextInt(10));
-            LOGGER.info("[{}] ready", name);
+            long time = Randoms.nextInt(10);
+            LOGGER.info("runner[{}] sleep {}s", name, time);
+            Sleeps.seconds(time);
+            LOGGER.info("runner[{}] ready", name);
             try {
                 barrier.await();
+                LOGGER.info("runner[{}] done", name);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             } catch (BrokenBarrierException ex) {
                 ex.printStackTrace();
             }
-            LOGGER.info("[{}] running", name);
         }
     }
 
     public void test() {
-        CyclicBarrier barrier = new CyclicBarrier(T_NUM);
-        for (int i = 0; i < T_NUM; i++) {
+        CyclicBarrier barrier = new CyclicBarrier(THREAD_NUM);
+        for (int i = 0; i < THREAD_NUM; i++) {
             Thread t1 = new Thread(new Runner(String.format("%s号选手", i + 1), barrier));
             t1.start();
         }
