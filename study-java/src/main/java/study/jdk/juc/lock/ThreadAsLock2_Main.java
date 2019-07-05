@@ -15,7 +15,6 @@ public class ThreadAsLock2_Main {
         Thread t = new Thread(() -> {
             LOGGER.info("i am lock thread, sleep 10s");
             Sleeps.seconds(10);
-
         });
         t.start();
 

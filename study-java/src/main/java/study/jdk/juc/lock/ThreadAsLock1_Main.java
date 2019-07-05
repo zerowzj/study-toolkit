@@ -17,7 +17,6 @@ public class ThreadAsLock1_Main {
         Thread lock = new Thread(() -> {
             LOGGER.info("i am lock thread, sleep 10s");
             Sleeps.seconds(10);
-
         });
         lock.start();
 
