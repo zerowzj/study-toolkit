@@ -3,7 +3,8 @@ package study.jdk.juc.thread;
 import study.Sleeps;
 
 /**
- * 演示：TIMED_WAITING和WAITING
+ * 演示：
+ * （1）线程状态TIMED_WAITING和WAITING
  * jps jstack
  */
 public class State2_Main {
@@ -13,12 +14,13 @@ public class State2_Main {
             Sleeps.seconds(Integer.MAX_VALUE);
         }, "t1");
         t.start();
+        Object lock = new Object();
+        synchronized (lock) {
+            try {
+                lock.wait();
+            } catch (Exception ex) {
 
-        try {
-//            t.join();
-            t.join(Integer.MAX_VALUE);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
+            }
         }
     }
 }

@@ -2,25 +2,27 @@ package study.jvm;
 
 import study.Sleeps;
 
-public class WaitMain {
+/**
+ * （1）wait时线程堆栈信息
+ */
+public class Wait1_Main {
 
-    Object lock = new Object();
 
     public static void main(String[] args) {
-        WaitMain waitMain = new WaitMain();
-//        waitMain.test1();
-        waitMain.test2();
-    }
 
-    public void test1() {
-        synchronized (lock) {
+        Object lock = new Object();
+
+        Thread t = new Thread(() -> {
             try {
                 lock.wait();
-            } catch (Exception ex) {
+            } catch (InterruptedException ex) {
+
             }
-        }
-        System.out.println("执行到这里");
+        });
+
     }
+
+
 
     /**
      * synchronized获得对象锁是线程的实例时，此时比较特殊，
