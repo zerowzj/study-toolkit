@@ -1,4 +1,4 @@
-package study.jvm;
+package study.jvm.jstatck;
 
 import java.util.concurrent.TimeUnit;
 
