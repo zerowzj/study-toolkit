@@ -1,11 +1,11 @@
-package study.jvm;
+package study.jvm.jstatck;
 
 import study.Sleeps;
 
-public class JoinMain {
+public class Join2_Main {
 
     public static void main(String[] args) {
-        JoinMain joinMain = new JoinMain();
+        Join2_Main joinMain = new Join2_Main();
         joinMain.test1();
     }
 
