@@ -18,3 +18,13 @@ public class Sleep_Main {
         t.start();
     }
 }
+/*
+"t" #11 prio=5 os_prio=0 tid=0x000000001b3f2800 nid=0x235c waiting on condition [0x000000001bccf000]
+        java.lang.Thread.State: TIMED_WAITING (sleeping)
+        at java.lang.Thread.sleep(Native Method)
+        at java.lang.Thread.sleep(Thread.java:340)
+        at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
+        at study.jvm.jstatck.Sleep_Main.lambda$main$0(Sleep_Main.java:13)
+        at study.jvm.jstatck.Sleep_Main$$Lambda$1/764977973.run(Unknown Source)
+        at java.lang.Thread.run(Thread.java:745)
+*/
