@@ -44,7 +44,7 @@ public class Volatile1_Main {
         Thread t = new Thread(task);
         t.start();
 
-        //t1，主线程stop
+        //jmap，主线程stop
         Sleeps.seconds(1);
         task.stop();
     }

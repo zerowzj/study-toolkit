@@ -13,7 +13,7 @@ public class Blocked1_Main {
             synchronized (lock) {
                 Sleeps.deep();
             }
-        }, "t1");
+        }, "jmap");
         t1.start();
 
         Thread t2 = new Thread(() -> {

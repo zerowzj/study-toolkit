@@ -13,7 +13,7 @@ public class Synchronized3_Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Synchronized3_Main.class);
 
     private synchronized void a() {
-        LOGGER.info("i am thread t1");
+        LOGGER.info("i am thread jmap");
         while (true) {
             int random = Randoms.nextInt(10);
 

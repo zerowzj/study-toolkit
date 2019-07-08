@@ -19,7 +19,7 @@ public class Lock_tryLock_Main {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
-                LOGGER.info("i am thread t1 ");
+                LOGGER.info("i am thread jmap ");
                 Sleeps.deep();
             } finally {
                 lock.unlock();

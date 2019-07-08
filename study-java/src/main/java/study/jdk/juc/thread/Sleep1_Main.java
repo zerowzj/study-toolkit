@@ -15,7 +15,7 @@ public class Sleep1_Main {
         Object lock = new Object();
         Thread t1 = new Thread(() -> {
             synchronized (lock) {
-                LOGGER.info("i am thread t1");
+                LOGGER.info("i am thread jmap");
                 //不释放锁，t2无法获取锁阻塞于该锁
                 Sleeps.seconds(5);
 //                try {

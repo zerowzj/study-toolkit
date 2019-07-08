@@ -14,7 +14,7 @@ public class Join1_Main {
     public static void main(String[] args) {
         Thread t1 = new Thread(() -> {
             Sleeps.seconds(2);
-            LOGGER.info("i am thread t1");
+            LOGGER.info("i am thread jmap");
         });
         Thread t2 = new Thread(() -> {
             try {

@@ -20,7 +20,7 @@ public class Lock_lock1_Main {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
-                LOGGER.info("i am thread t1");
+                LOGGER.info("i am thread jmap");
                 Sleeps.seconds(5); //sleep()不释放锁
             } finally {
                 lock.unlock();

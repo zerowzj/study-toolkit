@@ -16,7 +16,7 @@ public class Sleep2_Main {
         Thread t1 = new Thread(() -> {
             //t1并不持有锁
             Sleeps.seconds(10);
-            LOGGER.info("i am thread t1");
+            LOGGER.info("i am thread jmap");
         });
         Thread t2 = new Thread(() -> {
             synchronized (lock) {

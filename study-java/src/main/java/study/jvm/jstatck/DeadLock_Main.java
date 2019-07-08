@@ -14,14 +14,15 @@ public class DeadLock_Main {
 
         Thread t1 = new Thread(() -> {
             synchronized (lock1) {
-                Sleeps.seconds(2);
                 synchronized (lock2) {
+
                 }
             }
-        }, "t1");
+        }, "jmap");
         Thread t2 = new Thread(() -> {
             synchronized (lock2) {
                 synchronized (lock1) {
+
                 }
             }
         }, "t2");

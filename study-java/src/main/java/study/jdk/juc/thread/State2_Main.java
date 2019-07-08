@@ -12,7 +12,7 @@ public class State2_Main {
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
             Sleeps.seconds(Integer.MAX_VALUE);
-        }, "t1");
+        }, "jmap");
         t.start();
         Object lock = new Object();
         synchronized (lock) {
@@ -25,7 +25,7 @@ public class State2_Main {
     }
 }
 /*
- * "t1" #11 prio=5 os_prio=0 tid=0x000000001b57e800 nid=0x6f0 waiting on condition [0x000000001be3f000]
+ * "jmap" #11 prio=5 os_prio=0 tid=0x000000001b57e800 nid=0x6f0 waiting on condition [0x000000001be3f000]
  *    java.lang.Thread.State: TIMED_WAITING (sleeping)
  *         at java.lang.Thread.sleep(Native Method)
  *         at java.lang.Thread.sleep(Thread.java:340)

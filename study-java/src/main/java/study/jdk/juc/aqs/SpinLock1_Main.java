@@ -17,13 +17,13 @@ public class SpinLock1_Main {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
-                LOGGER.info("i am t1 thread");
+                LOGGER.info("i am jmap thread");
                 Sleeps.seconds(5);
-                LOGGER.info("t1 thread end");
+                LOGGER.info("jmap thread end");
             } finally {
                 lock.unlock();
             }
-        }, "t1");
+        }, "jmap");
         Thread t2 = new Thread(() -> {
             lock.lock();
             try {

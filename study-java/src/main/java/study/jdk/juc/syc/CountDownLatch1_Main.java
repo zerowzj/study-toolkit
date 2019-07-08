@@ -20,7 +20,7 @@ public class CountDownLatch1_Main {
         CountDownLatch latch = new CountDownLatch(2);
         Thread t1 = new Thread(() -> {
             Sleeps.seconds(2);
-            LOGGER.info("i am t1 thread");
+            LOGGER.info("i am jmap thread");
             latch.countDown();
         });
         Thread t2 = new Thread(() -> {

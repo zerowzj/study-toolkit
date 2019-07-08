@@ -16,12 +16,12 @@ public class State3_Main {
                     ex.printStackTrace();
                 }
             }
-        }, "t1");
+        }, "jmap");
         t.start();
     }
 }
 /*
- * "t1" #11 prio=5 os_prio=0 tid=0x000000001c03e800 nid=0x2fb0 in Object.wait() [0x000000001c91e000]
+ * "jmap" #11 prio=5 os_prio=0 tid=0x000000001c03e800 nid=0x2fb0 in Object.wait() [0x000000001c91e000]
  *    java.lang.Thread.State: WAITING (on object monitor)
  *         at java.lang.Object.wait(Native Method)
  *         - waiting on <0x00000000d71493b0> (a java.lang.Object)
@@ -31,7 +31,7 @@ public class State3_Main {
  *         at study.jdk.juc.thread.State3_Main$$Lambda$1/1607521710.run(Unknown Source)
  *         at java.lang.Thread.run(Thread.java:745)
  *
- * "t1" #11 prio=5 os_prio=0 tid=0x000000001b86d000 nid=0x2344 in Object.wait() [0x000000001c13f000]
+ * "jmap" #11 prio=5 os_prio=0 tid=0x000000001b86d000 nid=0x2344 in Object.wait() [0x000000001c13f000]
  *    java.lang.Thread.State: TIMED_WAITING (on object monitor)
  *         at java.lang.Object.wait(Native Method)
  *         - waiting on <0x00000000d7149338> (a java.lang.Object)

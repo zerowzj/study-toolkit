@@ -25,7 +25,7 @@ public class WaitNotify1_Main {
                 LOGGER.info("A 2");
                 LOGGER.info("A 3");
             }
-        }, "t1");
+        }, "jmap");
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
                 LOGGER.info("B 1");

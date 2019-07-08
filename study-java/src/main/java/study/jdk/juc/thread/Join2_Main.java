@@ -27,7 +27,7 @@ public class Join2_Main {
 
     public void test() {
         Thread t1 = new Thread(() -> {
-            LOGGER.info("t1");
+            LOGGER.info("jmap");
         });
         Thread t2 = new Thread(() -> {
             LOGGER.info("t2");

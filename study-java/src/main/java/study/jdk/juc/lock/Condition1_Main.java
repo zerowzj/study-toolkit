@@ -25,9 +25,9 @@ public class Condition1_Main {
         Thread t1 = new Thread(() -> {
             lock.lock();
             try {
-                LOGGER.info("i am t1 thread");
+                LOGGER.info("i am jmap thread");
                 condition.await();
-                LOGGER.info("t1 thread end");
+                LOGGER.info("jmap thread end");
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             } finally {

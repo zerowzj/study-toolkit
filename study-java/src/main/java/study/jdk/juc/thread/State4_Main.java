@@ -13,7 +13,7 @@ public class State4_Main {
             synchronized (lock) {
                 Sleeps.deep();
             }
-        }, "t1");
+        }, "jmap");
         Thread t2 = new Thread(() -> {
             synchronized (lock) {
             }
@@ -31,7 +31,7 @@ public class State4_Main {
  *         at study.jdk.juc.thread.State4_Main$$Lambda$2/381259350.run(Unknown Source)
  *         at java.lang.Thread.run(Thread.java:745)
  *
- * "t1" #11 prio=5 os_prio=0 tid=0x000000001b9ec000 nid=0x3be0 waiting on condition [0x000000001c2ce000]
+ * "jmap" #11 prio=5 os_prio=0 tid=0x000000001b9ec000 nid=0x3be0 waiting on condition [0x000000001c2ce000]
  *    java.lang.Thread.State: TIMED_WAITING (sleeping)
  *         at java.lang.Thread.sleep(Native Method)
  *         at java.lang.Thread.sleep(Thread.java:340)
