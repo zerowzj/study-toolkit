@@ -8,10 +8,10 @@ public class Runnable_Main {
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
             while (true) {
-//                int a, b, c;
-//                a = 1;
-//                b = 2;
-//                c = a + b;
+                int a, b, c;
+                a = 1;
+                b = 2;
+                c = a + b;
             }
         }, "t");
         t.start();
