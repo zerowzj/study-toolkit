@@ -1,6 +1,5 @@
 package study.jvm.jstatck;
 
-import org.apache.tools.ant.taskdefs.Sleep;
 import study.Sleeps;
 
 /**
@@ -14,11 +13,12 @@ public class DeadLock_Main {
 
         Thread t1 = new Thread(() -> {
             synchronized (lock1) {
+                Sleeps.seconds(5);
                 synchronized (lock2) {
 
                 }
             }
-        }, "jmap");
+        }, "t1");
         Thread t2 = new Thread(() -> {
             synchronized (lock2) {
                 synchronized (lock1) {
