@@ -31,9 +31,4 @@ public class Sleeps {
             ex.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        Integer t = 1;
-        System.out.println(t.toString());
-    }
 }
