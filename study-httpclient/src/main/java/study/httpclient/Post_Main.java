@@ -3,6 +3,7 @@ package study.httpclient;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
@@ -18,10 +19,14 @@ public class Post_Main {
 
     public static void main(String[] args) {
         HttpPost httpPost = new HttpPost(URL);
-        //头部
+        //请求头部
         httpPost.setHeader("", "");
         //请求配置
-        httpPost.setConfig(null);
+        RequestConfig config = RequestConfig.custom()
+                .setConnectTimeout(60 * 1000)
+                .setSocketTimeout(60 * 1000)
+                .build();
+        httpPost.setConfig(config);
         //请求实体
         httpPost.setEntity(null);
 
