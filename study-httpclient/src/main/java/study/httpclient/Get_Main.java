@@ -3,6 +3,7 @@ package study.httpclient;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
@@ -22,7 +23,11 @@ public class Get_Main {
         //头部
         httpGet.setHeader("", "");
         //请求配置
-        httpGet.setConfig(null);
+        RequestConfig config = RequestConfig.custom()
+                .setConnectTimeout(60 * 1000)
+                .setSocketTimeout(60 * 1000)
+                .build();
+        httpGet.setConfig(config);
         HttpClient client = HttpClients.createDefault();
         try {
             HttpResponse response = client.execute(httpGet);
