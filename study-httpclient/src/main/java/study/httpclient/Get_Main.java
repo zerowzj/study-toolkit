@@ -19,6 +19,10 @@ public class Get_Main {
 
     public static void main(String[] args) {
         HttpGet httpGet = new HttpGet(URL);
+        //头部
+        httpGet.setHeader("", "");
+        //请求配置
+        httpGet.setConfig(null);
         HttpClient client = HttpClients.createDefault();
         try {
             HttpResponse response = client.execute(httpGet);

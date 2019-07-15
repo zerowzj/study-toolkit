@@ -18,6 +18,13 @@ public class Post_Main {
 
     public static void main(String[] args) {
         HttpPost httpPost = new HttpPost(URL);
+        //头部
+        httpPost.setHeader("", "");
+        //请求配置
+        httpPost.setConfig(null);
+        //请求实体
+        httpPost.setEntity(null);
+
         HttpClient client = HttpClients.createDefault();
         try {
             HttpResponse response = client.execute(httpPost);
