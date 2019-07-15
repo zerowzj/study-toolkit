@@ -1,4 +1,4 @@
-package study.httpclient;
+package study.httpclient.method;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
