@@ -2,9 +2,9 @@ package study.httpclient.method;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class Post_Main {
     private static final String URL = "http://www.sohu.com";
 
     public static void main(String[] args) {
-        HttpClient client = HttpClients.createDefault();
+        CloseableHttpClient client = HttpClients.createDefault();
         try {
             HttpPost httpPost = new HttpPost(URL);
             //请求头部
