@@ -21,21 +21,21 @@ public class Get_Main {
     private static final String URL = "http://www.sohu.com";
 
     public static void main(String[] args) {
-        HttpGet httpGet = new HttpGet(URL);
-        //请求头部
-        httpGet.setHeader("", "");
-        //请求配置
-        RequestConfig config = RequestConfig.custom()
-                .setConnectTimeout(60 * 1000)
-                .setSocketTimeout(60 * 1000)
-                .build();
-        httpGet.setConfig(config);
-        //
-        UrlEncodedFormEntity entity = new UrlEncodedFormEntity(null);
-        EntityUtils.toString(entity);
-
         HttpClient client = HttpClients.createDefault();
         try {
+            HttpGet httpGet = new HttpGet(URL);
+            //请求头部
+            httpGet.setHeader("", "");
+            //请求配置
+            RequestConfig config = RequestConfig.custom()
+                    .setConnectTimeout(60 * 1000)
+                    .setSocketTimeout(60 * 1000)
+                    .build();
+            httpGet.setConfig(config);
+            //
+            UrlEncodedFormEntity entity = new UrlEncodedFormEntity(null);
+            EntityUtils.toString(entity);
+
             HttpResponse response = client.execute(httpGet);
             StatusLine line = response.getStatusLine();
             LOGGER.info("{}", line);
