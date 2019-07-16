@@ -20,7 +20,7 @@ public class Runnable_Main {
 /*
 "t" #11 prio=5 os_prio=0 tid=0x000000001ad82800 nid=0x21d4 runnable [0x000000001b6df000]
         java.lang.Thread.State: RUNNABLE
-        at study.jvm.jstatck.Runnable_Main.lambda$main$0(Runnable_Main.java:15)
-        at study.jvm.jstatck.Runnable_Main$$Lambda$1/764977973.run(Unknown Source)
+        at study.study.jvm.jstatck.Runnable_Main.lambda$main$0(Runnable_Main.java:15)
+        at study.study.jvm.jstatck.Runnable_Main$$Lambda$1/764977973.run(Unknown Source)
         at java.lang.Thread.run(Thread.java:745)
 */

@@ -24,7 +24,7 @@ public class Sleep_Main {
         at java.lang.Thread.sleep(Native Method)
         at java.lang.Thread.sleep(Thread.java:340)
         at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
-        at study.jvm.jstatck.Sleep_Main.lambda$main$0(Sleep_Main.java:13)
-        at study.jvm.jstatck.Sleep_Main$$Lambda$1/764977973.run(Unknown Source)
+        at study.study.jvm.jstatck.Sleep_Main.lambda$main$0(Sleep_Main.java:13)
+        at study.study.jvm.jstatck.Sleep_Main$$Lambda$1/764977973.run(Unknown Source)
         at java.lang.Thread.run(Thread.java:745)
 */

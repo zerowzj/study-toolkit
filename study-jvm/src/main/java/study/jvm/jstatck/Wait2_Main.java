@@ -23,8 +23,8 @@ public class Wait2_Main {
         java.lang.Thread.State: TIMED_WAITING (on object monitor)
         at java.lang.Object.wait(Native Method)
         - waiting on <0x00000000d714a160> (a java.lang.Object)
-        at study.jvm.jstatck.Wait2_Main.lambda$main$0(Wait2_Main.java:13)
+        at study.study.jvm.jstatck.Wait2_Main.lambda$main$0(Wait2_Main.java:13)
         - locked <0x00000000d714a160> (a java.lang.Object)
-        at study.jvm.jstatck.Wait2_Main$$Lambda$1/1607521710.run(Unknown Source)
+        at study.study.jvm.jstatck.Wait2_Main$$Lambda$1/1607521710.run(Unknown Source)
         at java.lang.Thread.run(Thread.java:745)
 */

@@ -24,8 +24,8 @@ public class Wait1_Main {
         at java.lang.Object.wait(Native Method)
         - waiting on <0x00000000d7149fd8> (a java.lang.Object)
         at java.lang.Object.wait(Object.java:502)
-        at study.jvm.jstatck.Wait1_Main.lambda$main$0(Wait1_Main.java:13)
+        at study.study.jvm.jstatck.Wait1_Main.lambda$main$0(Wait1_Main.java:13)
         - locked <0x00000000d7149fd8> (a java.lang.Object)
-        at study.jvm.jstatck.Wait1_Main$$Lambda$1/1607521710.run(Unknown Source)
+        at study.study.jvm.jstatck.Wait1_Main$$Lambda$1/1607521710.run(Unknown Source)
         at java.lang.Thread.run(Thread.java:745)
 */

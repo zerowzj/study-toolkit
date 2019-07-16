@@ -1,7 +1,5 @@
 package study.jvm.jstatck;
 
-import study.Sleeps;
-
 /**
  * （1）死锁时线程堆栈信息
  */

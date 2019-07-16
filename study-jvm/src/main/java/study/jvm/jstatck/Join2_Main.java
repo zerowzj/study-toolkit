@@ -1,7 +1,5 @@
 package study.jvm.jstatck;
 
-import study.Sleeps;
-
 /**
  * （1）join时线程堆栈信息
  */
@@ -28,8 +26,8 @@ public class Join2_Main {
         at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
         at study.Sleeps.seconds(Sleeps.java:13)
         at study.Sleeps.deep(Sleeps.java:8)
-        at study.jvm.jstatck.Join2_Main.lambda$main$0(Join2_Main.java:9)
-        at study.jvm.jstatck.Join2_Main$$Lambda$1/764977973.run(Unknown Source)
+        at study.study.jvm.jstatck.Join2_Main.lambda$main$0(Join2_Main.java:9)
+        at study.study.jvm.jstatck.Join2_Main$$Lambda$1/764977973.run(Unknown Source)
         at java.lang.Thread.run(Thread.java:745)
 */
 /*
@@ -39,5 +37,5 @@ public class Join2_Main {
         - waiting on <0x00000000d7149c28> (a java.lang.Thread)
         at java.lang.Thread.join(Thread.java:1257)
         - locked <0x00000000d7149c28> (a java.lang.Thread)
-        at study.jvm.jstatck.Join2_Main.main(Join2_Main.java:14)
+        at study.study.jvm.jstatck.Join2_Main.main(Join2_Main.java:14)
 */
