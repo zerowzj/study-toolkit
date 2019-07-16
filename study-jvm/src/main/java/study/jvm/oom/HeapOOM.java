@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * -Xms5m -Xmx5m -XX:+HeapDumpOnOutOfMemoryError
+ * -Xms5m -Xmx5m
+ * -XX:+HeapDumpOnOutOfMemoryError
+ * -XX:+PrintGC
+ * -XX:+PrintGCDetails
+ * -XX:+PrintGCTimeStamps
+ * -XX:+PrintGCDateStamps
  */
 public class HeapOOM {
 
