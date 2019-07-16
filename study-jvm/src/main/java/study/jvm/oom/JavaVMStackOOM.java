@@ -1,6 +1,5 @@
 package study.jvm.oom;
 
-
 public class JavaVMStackOOM {
 
     private void dontStop() {
@@ -10,9 +9,10 @@ public class JavaVMStackOOM {
 
     public void stackLeakByThread() {
         while (true) {
-            Thread t = new Thread(()-> {
+            Thread t = new Thread(() -> {
                 dontStop();
             });
+            t.start();
         }
     }
 
