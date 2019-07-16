@@ -10,6 +10,7 @@ import java.util.List;
  * -XX:+PrintGCDetails
  * -XX:+PrintGCTimeStamps
  * -XX:+PrintGCDateStamps
+ * -Xloggc:/logs/gc.log
  */
 public class HeapOOM {
 
