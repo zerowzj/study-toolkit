@@ -1,5 +1,8 @@
 package study.jvm.oom;
 
+/**
+ *
+ */
 public class JavaVMStackOOM {
 
     private void dontStop() {
