@@ -12,7 +12,7 @@ public class UseParallelGC_Main {
 //        byte[] all1 = new byte[_1M];
 //        byte[] all2 = new byte[_1M];
         System.out.println("我在活着。。。。");
-        System.gc();
+//        System.gc();
         System.out.println("我要死了。。。。");
     }
 }
