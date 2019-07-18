@@ -7,10 +7,10 @@ public class MyObj {
     protected static int AGE;
 
     static {
-        System.out.println("1");
+        System.out.println("i am static code block of MyObj");
     }
 
     public MyObj() {
-        System.out.println("2");
+        System.out.println("i am constructor of MyObj");
     }
 }
