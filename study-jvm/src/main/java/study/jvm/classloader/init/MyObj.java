@@ -2,11 +2,11 @@ package study.jvm.classloader.init;
 
 public class MyObj {
 
-    protected static String NAME = "wangzhj";
+    protected final static String NAME = "wangzhj";
 
-    protected static int AGE;
+    protected final static int AGE = 35;
 
-    protected static void sayHi(){
+    protected final static void sayHi(){
         System.out.println("hi...");
     }
 
