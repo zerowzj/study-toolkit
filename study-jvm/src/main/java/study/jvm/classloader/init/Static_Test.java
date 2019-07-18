@@ -10,8 +10,13 @@ public class Static_Test {
     }
 
     @Test
-    public void setstatic_test() {
-//        MyObj.AGE = 32;
+    public void getfinalstatic_test() {
+        String gender = MyObj.GENDER;
+    }
+
+    @Test
+    public void putstatic_test() {
+        MyObj.AGE = 32;
     }
 
     @Test

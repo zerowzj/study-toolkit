@@ -2,19 +2,21 @@ package study.jvm.classloader.init;
 
 public class MyObj {
 
-    protected final static String NAME = "wangzhj";
+    protected static String NAME = "wangzhj";
 
-    protected final static int AGE = 35;
+    protected final static String GENDER = "男";
 
-    protected final static void sayHi(){
+    protected static int AGE;
+
+    protected final static void sayHi() {
         System.out.println("hi...");
     }
 
     static {
-        System.out.println("i am static code block of MyObj");
+        System.out.println("init class MyObj");
     }
 
     public MyObj() {
-        System.out.println("i am constructor of MyObj");
+        System.out.println("constructor of MyObj");
     }
 }
