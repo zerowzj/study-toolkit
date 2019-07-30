@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * （1）int和Integer运算时，会进行自动拆箱
- * （2）-128至127之间的数字，使用valueOf()时会有缓存
+ * （2）-128至127之间的数字，使用valueOf()时会使用缓存池对象
  * （3）==基本类型时比较值，引用类型比较指针
  */
 public class Integer_Main {
