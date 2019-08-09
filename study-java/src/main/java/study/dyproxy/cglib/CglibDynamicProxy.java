@@ -5,11 +5,9 @@ import org.slf4j.LoggerFactory;
 import study.dyproxy.MyService;
 import study.dyproxy.MyServiceImpl;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class CglibDynamicProxy implements InvocationHandler {
+public class CglibDynamicProxy {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CglibDynamicProxy.class);
 
@@ -19,23 +17,9 @@ public class CglibDynamicProxy implements InvocationHandler {
         this.target = target;
     }
 
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        LOGGER.info("before invoke");
-        Object result = null;
-        try {
-            result = method.invoke(target, args);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        LOGGER.info("after invoke");
-        return result;
-    }
 
     public <T> T getProxy() {
-        ClassLoader classLoader = target.getClass().getClassLoader();
-        Class<?>[] interfaces = target.getClass().getInterfaces();
-        return (T) Proxy.newProxyInstance(classLoader, interfaces, this);
+        return null;
     }
 
     public static void main(String[] args) {
