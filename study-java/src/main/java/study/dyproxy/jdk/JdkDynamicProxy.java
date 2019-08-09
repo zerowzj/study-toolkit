@@ -33,8 +33,9 @@ public class JdkDynamicProxy implements InvocationHandler {
     }
 
     public <T> T getProxy() {
-        ClassLoader classLoader = target.getClass().getClassLoader();
-        Class<?>[] interfaces = target.getClass().getInterfaces();
+        Class clazz = target.getClass();
+        ClassLoader classLoader = clazz.getClassLoader();
+        Class<?>[] interfaces = clazz.getInterfaces();
         return (T) Proxy.newProxyInstance(classLoader, interfaces, this);
     }
 
