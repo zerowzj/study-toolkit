@@ -11,7 +11,7 @@ PID_FILE=/var/run/jenkins.pid
 
 # jenkins工作目录，默认位于 /root/.jenkins
 export JENKINS_HOME=$JENKINS_DIR/home
-#
+# /etc/init.d
 export JAVA_HOME=/usr/local/jdk1.8.0_162
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -22,7 +22,7 @@ case "$1" in
       if [ -z "$PID" ]
       then
           echo "Starting Jenkins..."
-          nohup java -jar $JENKINS_WAR > $LOG_FILE 2>&1 &
+          nohup java -jar $JENKINS_WAR --httpPort=$JENKINS_PORT > $LOG_FILE 2>&1 &
       else
           echo "$PID exists, process is already running or crashed"
       fi
