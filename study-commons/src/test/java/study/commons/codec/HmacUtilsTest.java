@@ -17,6 +17,6 @@ public class HmacUtilsTest {
     @Test
     public void md5_test() {
         HmacUtils hmacUtils = new HmacUtils(HmacAlgorithms.HMAC_SHA_1, key);
-        hmacUtils.hmacHex("");
+        System.out.println(hmacUtils.hmacHex("123123"));
     }
 }

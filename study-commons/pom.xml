@@ -48,4 +48,8 @@
             <version>1.11</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins></plugins>
+    </build>
 </project>
