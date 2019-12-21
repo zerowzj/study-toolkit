@@ -1,4 +1,4 @@
-package study.commons.codec;
+package study.apache.commons.codec;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
