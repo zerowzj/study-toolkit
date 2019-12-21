@@ -1,4 +1,4 @@
-package study.apache.commons.codec;
+package study.commons.codec;
 
 import org.apache.commons.codec.net.URLCodec;
 import org.junit.Before;

@@ -1,6 +1,7 @@
-package study.guava.base;
+package study.guava.str;
 
 import com.google.common.base.Splitter;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,8 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
-public class Splitter_Test {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Joiner_Test.class);
+@Slf4j
+public class SplitterTest {
 
     private String str = "aa,bb, cc,dd ,e e,    ";
 
@@ -19,7 +19,7 @@ public class Splitter_Test {
         List<String> lt = Splitter.on(",")
                 .trimResults()
                 .splitToList(str);
-        LOGGER.info("{}", lt);
+        log.info("{}", lt);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class Splitter_Test {
         List<String> data = Splitter.on(",")
                 .omitEmptyStrings()
                 .splitToList(str);
-        LOGGER.info("{}", data);
+        log.info("{}", data);
     }
 
     @Test
@@ -36,6 +36,6 @@ public class Splitter_Test {
         Map<String, String> data = Splitter.on("&")
                 .withKeyValueSeparator("=")
                 .split(str);
-        LOGGER.info("{}", data);
+        log.info("{}", data);
     }
 }

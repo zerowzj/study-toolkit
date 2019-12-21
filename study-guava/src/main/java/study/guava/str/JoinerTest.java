@@ -1,16 +1,14 @@
-package study.guava.base;
+package study.guava.str;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
-public class Joiner_Test {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Joiner_Test.class);
+@Slf4j
+public class JoinerTest {
 
     private static final String APP_DIR = System.getProperty("user.dir");
 
@@ -23,7 +21,7 @@ public class Joiner_Test {
         String str = Joiner.on(",")
                 .skipNulls()
                 .join(array);
-        LOGGER.info("str={}", str);
+        log.info("str={}", str);
     }
 
     @Test
@@ -31,7 +29,7 @@ public class Joiner_Test {
         String str = Joiner.on(",")
                 .useForNull("==")
                 .join(array);
-        LOGGER.info("str={}", str);
+        log.
     }
 
     @Test
@@ -42,7 +40,7 @@ public class Joiner_Test {
         String str = Joiner.on("&")
                 .withKeyValueSeparator("=")
                 .join(data);
-        LOGGER.info("{}", str);
+        log.info("{}", str);
     }
 
     @Test
