@@ -3,8 +3,6 @@ package study.guava.str;
 import com.google.common.base.Splitter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +17,7 @@ public class SplitterTest {
         List<String> lt = Splitter.on(",")
                 .trimResults()
                 .splitToList(str);
-        log.info("{}", lt);
+        log.info("111111111111{}", lt);
     }
 
     @Test
