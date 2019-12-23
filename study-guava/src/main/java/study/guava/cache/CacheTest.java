@@ -8,5 +8,4 @@ public class CacheTest {
     Cache<String, String> cache = CacheBuilder.newBuilder()
             .maximumSize(1000)
             .build();
-
 }
