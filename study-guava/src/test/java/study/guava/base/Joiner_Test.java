@@ -47,7 +47,12 @@ public class Joiner_Test {
 
     @Test
     public void append_test() {
+        Map<String, String> param = Maps.newHashMap();
+        param.put("key1", "key1");
+        param.put("key2", "");
+        param.put("key3", null);
 
+        String str = Joiner.on("&").useForNull("").skipNulls().withKeyValueSeparator("=").join(param);
+        LOGGER.info(str);
     }
-
 }
