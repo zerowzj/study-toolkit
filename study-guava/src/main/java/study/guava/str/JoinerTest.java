@@ -22,6 +22,7 @@ public class JoinerTest {
                 .skipNulls()
                 .join(array);
         log.info("str={}", str);
+        log.info("sssssssssssss");
     }
 
     @Test
