@@ -29,7 +29,6 @@ public class JoinerTest {
         String str = Joiner.on(",")
                 .useForNull("==")
                 .join(array);
-        log.
     }
 
     @Test
@@ -51,6 +50,6 @@ public class JoinerTest {
         param.put("key3", null);
 
         String str = Joiner.on("&").useForNull("").skipNulls().withKeyValueSeparator("=").join(param);
-        LOGGER.info(str);
+        log.info(str);
     }
 }
