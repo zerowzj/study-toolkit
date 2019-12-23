@@ -1,4 +1,4 @@
-package study.commons.lang.reflect;
+package study.commons.lang.random.reflect;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.junit.Test;

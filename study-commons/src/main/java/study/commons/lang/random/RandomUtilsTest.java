@@ -1,4 +1,4 @@
-package study.commons.lang;
+package study.commons.lang.random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;

@@ -1,4 +1,4 @@
-package study.commons;
+package study.commons.lang.random.reflect;
 
 public class Son extends Father {
 
