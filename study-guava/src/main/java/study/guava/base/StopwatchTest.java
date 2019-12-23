@@ -1,4 +1,4 @@
-package study.guava.str;
+package study.guava.base;
 
 import com.google.common.base.Stopwatch;
 import org.junit.Test;

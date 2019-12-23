@@ -14,5 +14,6 @@ public class Base64Test {
 
     @Test
     public void decodeBase64_test() {
+        log.info("sdfsdfsdf");
     }
 }

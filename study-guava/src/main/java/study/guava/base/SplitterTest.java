@@ -1,4 +1,4 @@
-package study.guava.str;
+package study.guava.base;
 
 import com.google.common.base.Splitter;
 import lombok.extern.slf4j.Slf4j;
