@@ -1,34 +1,31 @@
 package study.guava.primitive;
 
-import com.google.common.primitives.Floats;
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.Longs;
 import com.google.common.primitives.Shorts;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Slf4j
 public class LongsTest {
 
-    //List<Long> asList(long... backingArray)
     @Test
     public void asList_test() {
         //
         List<Long> longLt = Longs.asList(1, 2);
-
-        Arrays.asList(1, 2);
+        log.info("{}", longLt);
     }
 
-    //toArray
     @Test
     public void toArray_test() {
-        //
         List<Long> longLt = Arrays.asList(1L, 2L);
         long[] longs = Longs.toArray(longLt);
+        log.info("{}", longs);
     }
 
-    //long[] concat(long[]...)
     @Test
     public void concat_test() {
         long[] longs = Longs.toArray(Longs.asList(1, 2));
@@ -54,7 +51,6 @@ public class LongsTest {
     }
 
 
-    //concat
     @Test
     public void fromByteArray_test() {
         long value = 100;

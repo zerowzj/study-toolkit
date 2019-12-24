@@ -1,11 +1,12 @@
 package study.guava.io;
 
 import com.google.common.io.Files;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.File;
 
-
+@Slf4j
 public class FilesTest {
 
     @Test

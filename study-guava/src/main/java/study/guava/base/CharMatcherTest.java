@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CharMatcher_Test {
+public class CharMatcherTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CharMatcher_Test.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CharMatcherTest.class);
 
     @Test
     public void digit_test() {
