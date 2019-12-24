@@ -4,7 +4,7 @@ import org.apache.commons.codec.net.URLCodec;
 import org.junit.Before;
 import org.junit.Test;
 
-public class URLCodecTest {
+public class UrlCodecTest {
 
     String str = "你好abc";
 

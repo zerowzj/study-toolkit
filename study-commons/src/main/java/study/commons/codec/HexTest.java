@@ -1,30 +1,25 @@
 package study.commons.codec;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
 
+@Slf4j
 public class HexTest {
 
-    String str = "123";
+    byte[] data = "123".getBytes();
 
-    byte[] bytes = "123".getBytes();
+    String hexStr = "313233";
 
     @Test
-    public void encodeHexString_test() {
-        Hex.encodeHexString(bytes);
+    public void encode_test() {
+        String str = Hex.encodeHexString(data);
+        log.info("{}", str);
     }
 
     @Test
-    public void encodeHex_test() {
-        Hex.encodeHex(bytes);
-    }
-
-    @Test
-    public void decodeHex_test() {
-        try {
-            Hex.decodeHex("");
-        } catch (Exception ex) {
-
-        }
+    public void decode_test() throws Exception {
+        byte[] data = Hex.decodeHex(hexStr);
+        log.info("{}", new String(data));
     }
 }
