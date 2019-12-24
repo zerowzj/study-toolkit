@@ -10,7 +10,6 @@ import java.util.Map;
 @Slf4j
 public class JoinerTest {
 
-
     String[] array = new String[]{"a", "b", "c", null};
 
     @Test
@@ -18,7 +17,7 @@ public class JoinerTest {
         String str = Joiner.on(",")
                 .skipNulls()
                 .join(array);
-        log.info("str: {}", str);
+        log.info(str);
     }
 
     @Test
@@ -26,7 +25,7 @@ public class JoinerTest {
         String str = Joiner.on(",")
                 .useForNull("空值")
                 .join(array);
-        log.info("str: {}", str);
+        log.info(str);
     }
 
     @Test

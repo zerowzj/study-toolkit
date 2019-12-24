@@ -1,12 +1,13 @@
 package study.commons.lang.random;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
-public class RandomUtilsTest {
+@Slf4j
+public class RandomTest {
 
-    //随机数
     @Test
     public void next_test() {
         System.out.println(RandomUtils.nextInt());

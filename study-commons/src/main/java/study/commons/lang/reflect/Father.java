@@ -1,4 +1,4 @@
-package study.commons.lang.random.reflect;
+package study.commons.lang.reflect;
 
 import org.apache.commons.io.IOUtils;
 
