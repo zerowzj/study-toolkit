@@ -17,7 +17,7 @@ public class GetHeaderTest {
     public void test() throws Exception {
         //
         HttpGet httpGet = new HttpGet(URL);
-        httpGet.setHeader("", "");
+        httpGet.setHeader("Content-Type", "");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpGet);

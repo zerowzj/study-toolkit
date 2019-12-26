@@ -1,5 +1,6 @@
 package study.httpclient.retry;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
 import org.apache.http.NoHttpResponseException;
@@ -7,8 +8,6 @@ import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.protocol.HttpContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
@@ -16,9 +15,8 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
 
+@Slf4j
 public class CustomRetryHandler implements HttpRequestRetryHandler {
-
-    private static Logger LOGGER = LoggerFactory.getLogger(CustomRetryHandler.class);
 
     private int maxExeCount;
 
@@ -34,38 +32,30 @@ public class CustomRetryHandler implements HttpRequestRetryHandler {
     public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
         //超过重试次数
         if (executionCount > maxExeCount) {
-            LOGGER.info("执行次数[{}]超过最大执行次数[{}]", executionCount, maxExeCount);
+            log.info("执行次数[{}]超过最大执行次数[{}]", executionCount, maxExeCount);
             return false;
         }
 
         //未知主机
         if (exception instanceof UnknownHostException) {
-            LOGGER.info("UnknownHostException");
+            log.info("UnknownHostException");
             return true;
-        }
-        //SSL握手异常
-        if (exception instanceof SSLHandshakeException) {
-            LOGGER.info("SSLHandshakeException");
+        } else if (exception instanceof SSLHandshakeException) { //SSL握手异常
+            log.info("SSLHandshakeException");
             return false;
         }
         //
         if (exception instanceof InterruptedIOException) {
-            LOGGER.info("InterruptedIOException");
+            log.info("InterruptedIOException");
             return false;
-        }
-        //连接超时
-        if (exception instanceof ConnectTimeoutException) {
-            LOGGER.info("ConnectTimeoutException");
+        } else if (exception instanceof ConnectTimeoutException) {  //连接超时
+            log.info("ConnectTimeoutException");
             return false;
-        }
-        // ssl握手异常不重试
-        if (exception instanceof SSLException) {
-            LOGGER.info("SSLException");
+        } else if (exception instanceof SSLException) { // ssl握手异常不重试
+            log.info("SSLException");
             return false;
-        }
-        //如果服务器丢掉了连接，那么就重试
-        if (exception instanceof NoHttpResponseException) {
-            LOGGER.info("NoHttpResponseException");
+        } else if (exception instanceof NoHttpResponseException) { //如果服务器丢掉了连接，那么就重试
+            log.info("NoHttpResponseException");
             return true;
         }
 
