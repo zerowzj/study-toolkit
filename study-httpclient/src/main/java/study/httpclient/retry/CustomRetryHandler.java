@@ -1,4 +1,4 @@
-package study.httpclient;
+package study.httpclient.retry;
 
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
