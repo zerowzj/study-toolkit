@@ -17,6 +17,7 @@ public class GetTest {
 
     @Test
     public void test() throws Exception {
+        //
         URIBuilder builder = new URIBuilder(URL);
         String query = "name=wangzhj&age=36";
         builder.setCustomQuery(query);
