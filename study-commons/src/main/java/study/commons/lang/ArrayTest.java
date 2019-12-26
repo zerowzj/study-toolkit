@@ -1,9 +1,9 @@
-package study.commons.lang.random;
+package study.commons.lang;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
-public class ArrayUtilsTest {
+public class ArrayTest {
 
     //add
     @Test
