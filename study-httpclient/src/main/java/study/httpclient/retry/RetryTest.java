@@ -5,7 +5,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
 
@@ -15,18 +14,13 @@ public class RetryTest {
     private static final String URL = "https://www.abc.cn/";
 
     @Test
-    public void test() {
-        try {
-            HttpClient client = HttpClients.custom()
-                    .setRetryHandler(new CustomRetryHandler())
-                    .build();
-            HttpGet httpGet = new HttpGet(URL);
-            HttpResponse response = client.execute(httpGet);
-            StatusLine line = response.getStatusLine();
-            log.info("{}", line);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
+    public void test() throws Exception {
+        HttpClient client = HttpClients.custom()
+                .setRetryHandler(new CustomRetryHandler())
+                .build();
+        HttpGet httpGet = new HttpGet(URL);
+        HttpResponse response = client.execute(httpGet);
+        StatusLine line = response.getStatusLine();
+        log.info("{}", line);
     }
 }
