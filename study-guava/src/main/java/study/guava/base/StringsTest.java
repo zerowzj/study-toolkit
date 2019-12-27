@@ -1,5 +1,6 @@
 package study.guava.base;
 
+import com.google.common.base.Objects;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
