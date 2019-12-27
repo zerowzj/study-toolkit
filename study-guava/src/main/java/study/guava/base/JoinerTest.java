@@ -12,7 +12,7 @@ public class JoinerTest {
 
     @Test
     public void skipNulls_test() {
-        String[] array = new String[]{"a", "b", "c", null};
+        String[] array = new String[]{"a", null};
         String str = Joiner.on(",")
                 .skipNulls()
                 .join(array);
@@ -21,7 +21,7 @@ public class JoinerTest {
 
     @Test
     public void useForNull_test() {
-        String[] array = new String[]{"a", "b", "c", null};
+        String[] array = new String[]{"a", null};
         String str = Joiner.on(",")
                 .useForNull("空值")
                 .join(array);
@@ -33,17 +33,22 @@ public class JoinerTest {
         Map data = Maps.newHashMap();
         data.put("k1", "value1");
         data.put("k2", "value2");
-        data.put("k3", null);
-        String str = Joiner.on("&").skipNulls()
+        data.put("k3", "");
+//        data.put("k4", null); //报错
+        String str = Joiner.on("&")
+//                .skipNulls() //报错
+//                .useForNull("") //报错
                 .withKeyValueSeparator("=")
                 .join(data);
-        log.info("{}", str);
+        log.info(str);
     }
 
     @Test
     public void append_test() {
-        StringBuilder sb = new StringBuilder();
-        String str = Joiner.on(" ").appendTo(new StringBuilder(), "123", "12312").toString();
-        log.info("str: {}", str);
+        String str = Joiner.on(",")
+//                .skipNulls() //报错
+                .appendTo(new StringBuilder(), "aa", "bb")
+                .toString();
+        log.info(str);
     }
 }
