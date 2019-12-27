@@ -13,6 +13,6 @@ public class StopwatchTest {
     public void test() throws Exception {
         Stopwatch stopwatch = Stopwatch.createStarted();
         TimeUnit.SECONDS.sleep(5);
-        log.info("{}", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+        log.info("{}s, {}ms", stopwatch.elapsed(TimeUnit.SECONDS), stopwatch.elapsed(TimeUnit.MILLISECONDS));
     }
 }

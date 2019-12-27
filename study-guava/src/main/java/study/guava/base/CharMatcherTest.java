@@ -1,25 +1,29 @@
 package study.guava.base;
 
 import com.google.common.base.CharMatcher;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Slf4j
 public class CharMatcherTest {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(CharMatcherTest.class);
 
     @Test
     public void digit_test() {
-        String str = "";
+        String str = "3a";
         boolean b = CharMatcher.digit().matchesAllOf(str);
-        LOGGER.info("{}", b);
+        log.info("{}", b);
+
+        b = CharMatcher.digit().matchesAnyOf(str);
+        log.info("{}", b);
+
+        b = CharMatcher.digit().matchesNoneOf(str);
+        log.info("{}", b);
     }
 
     @Test
     public void javaDigit_test() {
         String str = "1212---";
         boolean b = CharMatcher.javaDigit().matchesAllOf(str);
-        LOGGER.info("{}", b);
+        log.info("{}", b);
     }
 }
