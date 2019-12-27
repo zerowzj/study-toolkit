@@ -10,10 +10,9 @@ import java.util.Map;
 @Slf4j
 public class JoinerTest {
 
-    String[] array = new String[]{"a", "b", "c", null};
-
     @Test
     public void skipNulls_test() {
+        String[] array = new String[]{"a", "b", "c", null};
         String str = Joiner.on(",")
                 .skipNulls()
                 .join(array);
@@ -22,6 +21,7 @@ public class JoinerTest {
 
     @Test
     public void useForNull_test() {
+        String[] array = new String[]{"a", "b", "c", null};
         String str = Joiner.on(",")
                 .useForNull("空值")
                 .join(array);
@@ -34,7 +34,6 @@ public class JoinerTest {
         data.put("k1", "value1");
         data.put("k2", "value2");
         data.put("k3", null);
-
         String str = Joiner.on("&").skipNulls()
                 .withKeyValueSeparator("=")
                 .join(data);

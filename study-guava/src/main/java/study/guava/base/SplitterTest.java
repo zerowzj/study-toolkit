@@ -10,30 +10,46 @@ import java.util.Map;
 @Slf4j
 public class SplitterTest {
 
-    private String str = "aa,bb, cc,dd ,e e,    ";
-
     @Test
     public void trimResults_test() {
-        List<String> lt = Splitter.on(",")
+        String str = " aa,bb ,c c,, ,   ,dd";
+        List<String> strLt = Splitter.on(",")
                 .trimResults()
                 .splitToList(str);
-        log.info("111111111111{}", lt);
+        strLt.forEach(data -> {
+            log.info("[{}]", data);
+        });
     }
 
     @Test
     public void omitEmptyStrings_test() {
-        List<String> data = Splitter.on(",")
+        String str = "aa,, ,   ,bb";
+        List<String> strLt = Splitter.on(",")
                 .omitEmptyStrings()
                 .splitToList(str);
-        log.info("{}", data);
+        strLt.forEach(data -> {
+            log.info("[{}]", data);
+        });
     }
 
     @Test
     public void withKeyValueSeparator_test() {
-        String str = "key1=value1&key2=value2";
+        String str = "key1=value1&key2=value2&key3=value3";
         Map<String, String> data = Splitter.on("&")
                 .withKeyValueSeparator("=")
                 .split(str);
-        log.info("{}", data);
+        data.forEach((k, v) -> {
+            log.info("{}={}", k, v);
+        });
+    }
+
+    @Test
+    public void test() {
+        String str = "101,1,六年级|102,1,七年级|201,2,高一|202,2,高二";
+        List<String> strLt = Splitter.on("|").splitToList(str);
+        strLt.forEach(data -> {
+            List<String> t = Splitter.on(",").splitToList(data);
+            log.info("{}={}={}", t.get(0), t.get(1), t.get(2));
+        });
     }
 }
