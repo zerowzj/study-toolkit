@@ -1,4 +1,4 @@
-package study.commons.lang;
+package study.commons.lang3;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
