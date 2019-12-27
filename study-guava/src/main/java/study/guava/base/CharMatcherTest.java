@@ -26,4 +26,11 @@ public class CharMatcherTest {
         boolean b = CharMatcher.javaDigit().matchesAllOf(str);
         log.info("{}", b);
     }
+
+    @Test
+    public void javaLetter_test() {
+        String str = "abc";
+        boolean b = CharMatcher.javaLetter().matchesAllOf(str);
+        log.info("{}", b);
+    }
 }
