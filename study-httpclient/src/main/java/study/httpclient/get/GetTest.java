@@ -5,7 +5,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.client.utils.URIUtils;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
@@ -22,12 +21,10 @@ public class GetTest {
         String query = "name=wangzhj&age=36";
         builder.setCustomQuery(query);
         log.info(builder.toString());
-
         HttpGet httpGet = new HttpGet(builder.build());
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpGet);
-
         StatusLine line = response.getStatusLine();
         log.info("{}", line);
     }

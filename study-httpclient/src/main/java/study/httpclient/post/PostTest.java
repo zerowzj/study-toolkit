@@ -3,7 +3,6 @@ package study.httpclient.post;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -18,9 +17,10 @@ public class PostTest {
     @Test
     public void test() throws Exception {
         HttpPost httpPost = new HttpPost(URL);
+
         //请求实体
         StringEntity entity = new StringEntity("12312312");
-//        httpPost.setEntity(entity);
+        httpPost.setEntity(entity);
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpPost);

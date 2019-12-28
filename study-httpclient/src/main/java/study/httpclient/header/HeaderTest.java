@@ -44,11 +44,12 @@ public class HeaderTest {
     @Test
     public void post_test() throws Exception {
         HttpPost httpPost = new HttpPost(URL);
+        //请求头
         httpPost.setHeader("Request-Id", "999999999");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpPost);
-
+        //响应头
         Header[] headers = response.getAllHeaders();
         Arrays.asList(headers).forEach(header -> {
             log.info("{}={}", header.getName(), header.getValue());
