@@ -27,11 +27,9 @@ public class HeaderTest {
 
         HttpGet httpGet = new HttpGet(URL);
         //请求头
-        httpGet.setHeader("Content-Type", "123213123123");
-        httpGet.setHeader("User-Agent", "my-agent");
+        httpGet.setHeader("Content-Type", "11111");
+        httpGet.setHeader("User-Agent", "222222");
         httpGet.setHeader("Request-Id", "6666666666");
-        httpGet.setHeader("Request-Idxxx", "12312");
-        httpGet.setHeader("Request-Idbabsad", "123123123");
         httpGet.setConfig(requestConfig);
 
         CloseableHttpClient client = HttpClients.createDefault();
