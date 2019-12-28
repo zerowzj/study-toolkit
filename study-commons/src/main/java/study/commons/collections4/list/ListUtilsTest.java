@@ -17,4 +17,8 @@ public class ListUtilsTest {
             log.info(str);
         });
     }
+
+    @Test
+    public void test() {
+    }
 }
