@@ -6,10 +6,14 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 @Slf4j
 public class MapUtilsTest {
 
+    /**
+     * （★）
+     */
     @Test
     public void getString_test() {
         Map<String, Object> map = new HashMap<>();
@@ -24,7 +28,7 @@ public class MapUtilsTest {
         Map<String, Object> map = new HashMap<>();
         map.put("str", "safsafd");
         map.put("i", 123123);
-        Map obj = MapUtils.getMap(map, "i");
+        Map newMap = MapUtils.getMap(map, "i");
     }
 
     @Test
@@ -32,9 +36,12 @@ public class MapUtilsTest {
         Map<String, Object> map = new HashMap<>();
         map.put("str", "safsafd");
         map.put("i", 123123);
-        Map obj = MapUtils.getMap(map, "i");
+        Object obj = MapUtils.getObject(map, "i");
     }
 
+    /**
+     * （★）
+     */
     @Test
     public void isEmpty_test() {
         Map map1 = null;
@@ -45,6 +52,7 @@ public class MapUtilsTest {
         boolean b = MapUtils.isEmpty(map2);
         log.info("{}", b);
     }
+
     @Test
     public void isNotEmpty_test() {
         Map map1 = null;
@@ -56,6 +64,9 @@ public class MapUtilsTest {
         log.info("{}", b);
     }
 
+    /**
+     * （★）
+     */
     @Test
     public void emptyIfNull_test() {
         Map<String, Object> map = null;
@@ -63,5 +74,28 @@ public class MapUtilsTest {
         newMap.forEach((key, value) -> {
             log.info("{}={}", key, value);
         });
+    }
+
+    /**
+     * （★）
+     */
+    @Test
+    public void toProperties_test() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("demo.name", "wangzhj");
+        map.put("demo.age", 3);
+        Properties prop = MapUtils.toProperties(map);
+        prop.forEach((key, value) -> {
+            log.info("{}={}", key, value);
+        });
+    }
+
+    @Test
+    public void toMap_test() {
+        Properties prop = new Properties();
+        prop.setProperty("demo.name", "wangzhj");
+        prop.setProperty("demo.age", "33");
+//        Map newMap = MapUtils.toMap(new PropertyResourceBundle(prop));
+
     }
 }
