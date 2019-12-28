@@ -20,16 +20,15 @@ public class HeaderTest {
 
     @Test
     public void get_test() throws Exception {
-
         HttpHost proxy = new HttpHost("127.0.0.1", 8888);
         RequestConfig requestConfig = RequestConfig.custom()
                 .setProxy(proxy)
-                .setConnectTimeout(10000)
-                .setSocketTimeout(10000)
-                .setConnectionRequestTimeout(3000)
                 .build();
 
         HttpGet httpGet = new HttpGet(URL);
+        //请求头
+        httpGet.setHeader("Content-Type", "123213123123");
+        httpGet.setHeader("User-Agent", "my-agent");
         httpGet.setHeader("Request-Id", "6666666666");
         httpGet.setHeader("Request-Idxxx", "12312");
         httpGet.setHeader("Request-Idbabsad", "123123123");
@@ -37,7 +36,7 @@ public class HeaderTest {
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpGet);
-
+        //响应头
         Header[] headers = response.getAllHeaders();
         Arrays.asList(headers).forEach(header -> {
             log.info("{}={}", header.getName(), header.getValue());
