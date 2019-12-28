@@ -33,7 +33,7 @@ public class HeaderTest {
     @Test
     public void post_test() throws Exception {
         HttpPost httpPost = new HttpPost(URL);
-        httpPost.setHeader("Request-Id", "6666666666");
+        httpPost.setHeader("Request-Id", "999999999");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpPost);
