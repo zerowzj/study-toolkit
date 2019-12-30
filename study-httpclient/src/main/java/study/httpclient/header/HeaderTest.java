@@ -16,7 +16,7 @@ import java.util.Arrays;
 @Slf4j
 public class HeaderTest {
 
-    private static final String URL = "http://www.sohu.com";
+    private String url = "http://www.sohu.com";
 
     @Test
     public void get_test() throws Exception {
@@ -25,7 +25,7 @@ public class HeaderTest {
                 .setProxy(proxy)
                 .build();
 
-        HttpGet httpGet = new HttpGet(URL);
+        HttpGet httpGet = new HttpGet(url);
         //请求头
         httpGet.setHeader("Content-Type", "11111");
         httpGet.setHeader("User-Agent", "222222");
@@ -43,9 +43,11 @@ public class HeaderTest {
 
     @Test
     public void post_test() throws Exception {
-        HttpPost httpPost = new HttpPost(URL);
+        HttpPost httpPost = new HttpPost(url);
         //请求头
-        httpPost.setHeader("Request-Id", "999999999");
+        httpPost.setHeader("Content-Type", "11111");
+        httpPost.setHeader("User-Agent", "222222");
+        httpPost.setHeader("Request-Id", "6666666666");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpPost);

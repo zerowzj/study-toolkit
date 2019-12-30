@@ -14,20 +14,20 @@ import org.junit.Test;
 @Slf4j
 public class GetTest {
 
-    private static final String URL = "http://www.sohu.com";
+    private String url = "http://www.sohu.com";
 
     @Test
     public void test() throws Exception {
-        //
-        URIBuilder builder = new URIBuilder(URL);
+        //请求参数
+        URIBuilder builder = new URIBuilder(url);
         String query = "name=wangzhj&age=36";
         builder.setCustomQuery(query);
         log.info("uri: {}", builder.toString());
         HttpGet httpGet = new HttpGet(builder.build());
-        //
+        //请求
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpGet);
-        //
+        //响应
         StatusLine line = response.getStatusLine();
         log.info("status line: {}", line);
         HttpEntity entity = response.getEntity();
