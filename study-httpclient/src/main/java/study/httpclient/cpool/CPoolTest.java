@@ -1,13 +1,10 @@
 package study.httpclient.cpool;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Consts;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.config.ConnectionConfig;
-import org.apache.http.config.MessageConstraints;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.config.SocketConfig;
+import org.apache.http.config.*;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.LayeredConnectionSocketFactory;
@@ -18,7 +15,8 @@ import org.junit.Test;
 
 import java.nio.charset.CodingErrorAction;
 
-public class CPool_Test {
+@Slf4j
+public class CPoolTest {
 
     @Test
     public void test() {

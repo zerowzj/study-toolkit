@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -31,5 +32,16 @@ public class PostTest {
         HttpEntity entity = response.getEntity();
         String body = EntityUtils.toString(entity);
         log.info("entity: {}", body);
+    }
+
+    @Test
+    public void requestConfig_test() {
+        RequestConfig config = RequestConfig.custom()
+                .setConnectTimeout(60 * 1000)
+                .setSocketTimeout(60 * 1000)
+                .build();
+
+        HttpPost httpPost = new HttpPost();
+        httpPost.setConfig(config);
     }
 }
