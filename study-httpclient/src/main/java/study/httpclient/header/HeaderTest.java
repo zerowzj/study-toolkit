@@ -26,7 +26,7 @@ public class HeaderTest {
                 .build();
 
         HttpGet httpGet = new HttpGet(url);
-        //请求头
+        //设置请求头
         httpGet.setHeader("Content-Type", "11111");
         httpGet.setHeader("User-Agent", "222222");
         httpGet.setHeader("Request-Id", "6666666666");
@@ -34,7 +34,7 @@ public class HeaderTest {
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpGet);
-        //响应头
+        //获取响应头
         Header[] headers = response.getAllHeaders();
         Arrays.asList(headers).forEach(header -> {
             log.info("{}={}", header.getName(), header.getValue());
@@ -44,14 +44,15 @@ public class HeaderTest {
     @Test
     public void post_test() throws Exception {
         HttpPost httpPost = new HttpPost(url);
-        //请求头
+        //设置请求头
         httpPost.setHeader("Content-Type", "11111");
         httpPost.setHeader("User-Agent", "222222");
         httpPost.setHeader("Request-Id", "6666666666");
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpResponse response = client.execute(httpPost);
-        //响应头
+
+        //获取响应头
         Header[] headers = response.getAllHeaders();
         Arrays.asList(headers).forEach(header -> {
             log.info("{}={}", header.getName(), header.getValue());
