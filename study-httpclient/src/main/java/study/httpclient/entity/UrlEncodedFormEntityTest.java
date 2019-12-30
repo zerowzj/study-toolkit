@@ -15,10 +15,15 @@ public class UrlEncodedFormEntityTest {
 
     @Test
     public void test() throws IOException {
+        //
         List<BasicNameValuePair> paramLt = new ArrayList();
         paramLt.add(new BasicNameValuePair("name", "wangzhj"));
         paramLt.add(new BasicNameValuePair("age", "38"));
+        //
         UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramLt);
+        entity.setContentType("");
+        entity.setContentEncoding("");
+        entity.setChunked(false);
         log.info(EntityUtils.toString(entity));
     }
 }
