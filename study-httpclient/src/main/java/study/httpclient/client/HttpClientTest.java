@@ -1,4 +1,4 @@
-package study.httpclient.client.post;
+package study.httpclient.client;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.HttpClient;
@@ -12,6 +12,15 @@ public class HttpClientTest {
     public void test() {
         HttpClient client = HttpClients.custom()
                 .setConnectionManager(null)
+                .setDefaultRequestConfig(null)
+                .setDefaultConnectionConfig(null)
+                .setDefaultSocketConfig(null)
+                .setDefaultHeaders(null) //默认Header
                 .build();
+    }
+
+    @Test
+    public void tt(){
+
     }
 }

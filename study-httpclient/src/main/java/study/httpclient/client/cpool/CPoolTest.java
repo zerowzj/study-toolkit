@@ -29,7 +29,7 @@ public class CPoolTest {
         connManager.setDefaultMaxPerRoute(100);
         connManager.setMaxPerRoute(new HttpRoute(new HttpHost("somehost")), 150);  //设置到某个路由的最大连接数
 
-        //（★）Socket配置
+        //（★）Socket配置（默认配置和某个Host的配置）
         SocketConfig socketConfig = SocketConfig.custom()
                 .setTcpNoDelay(true)     //是否立即发送数据，设置为true会关闭Socket缓冲，默认为false
                 .setSoReuseAddress(true) //是否可以在一个进程关闭Socket后，即使它还没有释放端口，其它进程还可以立即重用端口
@@ -40,16 +40,12 @@ public class CPoolTest {
         connManager.setDefaultSocketConfig(socketConfig);
         connManager.setSocketConfig(new HttpHost("somehost"), socketConfig);
 
-        /**
-         * HTTP connection相关配置（默认配置 和 某个host的配置）
-         * 一般不修改HTTP connection相关配置，故不设置
-         */
         //消息约束
         MessageConstraints messageConstraints = MessageConstraints.custom()
                 .setMaxHeaderCount(200)
                 .setMaxLineLength(2000)
                 .build();
-        //（★）Connection配置
+        //（★）Connection配置（默认配置和某个Host的配置）
         ConnectionConfig connectionConfig = ConnectionConfig.custom()
                 .setMalformedInputAction(CodingErrorAction.IGNORE)
                 .setUnmappableInputAction(CodingErrorAction.IGNORE)
@@ -74,6 +70,10 @@ public class CPoolTest {
         Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", plainsf)
                 .register("https", sslsf)
+                .build();
+
+        HttpClient client = HttpClients.custom()
+                .setConnectionManager(connManager)
                 .build();
     }
 }

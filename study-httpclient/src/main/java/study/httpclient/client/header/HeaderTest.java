@@ -58,4 +58,8 @@ public class HeaderTest {
             log.info("{}={}", header.getName(), header.getValue());
         });
     }
+
+    public void defaultHeader_test(){
+        HttpPost httpPost = new HttpPost(url);
+    }
 }
