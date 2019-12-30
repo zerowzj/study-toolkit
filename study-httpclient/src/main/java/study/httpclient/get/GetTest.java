@@ -6,7 +6,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -38,14 +37,20 @@ public class GetTest {
     }
 
     @Test
-    public void requestConfig_test() {
+    public void requestConfig_test() throws Exception {
+        //请求配置
         RequestConfig config = RequestConfig.custom()
+                .setConnectionRequestTimeout(1 * 1000)
                 .setConnectTimeout(60 * 1000)
                 .setSocketTimeout(60 * 1000)
-                .setProxy(null)
+//                .setProxy(null)
                 .build();
-
-        HttpGet httpGet = new HttpGet();
+        HttpGet httpGet = new HttpGet(url);
         httpGet.setConfig(config);
+
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpResponse response = client.execute(httpGet);
+        StatusLine line = response.getStatusLine();
+        log.info("status line: {}", line);
     }
 }
