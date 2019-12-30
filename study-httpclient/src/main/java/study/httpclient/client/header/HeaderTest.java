@@ -1,4 +1,4 @@
-package study.httpclient.header;
+package study.httpclient.client.header;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Header;

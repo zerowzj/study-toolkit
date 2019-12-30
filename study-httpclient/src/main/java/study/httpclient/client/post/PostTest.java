@@ -1,4 +1,4 @@
-package study.httpclient.post;
+package study.httpclient.client.post;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpEntity;

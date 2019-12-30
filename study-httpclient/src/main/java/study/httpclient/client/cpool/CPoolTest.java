@@ -1,4 +1,4 @@
-package study.httpclient.cpool;
+package study.httpclient.client.cpool;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Consts;
@@ -16,7 +16,7 @@ import org.junit.Test;
 import java.nio.charset.CodingErrorAction;
 
 @Slf4j
-public class CTest {
+public class CPoolTest {
 
     @Test
     public void test() {
