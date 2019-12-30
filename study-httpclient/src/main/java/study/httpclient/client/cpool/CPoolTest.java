@@ -3,6 +3,7 @@ package study.httpclient.client.cpool;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Consts;
 import org.apache.http.HttpHost;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.*;
 import org.apache.http.conn.routing.HttpRoute;
@@ -10,6 +11,7 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.LayeredConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.junit.Test;
 
@@ -23,14 +25,11 @@ public class CPoolTest {
         PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager();
         //最大连接数
         connManager.setMaxTotal(200);
-        //默认的每个路由的最大连接数
+        //路由最大连接数
         connManager.setDefaultMaxPerRoute(100);
-        //设置到某个路由的最大连接数，会覆盖defaultMaxPerRoute
-        connManager.setMaxPerRoute(new HttpRoute(new HttpHost("somehost", 80)), 150);
+        connManager.setMaxPerRoute(new HttpRoute(new HttpHost("somehost")), 150);  //设置到某个路由的最大连接数
 
-        /**
-         * 连接数相关设置
-         */
+        //（★）Socket配置
         SocketConfig socketConfig = SocketConfig.custom()
                 .setTcpNoDelay(true)     //是否立即发送数据，设置为true会关闭Socket缓冲，默认为false
                 .setSoReuseAddress(true) //是否可以在一个进程关闭Socket后，即使它还没有释放端口，其它进程还可以立即重用端口
@@ -39,7 +38,7 @@ public class CPoolTest {
                 .setSoKeepAlive(true)    //开启监视TCP连接是否有效
                 .build();
         connManager.setDefaultSocketConfig(socketConfig);
-        connManager.setSocketConfig(new HttpHost("somehost", 80), socketConfig);
+        connManager.setSocketConfig(new HttpHost("somehost"), socketConfig);
 
         /**
          * HTTP connection相关配置（默认配置 和 某个host的配置）
@@ -50,13 +49,15 @@ public class CPoolTest {
                 .setMaxHeaderCount(200)
                 .setMaxLineLength(2000)
                 .build();
-        //Http connection相关配置
+        //（★）Connection配置
         ConnectionConfig connectionConfig = ConnectionConfig.custom()
                 .setMalformedInputAction(CodingErrorAction.IGNORE)
                 .setUnmappableInputAction(CodingErrorAction.IGNORE)
                 .setCharset(Consts.UTF_8)
                 .setMessageConstraints(messageConstraints)
                 .build();
+        connManager.setDefaultConnectionConfig(connectionConfig);
+        connManager.setSocketConfig(new HttpHost("somehost"), socketConfig);
 
         /**
          * request请求相关配置
