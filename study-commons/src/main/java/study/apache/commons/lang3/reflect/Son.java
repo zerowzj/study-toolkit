@@ -1,24 +1,13 @@
 package study.apache.commons.lang3.reflect;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Son extends Father {
 
-    private String sonName;
+    private String sName;
 
-    private int sonAge;
-
-    public String getSonName() {
-        return sonName;
-    }
-
-    public void setSonName(String sonName) {
-        this.sonName = sonName;
-    }
-
-    public int getSonAge() {
-        return sonAge;
-    }
-
-    public void setSonAge(int sonAge) {
-        this.sonAge = sonAge;
-    }
+    private int sAge;
 }
