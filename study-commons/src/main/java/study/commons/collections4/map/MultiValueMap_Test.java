@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-public class MultiValueMapTest {
+public class MultiValueMap_Test {
 
     @Test
     public void test() {

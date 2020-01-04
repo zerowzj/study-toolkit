@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 @Slf4j
-public class StringTest {
+public class StringUtils_Test {
 
     @Test
     public void isAll_test() {

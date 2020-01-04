@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
 @Slf4j
-public class RandomTest {
+public class RandomStringUtils_Test {
 
     @Test
     public void next_test() {

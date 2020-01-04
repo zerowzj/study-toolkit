@@ -10,7 +10,7 @@ import org.junit.Test;
 import javax.crypto.Mac;
 
 @Slf4j
-public class HmacTest {
+public class HmacUtils_Test {
 
     byte[] key = "35b1ab4d984eae5626cdda8d4ff12cf5".getBytes();
 

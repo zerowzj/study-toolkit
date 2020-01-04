@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-public class ListUtilsTest {
+public class ListUtils_Test {
 
     /**
      * （★）emptyIfNull()和defaultIfNull()

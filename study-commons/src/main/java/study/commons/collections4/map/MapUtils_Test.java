@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Properties;
 
 @Slf4j
-public class MapUtilsTest {
+public class MapUtils_Test {
 
     /**
      * （★）getXXX()

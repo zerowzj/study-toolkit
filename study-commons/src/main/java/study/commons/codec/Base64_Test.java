@@ -5,7 +5,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 
 @Slf4j
-public class Base64Test {
+public class Base64_Test {
 
     private String str = "abc123!@#";
 

@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 @Slf4j
-public class ArrayTest {
+public class ArrayUtils_Test {
 
     @Test
     public void add_test() {

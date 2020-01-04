@@ -5,7 +5,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.junit.Test;
 
 @Slf4j
-public class HexTest {
+public class Hex_Test {
 
     byte[] data = "123".getBytes();
 

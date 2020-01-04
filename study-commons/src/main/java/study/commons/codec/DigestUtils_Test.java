@@ -5,7 +5,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
 @Slf4j
-public class DigestTest {
+public class DigestUtils_Test {
 
     private static final String STR = "26803BDCD00D41CFA94BBD450E8E58F4" + System.currentTimeMillis();
 

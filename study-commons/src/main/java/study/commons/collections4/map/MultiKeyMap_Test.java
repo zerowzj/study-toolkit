@@ -6,7 +6,7 @@ import org.apache.commons.collections4.map.MultiKeyMap;
 import org.junit.Test;
 
 @Slf4j
-public class MultiKeyMapTest {
+public class MultiKeyMap_Test {
 
     @Test
     public void get_test() {
