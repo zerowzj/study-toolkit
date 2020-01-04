@@ -8,7 +8,9 @@ import org.junit.Test;
 public class StringUtils_Test {
 
     /**
+     * ====================
      * （★）Empty
+     * ====================
      */
     @Test
     public void isAllEmpty_test() {
@@ -21,7 +23,7 @@ public class StringUtils_Test {
     @Test
     public void isAnyEmpty_test() {
         String str1 = "1";
-        String str2 = null;
+        String str2 = "";
         boolean isAnyEmpty = StringUtils.isAnyEmpty(str1, str2);
         log.info("isAnyEmpty={}", isAnyEmpty);
     }
@@ -43,13 +45,15 @@ public class StringUtils_Test {
     @Test
     public void isNoneEmpty_test() {
         String str1 = "1";
-        String str2 = null;
+        String str2 = "2";
         boolean isAnyEmpty = StringUtils.isNoneEmpty(str1, str2);
         log.info("isAnyEmpty={}", isAnyEmpty);
     }
 
     /**
+     * ====================
      * （★）Blank
+     * ====================
      */
     @Test
     public void isAllBlank_test() {
@@ -92,7 +96,9 @@ public class StringUtils_Test {
     }
 
     /**
-     * （★）
+     * ====================
+     * （★）Blank
+     * ====================
      */
     @Test
     public void isAllLowerCase_test() {
@@ -109,6 +115,11 @@ public class StringUtils_Test {
         log.info("{}", is);
     }
 
+    /**
+     * ====================
+     * （★）Blank
+     * ====================
+     */
     @Test
     public void join_test() {
         String path = "/ab/c";
