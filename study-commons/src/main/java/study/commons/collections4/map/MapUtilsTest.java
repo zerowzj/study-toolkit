@@ -12,35 +12,37 @@ import java.util.Properties;
 public class MapUtilsTest {
 
     /**
-     * （★）
+     * （★）getXXX()
      */
     @Test
     public void getString_test() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("str", "safsafd");
-        map.put("i", 123123);
-        String str = MapUtils.getString(map, "i");
-        log.info(str);
+        Map map = new HashMap<>();
+        map.put("name", "wangzhj");
+        map.put("age", 38);
+        String name = MapUtils.getString(map, "name");
+        int age = MapUtils.getInteger(map, "age");
+        String ageStr = MapUtils.getString(map, "age");
+        log.info("{}, {}, {}", name, age, ageStr);
     }
 
     @Test
     public void getMap_test() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("str", "safsafd");
-        map.put("i", 123123);
-        Map newMap = MapUtils.getMap(map, "i");
+        Map map = new HashMap<>();
+        map.put("name", "wangzhj");
+        Map newMap = MapUtils.getMap(map, "name");
+        log.info("{}", newMap);
     }
 
     @Test
     public void getObject_test() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("str", "safsafd");
-        map.put("i", 123123);
-        Object obj = MapUtils.getObject(map, "i");
+        Map map = new HashMap<>();
+        map.put("name", "wangzhj");
+        Object obj = MapUtils.getObject(map, "name");
+        log.info("{}", obj);
     }
 
     /**
-     * （★）
+     * （★）isEmpty() & isNotEmpty()
      */
     @Test
     public void isEmpty_test() {
@@ -65,7 +67,7 @@ public class MapUtilsTest {
     }
 
     /**
-     * （★）
+     * （★）emptyIfNull()
      */
     @Test
     public void emptyIfNull_test() {
@@ -77,7 +79,7 @@ public class MapUtilsTest {
     }
 
     /**
-     * （★）
+     * （★）toXXX()
      */
     @Test
     public void toProperties_test() {

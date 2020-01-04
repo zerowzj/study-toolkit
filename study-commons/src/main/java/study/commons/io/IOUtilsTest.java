@@ -1,10 +1,13 @@
 package study.commons.io;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -13,11 +16,10 @@ public class IOUtilsTest {
     //toByteArray
     @Test
     public void toByteArray_test() throws Exception {
-        InputStream in = new FileInputStream("d:/win10.zip");
+        InputStream in = new FileInputStream("d:/pic.txt");
         byte[] bytes = IOUtils.toByteArray(in);
-        byte[] heads = ArrayUtils.subarray(bytes, 0, 10);
-        String str = Hex.encodeHexString(heads, false);
-        System.out.println(str);
+        byte[] tt = Base64.decodeBase64(bytes);
+        FileUtils.writeByteArrayToFile(new File("d:/t.jpg"), tt);
     }
 
     //toString
