@@ -1,4 +1,4 @@
-package study.commons.io;
+package study.apache.commons.io;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;

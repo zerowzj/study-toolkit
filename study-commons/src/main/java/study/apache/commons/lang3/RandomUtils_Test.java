@@ -1,4 +1,4 @@
-package study.commons.lang3;
+package study.apache.commons.lang3;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -6,7 +6,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 
 @Slf4j
-public class RandomStringUtils_Test {
+public class RandomUtils_Test {
 
     @Test
     public void next_test() {

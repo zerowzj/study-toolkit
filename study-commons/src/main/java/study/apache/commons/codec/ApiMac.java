@@ -1,4 +1,4 @@
-package study.commons.codec;
+package study.apache.commons.codec;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
@@ -6,7 +6,6 @@ import org.apache.commons.io.FileUtils;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
-import java.nio.charset.Charset;
 
 public class ApiMac {
     private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";

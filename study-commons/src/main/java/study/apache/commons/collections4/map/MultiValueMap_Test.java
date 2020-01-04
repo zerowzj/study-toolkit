@@ -1,4 +1,4 @@
-package study.commons.collections4.map;
+package study.apache.commons.collections4.map;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;

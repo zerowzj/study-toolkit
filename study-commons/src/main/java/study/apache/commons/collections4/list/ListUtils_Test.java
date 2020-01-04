@@ -1,4 +1,4 @@
-package study.commons.collections4.list;
+package study.apache.commons.collections4.list;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.ListUtils;
