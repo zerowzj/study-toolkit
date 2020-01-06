@@ -8,7 +8,7 @@ import org.junit.Test;
 import study.json.Files;
 
 @Slf4j
-public class JSONObject_Test {
+public class JSON_Test {
 
     /**
      * （★）String -> Json
@@ -16,21 +16,21 @@ public class JSONObject_Test {
     @Test
     public void parse_test() {
         String text = Files.read("array.json");
-        Object obj = JSONObject.parse(text);
+        Object obj = JSON.parse(text);
         log.info("{}", obj);
     }
 
     @Test
     public void parseObject_test() {
         String text = Files.read("object.json");
-        JSONObject obj = JSONObject.parseObject(text);
+        JSONObject obj = JSON.parseObject(text);
         log.info(obj.getString("name"));
     }
 
     @Test
     public void parseArray_test() {
         String text = Files.read("array.json");
-        JSONArray array = JSONObject.parseArray(text);
+        JSONArray array = JSON.parseArray(text);
         array.forEach(obj -> {
             log.info("{}", obj);
         });
@@ -42,31 +42,7 @@ public class JSONObject_Test {
     @Test
     public void toJSONString_Test() {
         String text = Files.read("array.json");
-        String json = JSONObject.toJSONString(text);
+        String json = JSON.toJSONString(text);
         log.info("{}", json);
-    }
-
-    /**
-     * （★）
-     */
-    @Test
-    public void isValid_test() {
-        String jsonStr = Files.read("object.json");
-        boolean isJson = JSONObject.isValid(jsonStr);
-        log.info("{}", isJson);
-    }
-
-    @Test
-    public void isValidObject_test() {
-        String jsonStr = Files.read("object.json");
-        boolean isJson = JSONObject.isValidObject(jsonStr);
-        log.info("{}", isJson);
-    }
-
-    @Test
-    public void isValidArray_test() {
-        String jsonStr = Files.read("object.json");
-        boolean isJson = JSONObject.isValidArray(jsonStr);
-        log.info("{}", isJson);
     }
 }
