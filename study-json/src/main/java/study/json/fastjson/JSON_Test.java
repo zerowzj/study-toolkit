@@ -50,7 +50,7 @@ public class JSON_Test {
     }
 
     /**
-     * （▲）
+     * （▲）isValid
      */
     @Test
     public void isValid_test() {
