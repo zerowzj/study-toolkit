@@ -8,13 +8,13 @@ import org.junit.Test;
 import study.json.Files;
 
 /**
- * 主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化
+ * （★）主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化
  */
 @Slf4j
 public class JSON_Test {
 
     /**
-     * （★）String -> Json
+     * （▲）String -> Json
      */
     @Test
     public void parse_test() {
@@ -40,7 +40,7 @@ public class JSON_Test {
     }
 
     /**
-     * （★）Json -> String
+     * （▲）Json -> String
      */
     @Test
     public void toJSONString_test() {
@@ -50,12 +50,26 @@ public class JSON_Test {
     }
 
     /**
-     * （★）
+     * （▲）
      */
     @Test
     public void isValid_test() {
-        String text = Files.read("object.json");
-        boolean isValid = JSON.isValid(text);
-        log.info("{}", isValid);
+        String jsonStr = Files.read("object.json");
+        boolean isJson = JSON.isValid(jsonStr);
+        log.info("{}", isJson);
+    }
+
+    @Test
+    public void isValidObject_test() {
+        String jsonStr = Files.read("object.json");
+        boolean isJson = JSON.isValidObject(jsonStr);
+        log.info("{}", isJson);
+    }
+
+    @Test
+    public void isValidArray_test() {
+        String jsonStr = Files.read("object.json");
+        boolean isJson = JSON.isValidArray(jsonStr);
+        log.info("{}", isJson);
     }
 }
