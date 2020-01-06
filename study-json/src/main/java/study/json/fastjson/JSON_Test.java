@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import study.json.Files;
 
+/**
+ * 主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化
+ */
 @Slf4j
 public class JSON_Test {
 
@@ -40,9 +43,19 @@ public class JSON_Test {
      * （★）Json -> String
      */
     @Test
-    public void toJSONString_Test() {
+    public void toJSONString_test() {
         String text = Files.read("array.json");
         String json = JSON.toJSONString(text);
         log.info("{}", json);
+    }
+
+    /**
+     * （★）
+     */
+    @Test
+    public void isValid_test() {
+        String text = Files.read("object.json");
+        boolean isValid = JSON.isValid(text);
+        log.info("{}", isValid);
     }
 }

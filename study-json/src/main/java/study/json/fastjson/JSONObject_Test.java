@@ -1,39 +1,31 @@
 package study.json.fastjson;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import study.json.Files;
 
+/**
+ * 解析Json对象，获取对象中的值，通常是使用类中的get()方法
+ */
 @Slf4j
 public class JSONObject_Test {
 
     /**
-     * （★）String -> Json
+     * （★）getXXX()
      */
     @Test
-    public void parse_test() {
-        String text = Files.read("array.json");
-        Object obj = JSONObject.parse(text);
-        log.info("{}", obj);
-    }
-
-    @Test
-    public void parseObject_test() {
+    public void getString_test() {
         String text = Files.read("object.json");
-        JSONObject obj = JSONObject.parseObject(text);
-        log.info(obj.getString("name"));
+        JSONObject jsonObj = JSONObject.parseObject(text);
+        log.info(jsonObj.getString("name"));
     }
 
     @Test
-    public void parseArray_test() {
-        String text = Files.read("array.json");
-        JSONArray array = JSONObject.parseArray(text);
-        array.forEach(obj -> {
-            log.info("{}", obj);
-        });
+    public void getJSONObject_test() {
+        String text = Files.read("object.json");
+        JSONObject jsonObj = JSONObject.parseObject(text);
+        jsonObj.getJSONObject("");
     }
 
     /**
