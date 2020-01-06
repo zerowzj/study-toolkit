@@ -14,7 +14,7 @@ import study.json.Files;
 public class JSON_Test {
 
     /**
-     * （▲）String -> Json
+     * （▲）String ==> Json
      */
     @Test
     public void parse_test() {
@@ -40,7 +40,7 @@ public class JSON_Test {
     }
 
     /**
-     * （▲）Json -> String
+     * （▲）Json ==> String
      */
     @Test
     public void toJSONString_test() {
