@@ -7,6 +7,7 @@ import org.junit.Test;
 
 @Slf4j
 public class JSONArray_Test {
+
     @Test
     public void parseObject_test() {
         String text = "{'id':1,'name':'wangzhj'}";
