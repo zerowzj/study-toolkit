@@ -136,20 +136,7 @@ public class StringUtils_Test {
 
     /**
      * ====================
-     * （★）
-     * ====================
-     */
-    @Test
-    public void join_test() {
-        String path = "/ab/c";
-        String uriVars = "";
-        String str = StringUtils.join(path, "?", uriVars);
-        log.info("{}", str);
-    }
-
-    /**
-     * ====================
-     * （★）
+     * （★）Compare
      * ====================
      */
     @Test
@@ -172,5 +159,10 @@ public class StringUtils_Test {
         log.info("{}", StringUtils.compareIgnoreCase(str1, str2));
         log.info("{}", StringUtils.compareIgnoreCase(str2, str3));
         log.info("{}", StringUtils.compareIgnoreCase(str3, str4));
+    }
+
+    @Test
+    public void compareIgno1reCase_test() {
+//        StringUtils.strip
     }
 }

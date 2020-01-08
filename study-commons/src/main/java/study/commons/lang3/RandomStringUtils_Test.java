@@ -6,6 +6,7 @@ import org.junit.Test;
 
 @Slf4j
 public class RandomStringUtils_Test {
+
     /**
      *
      */
