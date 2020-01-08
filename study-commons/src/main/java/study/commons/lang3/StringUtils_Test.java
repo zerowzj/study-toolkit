@@ -136,7 +136,7 @@ public class StringUtils_Test {
 
     /**
      * ====================
-     * （★）Blank
+     * （★）
      * ====================
      */
     @Test
@@ -145,5 +145,32 @@ public class StringUtils_Test {
         String uriVars = "";
         String str = StringUtils.join(path, "?", uriVars);
         log.info("{}", str);
+    }
+
+    /**
+     * ====================
+     * （★）
+     * ====================
+     */
+    @Test
+    public void compare_test() {
+        String str1 = "abc";
+        String str2 = "abc";
+        String str3 = "ABC";
+        String str4 = "123";
+        log.info("{}", StringUtils.compare(str1, str2));
+        log.info("{}", StringUtils.compare(str2, str3));
+        log.info("{}", StringUtils.compare(str3, str4));
+    }
+
+    @Test
+    public void compareIgnoreCase_test() {
+        String str1 = "abc";
+        String str2 = "abc";
+        String str3 = "ABC";
+        String str4 = "123";
+        log.info("{}", StringUtils.compareIgnoreCase(str1, str2));
+        log.info("{}", StringUtils.compareIgnoreCase(str2, str3));
+        log.info("{}", StringUtils.compareIgnoreCase(str3, str4));
     }
 }
