@@ -40,10 +40,11 @@ public class StringUtils_Test {
 
     @Test
     public void isAnyEmpty_test() {
-        String str1 = "1";
+        String str1 = "";
         String str2 = "";
-        boolean isAnyEmpty = StringUtils.isAnyEmpty(str1, str2);
-        log.info("isAnyEmpty={}", isAnyEmpty);
+        String str3 = "";
+        boolean isAnyEmpty = StringUtils.isAnyEmpty(str1, str2, str3);
+        log.info("{}", isAnyEmpty);
     }
 
     @Test
