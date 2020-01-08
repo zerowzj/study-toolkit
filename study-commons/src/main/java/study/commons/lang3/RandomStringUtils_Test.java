@@ -17,7 +17,9 @@ public class RandomStringUtils_Test {
     }
 
     /**
+     * ==========
      * 字母
+     * ==========
      */
     @Test
     public void randomAlphabetic_test() {
@@ -26,7 +28,9 @@ public class RandomStringUtils_Test {
     }
 
     /**
+     * ==========
      * 数字
+     * ==========
      */
     @Test
     public void randomNumeric_test() {
@@ -35,7 +39,9 @@ public class RandomStringUtils_Test {
     }
 
     /**
+     * ==========
      * 字母+数字
+     * ==========
      */
     @Test
     public void randomAlphanumeric_test() {
