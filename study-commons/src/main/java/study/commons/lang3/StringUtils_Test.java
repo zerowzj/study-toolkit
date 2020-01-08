@@ -9,7 +9,7 @@ public class StringUtils_Test {
 
     /**
      * ====================
-     * （★）Empty（空的）
+     * （★）isEmpty（空的）
      * ====================
      */
     @Test
@@ -32,7 +32,7 @@ public class StringUtils_Test {
     @Test
     public void isAllEmpty_test() {
         String str1 = "";
-        String str2 = "";
+        String str2 = null;
         boolean isAllEmpty = StringUtils.isAllEmpty(str1, str2);
         log.info("isAllEmpty= {}", isAllEmpty);
 
@@ -56,7 +56,7 @@ public class StringUtils_Test {
 
     /**
      * ====================
-     * （★）Blank（空白的）
+     * （★）isBlank（空白的）
      * ====================
      */
     @Test
@@ -67,6 +67,13 @@ public class StringUtils_Test {
         log.info("{}", StringUtils.isBlank(str1));
         log.info("{}", StringUtils.isBlank(str2));
         log.info("{}", StringUtils.isBlank(str3));
+    }
+
+    @Test
+    public void isNotBlank_test() {
+        String str1 = "1";
+        boolean isAllEmpty = StringUtils.isNotBlank(str1);
+        log.info("isAllEmpty= {}", isAllEmpty);
     }
 
     @Test
@@ -85,13 +92,6 @@ public class StringUtils_Test {
         log.info("isAllEmpty= {}", isAllEmpty);
     }
 
-
-    @Test
-    public void isNotBlank_test() {
-        String str1 = "1";
-        boolean isAllEmpty = StringUtils.isNotBlank(str1);
-        log.info("isAllEmpty= {}", isAllEmpty);
-    }
 
     @Test
     public void isNoneBlank_test() {
