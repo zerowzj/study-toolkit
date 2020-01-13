@@ -1,8 +1,7 @@
 syntax = "proto3";
-option java_package = "com.ynt.ai.activemq.protobuf";
-option java_outer_classname = "PersonModel";
+option java_package = "study.protobuf";
 
-message Person {
+message Demo {
     int32 id = 1;
     string name = 2;
     string email = 3;
