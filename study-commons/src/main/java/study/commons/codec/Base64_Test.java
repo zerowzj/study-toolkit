@@ -9,7 +9,7 @@ public class Base64_Test {
 
     private String str = "abc123!@#";
 
-    private String base64Str = "YXNmYTEyMzEyIUAj";
+    private String base64Str = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3emoiLCJleHAiOjE1NzkwNTU1MDh9._AntDgLWTam4zTTQMelpkJBzVrGNxtWq9aCZa3Hkt_bX2S3LcdwRapvt2GlJKOqQBbVbEyrQwM-j6LGH9kYGdw";
 
     @Test
     public void encode_test() {
