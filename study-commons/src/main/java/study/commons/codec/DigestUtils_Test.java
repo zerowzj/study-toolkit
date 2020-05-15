@@ -4,6 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
 public class DigestUtils_Test {
 
@@ -30,5 +34,16 @@ public class DigestUtils_Test {
         //DigestUtils.sha1("");
         String str = DigestUtils.sha256Hex(STR);
         log.info("{}", str);
+    }
+
+
+    @Test
+    public void test(){
+        List<Integer> list=new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+         list= list.subList(0,Double.valueOf(Math.ceil(list.size()/2d)).intValue());
+        log.info(Arrays.toString(list.toArray()));
     }
 }
