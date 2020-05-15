@@ -36,7 +36,6 @@ public class DigestUtils_Test {
         log.info("{}", str);
     }
 
-
     @Test
     public void test(){
         List<Integer> list=new ArrayList<>();
