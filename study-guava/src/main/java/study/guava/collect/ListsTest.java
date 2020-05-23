@@ -3,6 +3,8 @@ package study.guava.collect;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.util.List;
+
 public class ListsTest {
 
     @Test
@@ -19,7 +21,11 @@ public class ListsTest {
         Lists.asList("", strs);
     }
 
+    @Test
     public void _test(){
-
+        List<String> dataLt = Lists.newArrayList("1", "2", "3","4", "5", "6");
+        List<List<String>> data = Lists.partition(dataLt, 3);
+        Lists.p
+        System.out.println(data);
     }
 }
