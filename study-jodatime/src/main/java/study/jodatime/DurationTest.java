@@ -1,9 +1,10 @@
 package study.jodatime;
 
+import org.joda.time.LocalDate;
 import org.joda.time.Period;
 import org.junit.Test;
 
-public class Duration_Test {
+public class DurationTest {
 
     @Test
     public void test() {
