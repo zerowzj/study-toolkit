@@ -37,7 +37,7 @@ public class DateUtils {
      * 时间计算
      */
     public static Date plusMinutes(int minutes) {
-        return plusMinutes(DateTime.now().toDate(), minutes);
+        return plusMinutes(now(), minutes);
     }
 
     public static Date plusMinutes(Date date, int minutes) {
@@ -47,7 +47,7 @@ public class DateUtils {
     }
 
     public static Date plusHours(int hours) {
-        return plusHours(DateTime.now().toDate(), hours);
+        return plusHours(now(), hours);
     }
 
     public static Date plusHours(Date date, int hours) {
