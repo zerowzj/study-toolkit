@@ -15,8 +15,11 @@ public class DateUtils {
     public enum DateFmt {
         //扁平格式
         FLAT_DT("yyyy-MM-dd"),
-        //简单的
+        //简单
         SIMPLE_DT(""),
+
+
+
         //标准格式
         STD_DT("yyyy-MM-dd"),
         STD_DT_TIME("yyyy-MM-dd HH:mm:ss"),
