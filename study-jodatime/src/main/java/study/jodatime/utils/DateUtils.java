@@ -12,7 +12,7 @@ import java.util.Date;
 public class DateUtils {
 
     @Getter
-    public enum DateFormat {
+    public enum DateFmt {
         //扁平格式
         FLAT_DT("yyyy-MM-dd"),
         //简单的
@@ -28,7 +28,7 @@ public class DateUtils {
 
         String value;
 
-        DateFormat(String value) {
+        DateFmt(String value) {
             this.value = value;
         }
     }
@@ -41,35 +41,39 @@ public class DateUtils {
     }
 
     /**
+     * ===================
      * 转换成字符串
+     * ====================
      */
     public static String toStdDtStr(Date date) {
-        return toStr(date, DateFormat.STD_DT);
+        return toStr(date, DateFmt.STD_DT);
     }
 
     public static String toStdDtTimeStr(Date date) {
-        return toStr(date, DateFormat.STD_DT_TIME);
+        return toStr(date, DateFmt.STD_DT_TIME);
     }
 
     public static String toStdDtTimeMsStr(Date date) {
-        return toStr(date, DateFormat.STD_DT_TIME_MS);
+        return toStr(date, DateFmt.STD_DT_TIME_MS);
     }
 
-    public static String toStr(Date date, DateFormat format) {
+    public static String toStr(Date date, DateFmt format) {
         DateTime dateTime = new DateTime(date);
         return dateTime.toString(format.getValue());
     }
 
     /**
+     * ===================
      * 转换成日期
+     * ====================
      */
-    public static Date toDate(String str, DateFormat dateFormat) {
+    public static Date toDate(String str, DateFmt dateFormat) {
         DateTimeFormatter fmt = DateTimeFormat.forPattern(dateFormat.getValue());
         return DateTime.parse(str, fmt).toDate();
     }
 
     /**
-     * 分钟计算
+     * 按分钟计算
      */
     public static Date plusMinutes(Date date, int minutes) {
         DateTime dateTime = new DateTime(date);
@@ -78,7 +82,7 @@ public class DateUtils {
     }
 
     /**
-     * 小时计算
+     * 按小时计算
      */
     public static Date plusHours(Date date, int hours) {
         DateTime dateTime = new DateTime(date);
@@ -87,7 +91,7 @@ public class DateUtils {
     }
 
     /**
-     * 天计算
+     * 按天计算
      */
     public static Date plusDays(Date date, int days) {
         DateTime dateTime = new DateTime(date);
@@ -110,8 +114,9 @@ public class DateUtils {
      */
     public static Date getStartOfDay(Date date) {
         DateTime nowTime = new DateTime(date);
-        DateTime startOfDay = nowTime.withTimeAtStartOfDay();
-        log.info(startOfDay.toString(DateFormat.STD_DT_TIME_MS.getValue()));
+        DateTime startOfDay = nowTime
+                .withTimeAtStartOfDay();
+        log.info(startOfDay.toString(DateFmt.STD_DT_TIME_MS.getValue()));
         return startOfDay.toDate();
     }
 
@@ -121,14 +126,14 @@ public class DateUtils {
      */
     public static Date getEndOfDay(Date date) {
         DateTime nowTime = new DateTime(date);
-        DateTime endOfDay = nowTime.millisOfDay().withMaximumValue();
-        log.info(endOfDay.toString(DateFormat.STD_DT_TIME_MS.getValue()));
+        DateTime endOfDay = nowTime.millisOfDay()
+                .withMaximumValue();
+        log.info(endOfDay.toString(DateFmt.STD_DT_TIME_MS.getValue()));
         return endOfDay.toDate();
     }
 
     public static void main(String[] args) {
         getStartOfDay(new Date());
         getEndOfDay(new Date());
-
     }
 }
