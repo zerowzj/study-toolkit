@@ -10,17 +10,10 @@ import org.junit.Test;
 import java.util.Date;
 
 @Slf4j
-public class DateUtils {
+public class DateV2Utils {
 
     @Getter
     public enum DateFmt {
-        //扁平格式
-        FLAT_DT("yyyy-MM-dd"),
-        //简单
-        SIMPLE_DT(""),
-
-
-
         //标准格式
         STD_DT("yyyy-MM-dd"),
         STD_DT_TIME("yyyy-MM-dd HH:mm:ss"),
@@ -43,14 +36,14 @@ public class DateUtils {
      * ====================
      */
     public static Date now() {
-        DateTime now = DateTime.now();
-        return now.toDate();
+       Date now = new Date(System.currentTimeMillis());
+        return now;
     }
 
     public static Date now(boolean millis) {
-        DateTime now = DateTime.now()
+        DateTime dt = DateTime.now()
                 .withMillisOfSecond(0);
-        return now.toDate();
+        return dt.toDate();
     }
 
     /**
