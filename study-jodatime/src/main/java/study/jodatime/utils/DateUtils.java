@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.junit.Test;
 
 import java.util.Date;
 
@@ -119,7 +120,6 @@ public class DateUtils {
         DateTime dateTime = new DateTime(date);
         DateTime startOfDay = dateTime.millisOfDay()
                 .withMinimumValue();
-        log.info(startOfDay.toString(DateFmt.STD_DT_TIME.getValue()));
         return startOfDay.toDate();
     }
 
@@ -131,12 +131,13 @@ public class DateUtils {
         DateTime dateTime = new DateTime(date);
         DateTime endOfDay = dateTime.millisOfDay()
                 .withMaximumValue();
-        log.info(endOfDay.toString(DateFmt.STD_DT_TIME.getValue()));
         return endOfDay.toDate();
     }
 
-    public static void main(String[] args) {
-        getStartOfDay(new Date());
-        getEndOfDay(new Date());
+    @Test
+    public void test(){
+        ;
+        log.info(toStdDtTimeMsStr(getStartOfDay(new Date())));
+        log.info(toStdDtTimeMsStr(getEndOfDay(new Date())));
     }
 }
