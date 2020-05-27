@@ -40,7 +40,7 @@ public class DateUtils {
      * 获取当前时间
      */
     public static Date now() {
-        return DateTime.now().toDate();
+        return DateTime.now().withMillisOfDay(0).toDate();
     }
 
     /**
