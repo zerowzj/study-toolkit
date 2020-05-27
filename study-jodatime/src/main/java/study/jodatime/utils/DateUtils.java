@@ -148,8 +148,8 @@ public class DateUtils {
 
     @Test
     public void test() {
-        log.info(toStdDtTimeMsStr(now()));
-//        log.info(toStdDtTimeMsStr(getStartOfDay(new Date())));
-//        log.info(toStdDtTimeMsStr(getEndOfDay(new Date())));
+        Date now = now();
+        log.info(toStdDtTimeMsStr(getStartOfDay(plusDays(now, -2))));
+        log.info(toStdDtTimeMsStr(getEndOfDay(now)));
     }
 }
