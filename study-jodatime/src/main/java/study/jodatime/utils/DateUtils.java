@@ -43,8 +43,7 @@ public class DateUtils {
      * ====================
      */
     public static Date now() {
-        DateTime now = DateTime.now();
-        return now.toDate();
+        return DateTime.now().toDate();
     }
 
     public static Date now(boolean millis) {
@@ -53,11 +52,20 @@ public class DateUtils {
         return now.toDate();
     }
 
+    public static long currentTimeMillis() {
+        return DateTime.now().getMillis();
+    }
+
     /**
      * ===================
      * 转换成字符串
      * ====================
      */
+    public static String toStr(Date date, DateFmt format) {
+        DateTime dateTime = new DateTime(date);
+        return dateTime.toString(format.getValue());
+    }
+
     public static String toStdDtStr(Date date) {
         return toStr(date, DateFmt.STD_DT);
     }
@@ -68,11 +76,6 @@ public class DateUtils {
 
     public static String toStdDtTimeMsStr(Date date) {
         return toStr(date, DateFmt.STD_DT_TIME_MS);
-    }
-
-    public static String toStr(Date date, DateFmt format) {
-        DateTime dateTime = new DateTime(date);
-        return dateTime.toString(format.getValue());
     }
 
     /**

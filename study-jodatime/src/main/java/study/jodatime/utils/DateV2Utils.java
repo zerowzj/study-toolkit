@@ -40,7 +40,7 @@ public class DateV2Utils {
         return now;
     }
 
-    public static Date now(boolean millis) {
+    public static Date nowNoMs() {
         DateTime dt = DateTime.now()
                 .withMillisOfSecond(0);
         return dt.toDate();
