@@ -82,35 +82,32 @@ public class DateUtils {
     }
 
     /**
-     * 按分钟计算
+     * ===================
+     * 日期时间计算
+     * ====================
      */
+    //按分钟计算
     public static Date plusMinutes(Date date, int minutes) {
         DateTime dateTime = new DateTime(date);
         DateTime dt = dateTime.plusMinutes(minutes);
         return dt.toDate();
     }
 
-    /**
-     * 按小时计算
-     */
+    //按小时计算
     public static Date plusHours(Date date, int hours) {
         DateTime dateTime = new DateTime(date);
         DateTime dt = dateTime.plusHours(hours);
         return dt.toDate();
     }
 
-    /**
-     * 按天计算
-     */
+    //按天计算
     public static Date plusDays(Date date, int days) {
         DateTime dateTime = new DateTime(date);
         DateTime dt = dateTime.plusDays(days);
         return dt.toDate();
     }
 
-    /**
-     * 按月计算
-     */
+    //按月计算
     public static Date plusMonths(Date date, int months) {
         DateTime dateTime = new DateTime(date);
         DateTime dt = dateTime.plusMonths(months);
