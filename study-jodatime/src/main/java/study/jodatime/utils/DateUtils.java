@@ -46,7 +46,7 @@ public class DateUtils {
         return DateTime.now().toDate();
     }
 
-    public static Date now(boolean millis) {
+    public static Date nowWithoutMs() {
         DateTime now = DateTime.now()
                 .withMillisOfSecond(0);
         return now.toDate();
