@@ -14,13 +14,6 @@ public class DateUtils {
 
     @Getter
     public enum DateFmt {
-        //扁平格式
-        FLAT_DT("yyyy-MM-dd"),
-        //简单
-        SIMPLE_DT(""),
-
-
-
         //标准格式
         STD_DT("yyyy-MM-dd"),
         STD_DT_TIME("yyyy-MM-dd HH:mm:ss"),
@@ -61,9 +54,9 @@ public class DateUtils {
      * 转换成字符串
      * ====================
      */
-    public static String toStr(Date date, DateFmt format) {
+    public static String toStr(Date date, DateFmt fmt) {
         DateTime dateTime = new DateTime(date);
-        return dateTime.toString(format.getValue());
+        return dateTime.toString(fmt.getValue());
     }
 
     public static String toStdDtStr(Date date) {
@@ -83,9 +76,9 @@ public class DateUtils {
      * 转换成日期
      * ====================
      */
-    public static Date toDate(String str, DateFmt dateFormat) {
-        DateTimeFormatter fmt = DateTimeFormat.forPattern(dateFormat.getValue());
-        return DateTime.parse(str, fmt).toDate();
+    public static Date toDate(String str, DateFmt fmt) {
+        DateTimeFormatter dtFmt = DateTimeFormat.forPattern(fmt.getValue());
+        return DateTime.parse(str, dtFmt).toDate();
     }
 
     /**
