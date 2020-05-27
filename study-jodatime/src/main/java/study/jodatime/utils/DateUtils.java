@@ -113,10 +113,10 @@ public class DateUtils {
      * 比如：2014-06-19 00:00:00
      */
     public static Date getStartOfDay(Date date) {
-        DateTime nowTime = new DateTime(date);
-        DateTime startOfDay = nowTime
-                .withTimeAtStartOfDay();
-        log.info(startOfDay.toString(DateFmt.STD_DT_TIME_MS.getValue()));
+        DateTime dateTime = new DateTime(date);
+        DateTime startOfDay = dateTime.millisOfDay()
+                .withMinimumValue();
+        log.info(startOfDay.toString(DateFmt.STD_DT_TIME.getValue()));
         return startOfDay.toDate();
     }
 
@@ -125,10 +125,10 @@ public class DateUtils {
      * 比如：2014-06-19 23:59:59
      */
     public static Date getEndOfDay(Date date) {
-        DateTime nowTime = new DateTime(date);
-        DateTime endOfDay = nowTime.millisOfDay()
+        DateTime dateTime = new DateTime(date);
+        DateTime endOfDay = dateTime.millisOfDay()
                 .withMaximumValue();
-        log.info(endOfDay.toString(DateFmt.STD_DT_TIME_MS.getValue()));
+        log.info(endOfDay.toString(DateFmt.STD_DT_TIME.getValue()));
         return endOfDay.toDate();
     }
 
