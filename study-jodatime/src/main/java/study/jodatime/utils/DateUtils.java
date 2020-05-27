@@ -38,10 +38,19 @@ public class DateUtils {
     }
 
     /**
+     * ===================
      * 获取当前时间
+     * ====================
      */
     public static Date now() {
-        return DateTime.now().withMillisOfDay(0).toDate();
+        DateTime dt = DateTime.now();
+        return dt.toDate();
+    }
+
+    public static Date now(boolean millis) {
+        DateTime dt = DateTime.now()
+                .withMillisOfSecond(0);
+        return dt.toDate();
     }
 
     /**
@@ -135,9 +144,9 @@ public class DateUtils {
     }
 
     @Test
-    public void test(){
-        ;
-        log.info(toStdDtTimeMsStr(getStartOfDay(new Date())));
-        log.info(toStdDtTimeMsStr(getEndOfDay(new Date())));
+    public void test() {
+        log.info(toStdDtTimeMsStr(now()));
+//        log.info(toStdDtTimeMsStr(getStartOfDay(new Date())));
+//        log.info(toStdDtTimeMsStr(getEndOfDay(new Date())));
     }
 }
