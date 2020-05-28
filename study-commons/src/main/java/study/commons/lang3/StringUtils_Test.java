@@ -164,6 +164,7 @@ public class StringUtils_Test {
 
     @Test
     public void compareIgno1reCase_test() {
+
 //        StringUtils.strip
     }
 }

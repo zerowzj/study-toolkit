@@ -31,6 +31,8 @@ public class StringsTest {
     }
     @Test
     public void test() {
-
+        String a = "/user/login";
+        String b = "/admin/user/login";
+        Strings.commonSuffix(a, b);
     }
 }
