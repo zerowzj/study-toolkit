@@ -6,7 +6,7 @@ import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
 import org.junit.Test;
 import study.toolkit.easyexcel.read.UserInfo;
-import study.toolkit.easyexcel.read.UserInfoDataListener;
+import study.toolkit.easyexcel.read.UserInfoListener;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -16,7 +16,7 @@ public class ReadTest {
     @Test
     public void simpleRead_test() throws Exception {
         InputStream fis = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
-        AnalysisEventListener listener = new UserInfoDataListener();
+        AnalysisEventListener listener = new UserInfoListener();
         ExcelReader excelReader = EasyExcel.read(fis, UserInfo.class, listener).build();
         ReadSheet readSheet = EasyExcel.readSheet(0).build();
         ReadSheet readSheet2 = EasyExcel.readSheet(1).build();
