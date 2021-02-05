@@ -43,6 +43,7 @@ public class SimpleWriteTest {
 
             dataLt.add(info);
         }
+
         return dataLt;
     }
 }
