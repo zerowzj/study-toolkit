@@ -15,10 +15,12 @@ public class ReadTest {
 
     @Test
     public void simpleRead_test() throws Exception {
-        InputStream fis = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
+        InputStream fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
         AnalysisEventListener listener = new UserInfoListener();
-        ExcelReader excelReader = EasyExcel.read(fis, UserInfo.class, listener)
+        ExcelReader reader = EasyExcel.read(fs, UserInfo.class, listener)
                 .build();
+        reader.
+        excelReader.sheet().doRead();
         ReadSheet readSheet = EasyExcel.readSheet(0).build();
         ReadSheet readSheet2 = EasyExcel.readSheet(1).build();
         excelReader.read(readSheet);
