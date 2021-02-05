@@ -17,7 +17,8 @@ public class ReadTest {
     public void simpleRead_test() throws Exception {
         InputStream fis = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
         AnalysisEventListener listener = new UserInfoListener();
-        ExcelReader excelReader = EasyExcel.read(fis, UserInfo.class, listener).build();
+        ExcelReader excelReader = EasyExcel.read(fis, UserInfo.class, listener)
+                .build();
         ReadSheet readSheet = EasyExcel.readSheet(0).build();
         ReadSheet readSheet2 = EasyExcel.readSheet(1).build();
         excelReader.read(readSheet);
