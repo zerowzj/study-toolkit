@@ -17,14 +17,19 @@ public class ReadTest {
     public void simpleRead_test() throws Exception {
         InputStream fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
         AnalysisEventListener listener = new UserInfoListener();
+
+        //Step-1: create reader
         ExcelReader reader = EasyExcel.read(fs, UserInfo.class, listener)
                 .build();
-        reader.
-        excelReader.sheet().doRead();
-        ReadSheet readSheet = EasyExcel.readSheet(0).build();
-        ReadSheet readSheet2 = EasyExcel.readSheet(1).build();
-        excelReader.read(readSheet);
+        //Step-2: create sheet
+        ReadSheet sheet1 = EasyExcel.readSheet(0).build();
+        ReadSheet sheet2 = EasyExcel.readSheet(1).build();
+        //Step-3: read the sheet
+        reader.read(sheet1);
+
         // 这里千万别忘记关闭，读的时候会创建临时文件，到时磁盘会崩的
-        excelReader.finish();
+        if (reader != null) {
+            reader.finish();
+        }
     }
 }
