@@ -12,16 +12,16 @@ import java.util.List;
  * 整个 excel 解析结束会执行 doAfterAllAnalysed() 方法
  */
 @Slf4j
-public class UserInfoListener extends AnalysisEventListener<UserInfo> {
+public class IndexOrNameDataListener extends AnalysisEventListener<DemoData> {
 
     private static final int BATCH_COUNT = 100;
 
-    private List<UserInfo> userInfoLt = new ArrayList<UserInfo>();
+    private List<DemoData> userInfoLt = new ArrayList<DemoData>();
 
     //Spring中的组件，推荐两种方法注入
     //（1）提供一个UserInfoDataListener的构造方法，这个方法提供一个参数是UserInfoDataListener类型
     //（2）另外一种方法就是将 UserInfoDataListener 这个类定义成 UserService 实现类的内部类（推荐这种方式）
-    public void invoke(UserInfo userInfo, AnalysisContext context) {
+    public void invoke(DemoData userInfo, AnalysisContext context) {
         log.info(">>>>>> {}", userInfo);
         userInfoLt.add(userInfo);
         if (userInfoLt.size() >= BATCH_COUNT) {
