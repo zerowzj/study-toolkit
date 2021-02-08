@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 每解析一行会回调 invoke() 方法
- * 整个 excel 解析结束会执行 doAfterAllAnalysed() 方法
+ * 1.每解析一行会回调 invoke() 方法
+ * 2.整个 excel 解析结束会执行 doAfterAllAnalysed() 方法
+ * 3.Spring中的组件，推荐两种方法注入
+ * （1）提供一个UserInfoDataListener的构造方法，这个方法提供一个参数是UserInfoDataListener类型
+ * （2）另外一种方法就是将 UserInfoDataListener 这个类定义成 UserService 实现类的内部类（推荐这种方式）
  */
 @Slf4j
 public class DemoDataListener extends AnalysisEventListener<DemoData> {
@@ -18,9 +21,6 @@ public class DemoDataListener extends AnalysisEventListener<DemoData> {
 
     private List<DemoData> userInfoLt = new ArrayList<DemoData>();
 
-    //Spring中的组件，推荐两种方法注入
-    //（1）提供一个UserInfoDataListener的构造方法，这个方法提供一个参数是UserInfoDataListener类型
-    //（2）另外一种方法就是将 UserInfoDataListener 这个类定义成 UserService 实现类的内部类（推荐这种方式）
     public void invoke(DemoData userInfo, AnalysisContext context) {
         log.info(">>>>>> {}", userInfo);
         userInfoLt.add(userInfo);

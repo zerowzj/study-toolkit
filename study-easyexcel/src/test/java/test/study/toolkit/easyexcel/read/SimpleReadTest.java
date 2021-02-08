@@ -22,8 +22,6 @@ public class SimpleReadTest {
 
     private InputStream fs;
 
-    private AnalysisEventListener listener = new DemoDataListener();
-
     @Before
     public void init() {
         try {
@@ -35,8 +33,10 @@ public class SimpleReadTest {
 
     @Test
     public void simpleReadV1_test() {
-        // 这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
-        EasyExcel.read(fs, DemoData.class, listener).sheet().doRead();
+        //这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
+        EasyExcel.read(fs, DemoData.class, new DemoDataListener())
+                .sheet()
+                .doRead();
     }
 
     @Test
@@ -44,7 +44,7 @@ public class SimpleReadTest {
         ExcelReader reader = null;
         try {
             //Step-1: create reader
-            reader = EasyExcel.read(fs, DemoData.class, listener)
+            reader = EasyExcel.read(fs, DemoData.class, new DemoDataListener())
                     .build();
             //Step-2: create sheet
             ReadSheet sheet1 = EasyExcel.readSheet(0).build();
