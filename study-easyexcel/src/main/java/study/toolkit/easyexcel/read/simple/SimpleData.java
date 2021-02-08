@@ -1,4 +1,4 @@
-package study.toolkit.easyexcel.read;
+package study.toolkit.easyexcel.read.simple;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
 import lombok.Getter;

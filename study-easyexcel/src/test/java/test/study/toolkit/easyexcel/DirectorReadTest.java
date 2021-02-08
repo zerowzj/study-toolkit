@@ -1,4 +1,4 @@
-package test.study.toolkit.easyexcel.demo;
+package test.study.toolkit.easyexcel;
 
 import com.alibaba.excel.EasyExcel;
 import org.junit.Test;
