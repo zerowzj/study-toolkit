@@ -20,7 +20,7 @@ public class SimpleReadTest {
 
     @Test
     public void simpleReadV1_test() {
-        //这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
+        //这里需要指定读用哪个 class 去读，然后读取第一个 sheet 文件流会自动关闭
         EasyExcel.read(TestDataUtils.getStream(file), SimpleData.class, new SimpleDataListener())
                 .sheet()
                 .doRead();
@@ -34,14 +34,14 @@ public class SimpleReadTest {
             reader = EasyExcel.read(TestDataUtils.getStream(file), SimpleData.class, new SimpleDataListener())
                     .build();
             //Step-2: create sheet
-            ReadSheet sheet1 = EasyExcel.readSheet(0).build();
-            ReadSheet sheet2 = EasyExcel.readSheet(1).build();
+            ReadSheet sheet = EasyExcel.readSheet(0)
+                    .build();
             //Step-3: read the sheet
-            reader.read(sheet1, sheet2);
+            reader.read(sheet);
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         } finally {
-            // 这里千万别忘记关闭，读的时候会创建临时文件，到时磁盘会崩的
+            //这里千万别忘记关闭，读的时候会创建临时文件，到时磁盘会崩的
             if (reader != null) {
                 reader.finish();
             }

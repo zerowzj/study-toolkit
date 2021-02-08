@@ -1,6 +1,5 @@
 package study.toolkit.easyexcel.read.simple;
 
-import com.alibaba.excel.annotation.ExcelIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,10 +16,4 @@ public class SimpleData {
     private Date date;
 
     private Double doubleData;
-
-    /**
-     * 忽略这个字段
-     */
-    @ExcelIgnore
-    private String ignore;
 }

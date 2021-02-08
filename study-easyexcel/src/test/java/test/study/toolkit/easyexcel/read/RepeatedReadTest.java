@@ -20,8 +20,8 @@ public class RepeatedReadTest {
 
     @Test
     public void readAll_test() {
-        // 读取全部sheet
-        // 这里需要注意 DemoDataListener的doAfterAllAnalysed 会在每个sheet读取完毕后调用一次。然后所有sheet都会往同一个DemoDataListener里面写
+        //读取全部sheet
+        //这里需要注意 DemoDataListener的doAfterAllAnalysed 会在每个sheet读取完毕后调用一次。然后所有sheet都会往同一个DemoDataListener里面写
         EasyExcel.read(TestDataUtils.getStream(file), SimpleData.class, new SimpleDataListener())
                 .doReadAll();
     }
@@ -29,9 +29,9 @@ public class RepeatedReadTest {
     @Test
     public void readPart_test() {
         //读取部分sheet
-        ExcelReader excelReader = null;
+        ExcelReader reader = null;
         try {
-            excelReader = EasyExcel.read(TestDataUtils.getStream(file))
+            reader = EasyExcel.read(TestDataUtils.getStream(file))
                     .build();
             //这里为了简单 所以注册了 同样的head 和Listener 自己使用功能必须不同的Listener
             ReadSheet sheet1 = EasyExcel.readSheet(0)
@@ -43,10 +43,10 @@ public class RepeatedReadTest {
                     .registerReadListener(new SimpleDataListener())
                     .build();
             //这里注意一定要把sheet1 sheet2一起传进去，不然有个问题就是03版的excel会读取多次，浪费性能
-            excelReader.read(sheet1, sheet2);
+            reader.read(sheet1, sheet2);
         } finally {
-            if (excelReader != null) {
-                excelReader.finish();
+            if (reader != null) {
+                reader.finish();
             }
         }
     }

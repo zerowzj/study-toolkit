@@ -17,7 +17,7 @@ public class IndexOrNameReadTest {
     private String file = "IndexOrName.xlsx";
 
     @Test
-    public void simpleReadV1_test() {
+    public void indexOrNameRead_test() {
         EasyExcel.read(TestDataUtils.getStream(file), IndexOrNameData.class, new IndexOrNameDataListener())
                 .sheet()
                 .doRead();
