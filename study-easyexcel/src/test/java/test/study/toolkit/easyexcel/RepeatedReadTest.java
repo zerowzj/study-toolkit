@@ -42,7 +42,7 @@ public class RepeatedReadTest {
                     .head(SimpleData.class)
                     .registerReadListener(new SimpleDataListener())
                     .build();
-            //这里注意 一定要把sheet1 sheet2 一起传进去，不然有个问题就是03版的excel 会读取多次，浪费性能
+            //这里注意一定要把sheet1 sheet2一起传进去，不然有个问题就是03版的excel会读取多次，浪费性能
             excelReader.read(sheet1, sheet2);
         } finally {
             if (excelReader != null) {
