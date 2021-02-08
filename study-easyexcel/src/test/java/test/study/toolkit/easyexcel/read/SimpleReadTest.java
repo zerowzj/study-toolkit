@@ -29,7 +29,7 @@ public class SimpleReadTest {
         try {
             fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
     }
 
