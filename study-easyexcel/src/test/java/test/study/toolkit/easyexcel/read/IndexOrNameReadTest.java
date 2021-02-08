@@ -6,9 +6,9 @@ import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
 import org.junit.Before;
 import org.junit.Test;
-import study.toolkit.easyexcel.read.DemoData;
+import study.toolkit.easyexcel.read.SimpleData;
 import study.toolkit.easyexcel.read.IndexOrNameData;
-import study.toolkit.easyexcel.read.DemoDataListener;
+import study.toolkit.easyexcel.read.SimpleDataListener;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -23,12 +23,12 @@ public class IndexOrNameReadTest {
 
     private InputStream fs;
 
-    private AnalysisEventListener listener = new DemoDataListener();
+    private AnalysisEventListener listener = new SimpleDataListener();
 
     @Before
     public void init() {
         try {
-            fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\UserInfo.xlsx");
+            fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\indexOrName.xlsx");
         } catch (Exception ex) {
 
         }
@@ -45,7 +45,7 @@ public class IndexOrNameReadTest {
         ExcelReader reader = null;
         try {
             //Step-1: create reader
-            reader = EasyExcel.read(fs, DemoData.class, listener)
+            reader = EasyExcel.read(fs, SimpleData.class, listener)
                     .build();
             //Step-2: create sheet
             ReadSheet sheet1 = EasyExcel.readSheet(0).build();

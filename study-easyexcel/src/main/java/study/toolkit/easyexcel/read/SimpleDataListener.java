@@ -15,13 +15,13 @@ import java.util.List;
  * （2）另外一种方法就是将 UserInfoDataListener 这个类定义成 UserService 实现类的内部类（推荐这种方式）
  */
 @Slf4j
-public class DemoDataListener extends AnalysisEventListener<DemoData> {
+public class SimpleDataListener extends AnalysisEventListener<SimpleData> {
 
     private static final int BATCH_COUNT = 100;
 
-    private List<DemoData> userInfoLt = new ArrayList<DemoData>();
+    private List<SimpleData> userInfoLt = new ArrayList<SimpleData>();
 
-    public void invoke(DemoData userInfo, AnalysisContext context) {
+    public void invoke(SimpleData userInfo, AnalysisContext context) {
         log.info(">>>>>> {}", userInfo);
         userInfoLt.add(userInfo);
         if (userInfoLt.size() >= BATCH_COUNT) {
