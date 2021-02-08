@@ -6,6 +6,8 @@ import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
 import org.junit.Before;
 import org.junit.Test;
+import study.toolkit.easyexcel.TestDataUtils;
+import study.toolkit.easyexcel.read.IndexOrNameDataListener;
 import study.toolkit.easyexcel.read.SimpleData;
 import study.toolkit.easyexcel.read.IndexOrNameData;
 import study.toolkit.easyexcel.read.SimpleDataListener;
@@ -21,44 +23,10 @@ import java.io.InputStream;
  */
 public class IndexOrNameReadTest {
 
-    private InputStream fs;
-
-    private AnalysisEventListener listener = new SimpleDataListener();
-
-    @Before
-    public void init() {
-        try {
-            fs = new FileInputStream("D:\\idea\\study\\study-toolkit\\study-easyexcel\\src\\main\\resources\\excel\\indexOrName.xlsx");
-        } catch (Exception ex) {
-
-        }
-    }
 
     @Test
     public void simpleReadV1_test() {
         // 这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
-        EasyExcel.read(fs, IndexOrNameData.class, listener).sheet().doRead();
-    }
-
-    @Test
-    public void simpleReadV2_test() throws Exception {
-        ExcelReader reader = null;
-        try {
-            //Step-1: create reader
-            reader = EasyExcel.read(fs, SimpleData.class, listener)
-                    .build();
-            //Step-2: create sheet
-            ReadSheet sheet1 = EasyExcel.readSheet(0).build();
-            ReadSheet sheet2 = EasyExcel.readSheet(1).build();
-            //Step-3: read the sheet
-            reader.read(sheet1, sheet2);
-        } catch (Exception ex) {
-
-        } finally {
-            // 这里千万别忘记关闭，读的时候会创建临时文件，到时磁盘会崩的
-            if (reader != null) {
-                reader.finish();
-            }
-        }
+        EasyExcel.read(TestDataUtils.getStream("indexOrName.xlsx"), IndexOrNameData.class, new IndexOrNameDataListener()).sheet().doRead();
     }
 }

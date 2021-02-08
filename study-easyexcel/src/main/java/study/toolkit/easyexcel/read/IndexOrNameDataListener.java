@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class IndexOrNameDataListener extends AnalysisEventListener<SimpleData> {
+public class IndexOrNameDataListener extends AnalysisEventListener<IndexOrNameData> {
 
     private static final int BATCH_COUNT = 100;
 
-    private List<SimpleData> userInfoLt = new ArrayList<SimpleData>();
+    private List<IndexOrNameData> dataLt = new ArrayList<IndexOrNameData>();
 
-    public void invoke(SimpleData userInfo, AnalysisContext context) {
+    public void invoke(IndexOrNameData userInfo, AnalysisContext context) {
         log.info(">>>>>> {}", userInfo);
-        userInfoLt.add(userInfo);
-        if (userInfoLt.size() >= BATCH_COUNT) {
+        dataLt.add(userInfo);
+        if (dataLt.size() >= BATCH_COUNT) {
 //            saveData();
             // 存储完成清理 list
-            userInfoLt.clear();
+            dataLt.clear();
         }
     }
 
