@@ -1,7 +1,6 @@
 package study.toolkit.easyexcel.read;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
-import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,7 +11,6 @@ import java.util.Date;
 @Getter
 @ToString
 public class SimpleData {
-
 
     private String string;
 

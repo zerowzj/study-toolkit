@@ -25,7 +25,7 @@ public class SimpleReadTest {
     @Test
     public void simpleReadV1_test() {
         //这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
-        EasyExcel.read(TestDataUtils.getStream("simple.xlsx"), SimpleData.class, new SimpleDataListener())
+        EasyExcel.read(TestDataUtils.getStream("Simple.xlsx"), SimpleData.class, new SimpleDataListener())
                 .sheet()
                 .doRead();
     }
@@ -35,7 +35,7 @@ public class SimpleReadTest {
         ExcelReader reader = null;
         try {
             //Step-1: create reader
-            reader = EasyExcel.read(TestDataUtils.getStream("simple.xlsx"), SimpleData.class, new SimpleDataListener())
+            reader = EasyExcel.read(TestDataUtils.getStream("Simple.xlsx"), SimpleData.class, new SimpleDataListener())
                     .build();
             //Step-2: create sheet
             ReadSheet sheet1 = EasyExcel.readSheet(0).build();

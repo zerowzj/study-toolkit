@@ -27,6 +27,6 @@ public class IndexOrNameReadTest {
     @Test
     public void simpleReadV1_test() {
         // 这里 需要指定读用哪个class去读，然后读取第一个sheet 文件流会自动关闭
-        EasyExcel.read(TestDataUtils.getStream("indexOrName.xlsx"), IndexOrNameData.class, new IndexOrNameDataListener()).sheet().doRead();
+        EasyExcel.read(TestDataUtils.getStream("IndexOrName.xlsx"), IndexOrNameData.class, new IndexOrNameDataListener()).sheet().doRead();
     }
 }
