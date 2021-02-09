@@ -7,8 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class IndexOrNameDataListener extends AnalysisEventListener<IndexOrNameData> {
 
-    public void invoke(IndexOrNameData userInfo, AnalysisContext context) {
-        log.info(">>>>>> {}", userInfo);
+    public void invoke(IndexOrNameData data,
+                       AnalysisContext context) {
+        log.info(">>>>>> {}", data);
     }
 
     public void doAfterAllAnalysed(AnalysisContext context) {
